@@ -1,0 +1,604 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{47EB7EEB-7591-4CF3-9CBB-AB18D5CF5506}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BranD10</RootNamespace>
+    <AssemblyName>10BranD</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Dos.ORM, Version=1.10.6.5, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Plugin\Dos.ORM.dll</HintPath>
+    </Reference>
+    <Reference Include="Dos.ORM.MySql, Version=1.1.7.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Plugin\Dos.ORM.MySql.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MySql.Data">
+      <HintPath>Plugin\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="ThoughtWorks.QRCode, Version=1.0.4778.30637, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Plugin\ThoughtWorks.QRCode.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="About.aspx" />
+    <Content Include="Account\ChangePassword.aspx" />
+    <Content Include="Account\ChangePasswordSuccess.aspx" />
+    <Content Include="Account\Login.aspx" />
+    <Content Include="Account\Register.aspx" />
+    <Content Include="ajax\WebForm1.aspx" />
+    <Content Include="js\fckeditor\FCKeditor.html" />
+    <Content Include="images\add.png" />
+    <Content Include="images\banner.png" />
+    <Content Include="images\bar.jpg" />
+    <Content Include="images\bar1.gif" />
+    <Content Include="images\bar1on.gif" />
+    <Content Include="images\bar2.gif" />
+    <Content Include="images\bar2on.gif" />
+    <Content Include="images\bar3.gif" />
+    <Content Include="images\bar3on.gif" />
+    <Content Include="images\bar4.gif" />
+    <Content Include="images\bar4on.gif" />
+    <Content Include="images\barnav.gif" />
+    <Content Include="images\bartop.gif" />
+    <Content Include="images\BeginUpload.gif" />
+    <Content Include="images\bg.gif" />
+    <Content Include="images\brandLogo.png" />
+    <Content Include="images\btn.gif" />
+    <Content Include="images\cancel.png" />
+    <Content Include="images\CancelUpload.gif" />
+    <Content Include="images\check_error.gif" />
+    <Content Include="images\check_right.gif" />
+    <Content Include="images\close.gif" />
+    <Content Include="images\delete.png" />
+    <Content Include="images\dialog.gif" />
+    <Content Include="images\edit.png" />
+    <Content Include="images\favicon.ico" />
+    <Content Include="images\folder.gif" />
+    <Content Include="images\home.gif" />
+    <Content Include="images\ico_mailok.gif" />
+    <Content Include="images\img.gif" />
+    <Content Include="images\loading.gif" />
+    <Content Include="images\menu.gif" />
+    <Content Include="images\msgbox.gif" />
+    <Content Include="images\No.png" />
+    <Content Include="images\node.gif" />
+    <Content Include="images\percent.gif" />
+    <Content Include="images\quit.gif" />
+    <Content Include="images\reload.gif" />
+    <Content Include="images\resize.gif" />
+    <Content Include="images\search.gif" />
+    <Content Include="images\SelectUpload.gif" />
+    <Content Include="images\side.gif" />
+    <Content Include="images\side_off.gif" />
+    <Content Include="images\side_on.gif" />
+    <Content Include="images\spacer.gif" />
+    <Content Include="images\tab_l.gif" />
+    <Content Include="images\tab_r.gif" />
+    <Content Include="images\tool.gif" />
+    <Content Include="images\tt.gif" />
+    <Content Include="admin.html" />
+    <Content Include="images\calendar.gif" />
+    <Content Include="js\calendar.js" />
+    <Content Include="js\fckeditor\fckeditor_m.js" />
+    <Content Include="js\fckeditor\fckeditor.js" />
+    <Content Include="js\guest.js" />
+    <Content Include="js\jquery-ui.min.css" />
+    <Content Include="js\jquery-ui.min.js" />
+    <Content Include="js\jquery.js" />
+    <Content Include="js\rankPublish.js" />
+    <Content Include="js\admin.js" />
+    <Content Include="js\member.js" />
+    <Content Include="js\entity.js" />
+    <Content Include="js\副本 brand.js" />
+    <Content Include="js\副本 jquery-1.12.4.js" />
+    <Content Include="js\副本 jquery-3.1.min.js" />
+    <Content Include="js\副本 users.js" />
+    <Content Include="member\editBrand_m.html" />
+    <Content Include="member\files\admin.js" />
+    <Content Include="member\files\btn_alert.gif" />
+    <Content Include="member\files\btn_charge.gif" />
+    <Content Include="member\files\btn_edit.gif" />
+    <Content Include="member\files\btn_favorite.gif" />
+    <Content Include="member\files\btn_friend.gif" />
+    <Content Include="member\files\btn_home.gif" />
+    <Content Include="member\files\btn_message.gif" />
+    <Content Include="member\files\btn_my.gif" />
+    <Content Include="member\files\btn_record.gif" />
+    <Content Include="member\files\btn_style.gif" />
+    <Content Include="member\files\btn_trade.gif" />
+    <Content Include="member\files\common.js" />
+    <Content Include="member\files\config.js" />
+    <Content Include="member\files\customer_service_icon.png" />
+    <Content Include="member\files\ico_credit.gif" />
+    <Content Include="member\files\ico_member.gif" />
+    <Content Include="member\files\ico_message.gif" />
+    <Content Include="member\files\ico_sms.gif" />
+    <Content Include="member\files\ico_trade.gif" />
+    <Content Include="member\files\index.css" />
+    <Content Include="member\files\jquery.js" />
+    <Content Include="member\files\KF_Btm.png" />
+    <Content Include="member\files\KF_Head1.png" />
+    <Content Include="member\files\KF_Time.png" />
+    <Content Include="member\files\lang.js" />
+    <Content Include="member\files\logo.png" />
+    <Content Include="member\files\main.css" />
+    <Content Include="member\files\member.js" />
+    <Content Include="member\files\setting.gif" />
+    <Content Include="member\files\style.css" />
+    <Content Include="member\files\u_bank.gif" />
+    <Content Include="member\files\u_email.gif" />
+    <Content Include="member\files\u_member.gif" />
+    <Content Include="member\files\u_mobile.gif" />
+    <Content Include="member\files\u_truename.gif" />
+    <Content Include="member\index.html" />
+    <Content Include="member\Register.html" />
+    <Content Include="admin\AuditMember.html" />
+    <Content Include="admin\editCommnet.html" />
+    <Content Include="admin\editContract.html" />
+    <Content Include="admin\editMessage.html" />
+    <Content Include="admin\editMember.html" />
+    <Content Include="admin\editUser.html" />
+    <Content Include="admin\UserList.aspx" />
+    <Content Include="admin\MemberList.aspx" />
+    <Content Include="admin\AuditMember.aspx" />
+    <Content Include="admin\AuditCompany.aspx" />
+    <Content Include="admin\MessageList.aspx" />
+    <Content Include="admin\ContractList.aspx" />
+    <Content Include="admin\VoteAudit.aspx" />
+    <Content Include="admin\FreeIndustry.aspx" />
+    <Content Include="member\副本 editbrand1.html" />
+    <Content Include="member\副本 index.html" />
+    <Content Include="skin\style.css" />
+    <Content Include="topMenus\brand.aspx" />
+    <Content Include="start.html" />
+    <Content Include="admin\rankPublish.html" />
+    <Content Include="admin\showBrand.html" />
+    <Content Include="skin\certificate.css" />
+    <Content Include="js\Industry.js" />
+    <Content Include="js\jquery.qrcode.min.js" />
+    <Content Include="js\json2.js" />
+    <Content Include="js\prompt\changelog.txt" />
+    <Content Include="js\prompt\demo - 副本.html" />
+    <Content Include="js\prompt\demo.html" />
+    <Content Include="js\prompt\iframe.html" />
+    <Content Include="js\prompt\readme.txt" />
+    <Content Include="js\prompt\skin\black\images\ask.gif" />
+    <Content Include="js\prompt\skin\black\images\btn_bg.gif" />
+    <Content Include="js\prompt\skin\black\images\close.gif" />
+    <Content Include="js\prompt\skin\black\images\err.gif" />
+    <Content Include="js\prompt\skin\black\images\ico-arrow.gif" />
+    <Content Include="js\prompt\skin\black\images\info.gif" />
+    <Content Include="js\prompt\skin\black\images\right.gif" />
+    <Content Include="js\prompt\skin\black\images\title_bg_center.gif" />
+    <Content Include="js\prompt\skin\black\images\title_bg_left.gif" />
+    <Content Include="js\prompt\skin\black\images\title_bg_right.gif" />
+    <Content Include="js\prompt\skin\black\ymPrompt.css" />
+    <Content Include="js\prompt\skin\bluebar\images\ask.gif" />
+    <Content Include="js\prompt\skin\bluebar\images\btn_bg.gif" />
+    <Content Include="js\prompt\skin\bluebar\images\close.gif" />
+    <Content Include="js\prompt\skin\bluebar\images\err.gif" />
+    <Content Include="js\prompt\skin\bluebar\images\ico-arrow.gif" />
+    <Content Include="js\prompt\skin\bluebar\images\info.gif" />
+    <Content Include="js\prompt\skin\bluebar\images\right.gif" />
+    <Content Include="js\prompt\skin\bluebar\images\title_bg_center.gif" />
+    <Content Include="js\prompt\skin\bluebar\images\title_bg_left.gif" />
+    <Content Include="js\prompt\skin\bluebar\images\title_bg_right.gif" />
+    <Content Include="js\prompt\skin\bluebar\ymPrompt.css" />
+    <Content Include="js\prompt\skin\dmm-green\images\ask.gif" />
+    <Content Include="js\prompt\skin\dmm-green\images\btn_bg.gif" />
+    <Content Include="js\prompt\skin\dmm-green\images\close.gif" />
+    <Content Include="js\prompt\skin\dmm-green\images\err.gif" />
+    <Content Include="js\prompt\skin\dmm-green\images\ico-arrow.gif" />
+    <Content Include="js\prompt\skin\dmm-green\images\info.gif" />
+    <Content Include="js\prompt\skin\dmm-green\images\right.gif" />
+    <Content Include="js\prompt\skin\dmm-green\images\titleIco.gif" />
+    <Content Include="js\prompt\skin\dmm-green\images\title_bg_center.gif" />
+    <Content Include="js\prompt\skin\dmm-green\images\title_bg_left.gif" />
+    <Content Include="js\prompt\skin\dmm-green\images\title_bg_right.gif" />
+    <Content Include="js\prompt\skin\dmm-green\images\win_b.gif" />
+    <Content Include="js\prompt\skin\dmm-green\images\win_l.gif" />
+    <Content Include="js\prompt\skin\dmm-green\images\win_lb.gif" />
+    <Content Include="js\prompt\skin\dmm-green\images\win_r.gif" />
+    <Content Include="js\prompt\skin\dmm-green\images\win_rb.gif" />
+    <Content Include="js\prompt\skin\dmm-green\ymPrompt.css" />
+    <Content Include="js\prompt\skin\qq\images\ask.gif" />
+    <Content Include="js\prompt\skin\qq\images\btn_bg.gif" />
+    <Content Include="js\prompt\skin\qq\images\close.gif" />
+    <Content Include="js\prompt\skin\qq\images\content_bg.gif" />
+    <Content Include="js\prompt\skin\qq\images\err.gif" />
+    <Content Include="js\prompt\skin\qq\images\ico-arrow.gif" />
+    <Content Include="js\prompt\skin\qq\images\info.gif" />
+    <Content Include="js\prompt\skin\qq\images\right.gif" />
+    <Content Include="js\prompt\skin\qq\images\title_bg_center.gif" />
+    <Content Include="js\prompt\skin\qq\images\title_bg_left.gif" />
+    <Content Include="js\prompt\skin\qq\images\title_bg_right.gif" />
+    <Content Include="js\prompt\skin\qq\images\win_b.gif" />
+    <Content Include="js\prompt\skin\qq\images\win_l.gif" />
+    <Content Include="js\prompt\skin\qq\images\win_lb.gif" />
+    <Content Include="js\prompt\skin\qq\images\win_r.gif" />
+    <Content Include="js\prompt\skin\qq\images\win_rb.gif" />
+    <Content Include="js\prompt\skin\qq\ymPrompt.css" />
+    <Content Include="js\prompt\skin\vista\images\ask.gif" />
+    <Content Include="js\prompt\skin\vista\images\btn_bg.gif" />
+    <Content Include="js\prompt\skin\vista\images\close.gif" />
+    <Content Include="js\prompt\skin\vista\images\err.gif" />
+    <Content Include="js\prompt\skin\vista\images\ico-arrow.gif" />
+    <Content Include="js\prompt\skin\vista\images\info.gif" />
+    <Content Include="js\prompt\skin\vista\images\right.gif" />
+    <Content Include="js\prompt\skin\vista\images\title_bg_center.gif" />
+    <Content Include="js\prompt\skin\vista\images\title_bg_left.gif" />
+    <Content Include="js\prompt\skin\vista\images\title_bg_right.gif" />
+    <Content Include="js\prompt\skin\vista\images\win_b.gif" />
+    <Content Include="js\prompt\skin\vista\images\win_l.gif" />
+    <Content Include="js\prompt\skin\vista\images\win_lb.gif" />
+    <Content Include="js\prompt\skin\vista\images\win_r.gif" />
+    <Content Include="js\prompt\skin\vista\images\win_rb.gif" />
+    <Content Include="js\prompt\skin\vista\ymPrompt.css" />
+    <Content Include="js\prompt\ymPrompt.js" />
+    <Content Include="js\prompt\ymPrompt_Ex.js" />
+    <Content Include="js\prompt\ymPrompt_source.js" />
+    <Content Include="js\prompt\新建文本文档.txt" />
+    <Content Include="js\uploadify\default.css" />
+    <Content Include="js\uploadify\jquery-1.7.2.min.js" />
+    <Content Include="js\uploadify\jquery.uploadify.min.js" />
+    <Content Include="js\public.js" />
+    <Content Include="js\uploadify\swfobject.js" />
+    <Content Include="js\uploadify\cancel.png" />
+    <Content Include="js\uploadify\uploadify.css" />
+    <Content Include="js\uploadify\uploadify.swf" />
+    <Content Include="js\rank.js" />
+    <Content Include="admin\brandList.aspx" />
+    <Content Include="admin\editIndustry.html" />
+    <Content Include="admin\editRanking.html" />
+    <Content Include="admin\IndustryList.aspx" />
+    <Content Include="admin\editBrand.html" />
+    <Content Include="admin\uploadFile.aspx" />
+    <Content Include="admin\uploadFile_js.htm" />
+    <Content Include="admin\MyIndustryList.aspx" />
+    <Content Include="admin\industRanking.aspx" />
+    <Content Include="admin\RankingDetail.aspx" />
+    <Content Include="admin\rankPublishCenter.html" />
+    <Content Include="plugin\Dos.ORM.dll" />
+    <Content Include="plugin\Dos.ORM.MySql.dll" />
+    <Content Include="plugin\MySql.Data.dll" />
+    <Content Include="plugin\ThoughtWorks.QRCode.dll" />
+    <Content Include="skin\rankPublish.css" />
+    <Content Include="slide.html" />
+    <Content Include="Default.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="admin\prize.html" />
+    <Content Include="admin\showSameTickets.aspx" />
+    <Content Include="admin\showTickets.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="left.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="About.aspx.designer.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\ChangePasswordSuccess.aspx.cs">
+      <DependentUpon>ChangePasswordSuccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\ChangePasswordSuccess.aspx.designer.cs">
+      <DependentUpon>ChangePasswordSuccess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ajax\BrandHandler.ashx.cs">
+      <DependentUpon>BrandHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ajax\FileHandler.ashx.cs">
+      <DependentUpon>FileHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ajax\Handler1.ashx.cs">
+      <DependentUpon>Handler1.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ajax\WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ajax\WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="common\BrowserInfo.cs" />
+    <Compile Include="common\Common.cs" />
+    <Compile Include="common\ExtensionMethods.cs" />
+    <Compile Include="common\ExtensionProperty.cs" />
+    <Compile Include="common\QRcodecs.cs" />
+    <Compile Include="common\WebServer.cs" />
+    <Compile Include="common\TicketManager.cs" />
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="common\EmueType.cs" />
+    <Compile Include="entity\brand.cs" />
+    <Compile Include="entity\brandranking.cs" />
+    <Compile Include="entity\comment.cs" />
+    <Compile Include="entity\company.cs" />
+    <Compile Include="entity\contract.cs" />
+    <Compile Include="entity\industry.cs" />
+    <Compile Include="entity\message.cs" />
+    <Compile Include="entity\ranking.cs" />
+    <Compile Include="entity\role.cs" />
+    <Compile Include="entity\ticket.cs" />
+    <Compile Include="entity\ticketcache.cs" />
+    <Compile Include="entity\users.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="admin\CommentList.aspx.cs">
+      <DependentUpon>CommentList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\CommentList.aspx.designer.cs">
+      <DependentUpon>CommentList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\UserList.aspx.cs">
+      <DependentUpon>UserList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\UserList.aspx.designer.cs">
+      <DependentUpon>UserList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\MemberList.aspx.cs">
+      <DependentUpon>MemberList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\MemberList.aspx.designer.cs">
+      <DependentUpon>MemberList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\AuditMember.aspx.cs">
+      <DependentUpon>AuditMember.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\AuditMember.aspx.designer.cs">
+      <DependentUpon>AuditMember.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\AuditCompany.aspx.cs">
+      <DependentUpon>AuditCompany.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\AuditCompany.aspx.designer.cs">
+      <DependentUpon>AuditCompany.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\MessageList.aspx.cs">
+      <DependentUpon>MessageList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\MessageList.aspx.designer.cs">
+      <DependentUpon>MessageList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\ContractList.aspx.cs">
+      <DependentUpon>ContractList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\ContractList.aspx.designer.cs">
+      <DependentUpon>ContractList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\VoteAudit.aspx.cs">
+      <DependentUpon>VoteAudit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\VoteAudit.aspx.designer.cs">
+      <DependentUpon>VoteAudit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\FreeIndustry.aspx.cs">
+      <DependentUpon>FreeIndustry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\FreeIndustry.aspx.designer.cs">
+      <DependentUpon>FreeIndustry.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="topMenus\brand.aspx.cs">
+      <DependentUpon>brand.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="topMenus\brand.aspx.designer.cs">
+      <DependentUpon>brand.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\brandList.aspx.cs">
+      <DependentUpon>brandList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\brandList.aspx.designer.cs">
+      <DependentUpon>brandList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\IndustryList.aspx.cs">
+      <DependentUpon>IndustryList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\IndustryList.aspx.designer.cs">
+      <DependentUpon>IndustryList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\uploadFile.aspx.cs">
+      <DependentUpon>uploadFile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\uploadFile.aspx.designer.cs">
+      <DependentUpon>uploadFile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\MyIndustryList.aspx.cs">
+      <DependentUpon>MyIndustryList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\MyIndustryList.aspx.designer.cs">
+      <DependentUpon>MyIndustryList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\industRanking.aspx.cs">
+      <DependentUpon>industRanking.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\industRanking.aspx.designer.cs">
+      <DependentUpon>industRanking.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\RankingDetail.aspx.cs">
+      <DependentUpon>RankingDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\RankingDetail.aspx.designer.cs">
+      <DependentUpon>RankingDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="admin\showSameTickets.aspx.cs">
+      <DependentUpon>showSameTickets.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\showSameTickets.aspx.designer.cs">
+      <DependentUpon>showSameTickets.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\showTickets.aspx.cs">
+      <DependentUpon>showTickets.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\showTickets.aspx.designer.cs">
+      <DependentUpon>showTickets.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="BLL\" />
+    <Folder Include="brand\" />
+    <Folder Include="front\" />
+    <Folder Include="upload\" />
+    <Folder Include="vote\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Account\Web.config" />
+    <Content Include="Site.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ajax\BrandHandler.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ajax\Handler1.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ajax\FileHandler.ashx" />
+    <None Include="images\Thumbs.db" />
+    <Content Include="admin\CommentList.aspx" />
+    <None Include="member\files\pa" />
+    <None Include="member\files\pa%281%29" />
+    <None Include="member\files\show.php" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>3002</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://192.168.0.25:8081/</IISUrl>
+          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
+          <IISAppRootUrl>http://192.168.0.25:8081/</IISAppRootUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
