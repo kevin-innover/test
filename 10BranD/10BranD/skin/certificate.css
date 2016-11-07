@@ -1,0 +1,27 @@
+@charset "utf-8";
+.zs_body{background:#FFF;}
+.certificate{background:url(./vote/certificate.png) no-repeat;width:1000px;height:706px;margin:0 auto;color:#222;}
+.certificate .company{font-size:38px;font-weight:bold;letter-spacing:8px;margin:250px 90px 10px 90px;}
+.certificate .result{font-size:30px;font-family:宋体;letter-spacing:1px;font-weight:bold;text-indent:2em;width:820px;line-height:1.8em;margin:0 auto;}
+.certificate .result img{margin-bottom:-22px;}
+.certificate .bottom{width:800px;height:90px;margin:120px 100px auto 100px;}
+.certificate .bottom .QRcode{width:80px;height:80px;float:left;}
+.certificate .bottom .QRcodeText{font-size:16px;font-weight:bold;line-height:2.0em;text-align:center;width:160px; float:left;}
+.certificate .bottom .siteInfo{font-size:15px;line-height:1.5em;text-align:center;font-family:宋体;width:200px;float:right;font-weight:bold;}
+.certificate .bottom .siteInfo .date{font-size:15px;line-height:1.5em;text-align:center;font-family:微软雅黑;}
+
+.medal{background:url(./vote/medal.png) no-repeat;width:1000px;height:700px;margin:0 auto;color:#222;}
+.medal .company{font-size:34px;font-weight:bold;letter-spacing:5px;margin:250px 140px 10px 140px;}
+.medal .result{font-size:25px;font-family:宋体;letter-spacing:1px;font-weight:900;text-indent:2em;width:730px;line-height:1.8em;margin:0 auto;}
+.medal .result img{margin-bottom:-22px;}
+.medal .top10{font-size:60px;font-weight:bold;letter-spacing:8px; text-align:center;color:#DD0000;}
+.medal .bottom{width:700px;height:90px;margin:23px auto auto auto;}
+.medal .bottom .QRcode{width:80px;height:80px;float:left;}
+.medal .bottom .QRcodeText{font-size:16px;font-weight:bold;line-height:2.0em;text-align:center;width:160px; float:left;}
+.medal .bottom .siteInfo{font-size:15px;line-height:1.5em;text-align:center;font-family:宋体;width:200px;float:right;font-weight:bold;}
+.medal .bottom .siteInfo .date{font-size:15px;line-height:1.5em;text-align:center;font-family:微软雅黑;}
+
+.pic2_bg{width:4685px;hegiht:3279px; background:url(./vote/certificate_bg2.jpg) no-repeat;}
+#pic2{margin:262px auto 262px 374px;}
+
+.readme{margin:50px auto;padding:50px 0px;border-top:2px solid #666;line-height:150%;}

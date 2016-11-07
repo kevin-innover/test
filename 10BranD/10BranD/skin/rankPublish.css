@@ -1,0 +1,23 @@
+a:active,a:hover {outline: 0}
+img {vertical-align: middle;border: 0}
+@-ms-viewport {width:device-width}
+html {font-size: 312.5%;-webkit-tap-highlight-color: transparent;height: 100%;min-width: 310px;overflow-x: hidden;}
+body {margin: 0;font-family: "榛戜綋",Helvetica,Arial,sans-serif;font-size: .28em;line-height: 1;color: #333;background-color: #f0efed}
+h1{line-height: 1.2;text-align:center;font-size:3em;}
+h2{line-height: 1.2;text-align:center;color:red;font-size:2.5em;}
+h3{line-height: 0.5;text-align:center;font-size:2.0em;}
+.bshare-custom{margin-bottom:1em;}
+.item_bg{overflow:hidden; padding-left:1.2%; padding-right:1.2%;padding-top:1em;}
+.item{border:1px solid #333;padding:5px;margin-bottom:12px;background-color:#fff;height:15.2em;}
+.item .ranking{color:#fff; font-size:2em;margin-bottom:12px;padding-left:62px; line-height:31px;background:url(../images/No.png) no-repeat; clear:both;}
+.item .left{float:left;padding-right:0.4rem;width:24em;height:10.2em;}
+.item img{padding:4px;-webkit-box-shadow:1px 1px 1px 1px rgba(0,0,0,0.2);-moz-box-shadow:1px 1px 1px 1px rgba(0,0,0,0.2);box-shadow:1px 1px 1px 1px rgba(0,0,0,0.2);
+margin:3px auto 10px 5px;background-position: 50% 50%;width:23em;height:10.2em;
+}
+.item .right{font-size:2em;line-height:1.8em;text-overflow: ellipsis;overflow: hidden;white-space: nowrap;}
+.c_p{cursor:pointer;}
+#wxsharebox{text-align:center;margin-bottom:1.2em;}
+#share_guide{position:fixed;z-index:2000;right:1px;top:1px;width:100%;background-color:#000;filter:alpha(opacity=80);-moz-opacity:0.8;opacity:0.8;}
+#share_guide div{width:260px;clear:both;float:right;}
+#share_guide img{width:260px;height:165px;}
+#share_guide button{margin-top:25px;width:100%;font-size:1.5em;}
