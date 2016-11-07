@@ -142,7 +142,28 @@
     <Content Include="js\副本 jquery-1.12.4.js" />
     <Content Include="js\副本 jquery-3.1.min.js" />
     <Content Include="js\副本 users.js" />
+    <Content Include="member\brandList_m.aspx" />
     <Content Include="member\editBrand_m.html" />
+    <Content Include="member\files\14-06-50-21-38756.png" />
+    <Content Include="member\files\14-09-34-49-38756.png" />
+    <Content Include="member\files\14-13-54-76-38756.png" />
+    <Content Include="member\files\14-19-52-67-38756.png" />
+    <Content Include="member\files\14-22-36-40-38756.png" />
+    <Content Include="member\files\14-26-54-98-38756.png" />
+    <Content Include="member\files\14-28-13-30-38756.png" />
+    <Content Include="member\files\14-30-20-91-38756.png" />
+    <Content Include="member\files\14-30-30-71-38756.png" />
+    <Content Include="member\files\14-33-34-70-38756.png" />
+    <Content Include="member\files\14-36-30-73-38756.png" />
+    <Content Include="member\files\14-44-46-67-38756.png" />
+    <Content Include="member\files\14-52-27-11-38756.png" />
+    <Content Include="member\files\14-54-37-51-38756.png" />
+    <Content Include="member\files\14-57-48-84-38756.png" />
+    <Content Include="member\files\14-59-24-47-38756.png" />
+    <Content Include="member\files\15-04-43-17-38756.png" />
+    <Content Include="member\files\15-12-57-89-38756.png" />
+    <Content Include="member\files\15-16-29-83-38756.png" />
+    <Content Include="member\files\16-07-45-87-27518.png" />
     <Content Include="member\files\admin.js" />
     <Content Include="member\files\btn_alert.gif" />
     <Content Include="member\files\btn_charge.gif" />
@@ -155,9 +176,11 @@
     <Content Include="member\files\btn_record.gif" />
     <Content Include="member\files\btn_style.gif" />
     <Content Include="member\files\btn_trade.gif" />
+    <Content Include="member\files\category.js" />
     <Content Include="member\files\common.js" />
     <Content Include="member\files\config.js" />
     <Content Include="member\files\customer_service_icon.png" />
+    <Content Include="member\files\edit.png" />
     <Content Include="member\files\ico_credit.gif" />
     <Content Include="member\files\ico_member.gif" />
     <Content Include="member\files\ico_message.gif" />
@@ -172,8 +195,11 @@
     <Content Include="member\files\logo.png" />
     <Content Include="member\files\main.css" />
     <Content Include="member\files\member.js" />
+    <Content Include="member\files\new.png" />
     <Content Include="member\files\setting.gif" />
     <Content Include="member\files\style.css" />
+    <Content Include="member\files\toupxts.png" />
+    <Content Include="member\files\toupxtsicon.png" />
     <Content Include="member\files\u_bank.gif" />
     <Content Include="member\files\u_email.gif" />
     <Content Include="member\files\u_member.gif" />
@@ -195,6 +221,7 @@
     <Content Include="admin\ContractList.aspx" />
     <Content Include="admin\VoteAudit.aspx" />
     <Content Include="admin\FreeIndustry.aspx" />
+    <Content Include="member\skin\style.css" />
     <Content Include="member\副本 editbrand1.html" />
     <Content Include="member\副本 index.html" />
     <Content Include="skin\style.css" />
@@ -474,6 +501,12 @@
     <Compile Include="admin\FreeIndustry.aspx.designer.cs">
       <DependentUpon>FreeIndustry.aspx</DependentUpon>
     </Compile>
+    <Compile Include="member\brandList_m.aspx.cs">
+      <DependentUpon>brandList_m.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="member\brandList_m.aspx.designer.cs">
+      <DependentUpon>brandList_m.aspx</DependentUpon>
+    </Compile>
     <Compile Include="topMenus\brand.aspx.cs">
       <DependentUpon>brand.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -580,7 +613,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>3002</DevelopmentServerPort>
+          <DevelopmentServerPort>39449</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://192.168.0.25:8081/</IISUrl>
           <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
