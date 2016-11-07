@@ -1,0 +1,1 @@
+var DTPath = "http://www.10brandchina.com/";var SKPath = "http://img.10brandchina.com/skin/default/";var MEPath = "http://www.10brandchina.com/member/";var EXPath = "http://www.10brandchina.com/extend/";var CKDomain = "";var CKPath = "/";var CKPrex = "cqv_";

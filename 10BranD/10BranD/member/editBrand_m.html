@@ -1,0 +1,578 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>品牌管理_商务中心_品牌排行网</title>
+    <meta name="robots" content="nofollow" />
+    <meta http-equiv="x-ua-compatible" content="IE=7" />
+    <link rel="shortcut icon" href="http://img.10brandchina.com/favicon.ico" />
+    <link rel="bookmark" href="http://img.10brandchina.com/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="http://img.10brandchina.com/member/image/style.css" />
+    <script type="text/javascript" src="../js/jquery.js">    </script>
+    <script type="text/javascript" src="../js/public.js">    </script>
+    <script type="text/javascript" src="../js/entity.js">    </script>
+    <script type="text/javascript" src="../js/prompt/ymPrompt.js">    </script>
+    <link rel="stylesheet" id='skin' type="text/css" href="../js/prompt/skin/qq/ymPrompt.css" />
+    <script type="text/javascript">        window.onerror = function () { return true; }</script>
+</head>
+<body>
+    <div class="main_tb">
+        <table cellpadding="0" cellspacing="0" width="100%">
+            <tr>
+                <td class="side_h" onclick="oh(this);" title="点击展开/隐藏侧栏" id="side_oh">
+                    &nbsp;
+                </td>
+                <td valign="top" class="main" id="main">
+                    <style>
+                        .button_style
+                        {
+                            height: 25px;
+                            background: #3d95eb;
+                            margin-left: 20px;
+                            cursor: pointer;
+                        }
+                        .button_style span
+                        {
+                            line-height: 25px;
+                            padding: 0px 10px;
+                            color: #fff;
+                            font-size: 14px;
+                        }
+                        .go_pay
+                        {
+                            float: left;
+                        }
+                        .edit_data
+                        {
+                            vertical-align: middle;
+                            display: table-cell;
+                        }
+                        .apply_refund
+                        {
+                            margin-top: 4px;
+                        }
+                        .apply_refund:hover
+                        {
+                            color: red;
+                            cursor: pointer;
+                        }
+                        .limit ul
+                        {
+                            margin-top: 10px;
+                        }
+                        .limit ul li
+                        {
+                            padding: 5px 0px;
+                        }
+                        .limit ul li span
+                        {
+                            font-weight: bold;
+                        }
+                        .notThroughMP
+                        {
+                            display: none;
+                        }
+                        .mask
+                        {
+                            position: absolute;
+                            top: 0px;
+                            left: 0px;
+                            right: 0px;
+                            background-color: #000;
+                            z-index: 100;
+                            filter: alpha(opacity=50); /* IE */
+                            -moz-opacity: 0.5; /* 老版Mozilla */
+                            -khtml-opacity: 0.5; /* 老版Safari */
+                            opacity: 0.5;
+                        }
+                        .mask_prompt
+                        {
+                            position: absolute;
+                            right: 0px;
+                            z-index: 101; /*top:270px;*/
+                        }
+                        .mask_prompt img
+                        {
+                            max-width: 100%;
+                            max-height: 100%;
+                        }
+                        .mask_close
+                        {
+                            position: absolute;
+                            top: 0px;
+                            left: 0px;
+                            background: #000;
+                            filter: alpha(opacity=0); /* IE */
+                            -moz-opacity: 0; /* 老版Mozilla */
+                            -khtml-opacity: 0; /* 老版Safari */
+                            opacity: 0;
+                            height: 40px;
+                            width: 45px;
+                            z-index: 1000;
+                        }
+                        .mask_close:hover
+                        {
+                            cursor: pointer;
+                        }
+                    </style>
+                    <script type="text/javascript">                        c(1);</script>
+                    <div class="menu">
+                        <table cellpadding="0" cellspacing="0">
+                            <tr>
+                                <td class="tab" id="add">
+                                    <a href="?13&action=add" target><span>添加品牌</span></a>
+                                </td>
+                                <td class="tab_nav">
+                                    &nbsp;
+                                </td>
+                                <td class="tab" id="s3">
+                                    <a href="my.php?mid=13"><span>已发布<span class="px10">(28244)</span></span></a>
+                                </td>
+                                <td class="tab_nav">
+                                    &nbsp;
+                                </td>
+                                <td class="tab" id="s2">
+                                    <a href="my.php?mid=13&status=2"><span>审核中<span class="px10">(806)</span></span></a>
+                                </td>
+                                <td class="tab_nav">
+                                    &nbsp;
+                                </td>
+                                <td class="tab" id="s5">
+                                    <a href="my.php?mid=13&status=5"><span>待支付<span class="px10">(0)</span></span></a>
+                                </td>
+                                <td class="tab_nav">
+                                    &nbsp;
+                                </td>
+                                <td class="tab" id="s1">
+                                    <a href="my.php?mid=13&status=1"><span>未通过<span class="px10">(4)</span></span></a>
+                                </td>
+                                <td class="tab_nav">
+                                    &nbsp;
+                                </td>
+                                <td class="tab" id="s4">
+                                    <a href="my.php?mid=13&status=4"><span>已过期<span class="px10">(0)</span></span></a>
+                                </td>
+                                <td class="tab_nav">
+                                    &nbsp;
+                                </td>
+                                <td class="tab" id="s7">
+                                    <a href="my.php?mid=13&status=7"><span>申请退款</span></a>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="warn" class="f_red" style="line-height: 25px; width: auto;">
+                        <span class="f_b">关于恶意软件刷票的情况说明：</span>为杜绝此类不正当行为，品牌排行网将 <span class="f_red"><b>严查软件刷票行为</b></span>，并对购买或利用软件刷票企业<span
+                            class="f_red"><b>予以减票处罚，情节严重者将取消评选资格</b></span>。品牌排行网不会以涨票，包名次，刷票等违规手段 跟企业联系，也请企业主对恶意刷票人员做到<span
+                                class="f_red"><b>不听！不信！不汇款！</b></span>避免造成不必要的损失，保持一个<span class="f_red"><b>公平，公正</b></span>的投票环境。
+                        <div style="text-align: right">
+                            ————品牌排行网 www.10brandchina.com &nbsp; &nbsp;<a href="/guestbook/"><span class="f_blue">我要举报
+                                &nbsp;</span></a></div>
+                    </div>
+                    <form method="post" action="?" id="dform" target="send" onsubmit="return check();">
+                    <input type="hidden" name="action" value="add" />
+                    <input type="hidden" name="mid" value="13" />
+                    <input type="hidden" name="itemid" value="0" />
+                    <input type="hidden" name="forward" value="" />
+                    <table cellpadding="6" cellspacing="1" class="tb">
+                        <tr>
+                            <td class="tl">
+                                &nbsp;
+                            </td>
+                            <td class="tr">
+                                <span class="f_red">请认真填写以下信息，品牌审核通过后就不可以自行修改了，如需修改请联系本行业投票页面上的“行业专员”<br>
+                                    <span class="f_blue">品牌提交之后，品牌将进入待支付状态中，只有支付品牌报名费用<span class="f_red"> 1800元</span>才会进入审核状态!</span></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="tl">
+                                <span class="f_red">*</span> 所属分类
+                            </td>
+                            <td class="tr">
+                                <div id="cate">
+                                    <input name="post[catid]" id="catid_1" type="hidden" value="0" />
+                                    <select onchange="loadcategory(this.value);" id="bigIndustry" size="2" style="height: 80px;
+                                        width: 160px;">
+                                        <option value="0">选择大类</option>
+                                    </select>
+                                    <select id="subIndustry" size="2" style="height: 80px; width: 160px;">
+                                        <option value="0">选择小类</option>
+                                    </select>
+                                    <input type="text" value=" 请输入搜索的行业和分类" onfocus="if(value==defaultValue){value='';this.style.color='#000'}"
+                                        style="color: #aaa;" id="category" onkeyup="searchCategory()" />
+                                </div>
+                                <div id="catesch">
+                                </div>
+                                <span id="dcatid_1" class="f_red"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="tl">
+                                <span class="f_red">*</span> 品牌名称
+                            </td>
+                            <td class="tr">
+                                <input name="post[title]" type="text" id="title" size="20" value="" onblur="chk_repeat('title','品牌')"
+                                    maxlength="25" />
+                                <span id="dtitle" class="f_red"></span><span class="f_gray">商标注册证上的品牌名，请不要填写公司名</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="tl">
+                                <span class="f_red">*</span> 品牌LOGO
+                            </td>
+                            <td class="tr">
+                                <input name="post[thumb]" id="thumb" type="text" size="60" value="" readonly />&nbsp;&nbsp;<a
+                                    href="javascript:void(0);" onclick="uploadFile('#thumb','LogoPath','Brand','img')"
+                                    class="t">[上传]</a>&nbsp;&nbsp;<a href="javascript:void(0);" onclick="_preview(Dd('thumb').value);"
+                                        class="t">[预览]</a>&nbsp;&nbsp;<a href="javascript:void(0);" onclick="Dd('thumb').value='';"
+                                            class="t">[删除]</a> <span id="dthumb" class="f_red"></span><span class="f_gray">图片尺寸128X68
+                                                (JPG、PNG、GIF格式，大小在1M以内)</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="tl">
+                                <span class="f_red">*</span> 官方网站
+                            </td>
+                            <td class="tr">
+                                <input name="post[homepage]" id="weburl" type="text" size="60" value="" maxlength="100" />
+                                <span id="dweburl" class="f_red"></span>
+                            </td>
+                        </tr>
+                        <tbody>
+                            <input name="post[iscontact]" type="hidden" value="" />
+                            <input name="post_contact[itemid]" type="hidden" value="0" />
+                            <tr>
+                                <td class="tl">
+                                    官方微信
+                                </td>
+                                <td>
+                                    <input type="text" name="post_contact[weixin_name]" id="weixin_name" value="" size="30"
+                                        maxlength="25" />
+                                    <span class="f_red" id="dweixin_name"></span><span class="f_gray">请填写微信公众号名称</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="tl">
+                                    微信二维码
+                                </td>
+                                <td>
+                                    <input type="text" name="post[weixin_pic]" id="weixin_pic" value="" size="60" maxlength="100"
+                                        readonly />
+                                    <span onclick="uploadFile('#weixin_pic','weixin_pic','Brand','img')" class="jt">
+                                        [上传]</span>&nbsp;&nbsp;<span onclick="_preview(Dd('weixin_pic').value);" class="jt">[预览]</span>&nbsp;&nbsp;<span
+                                            onclick="Dd('weixin_pic').value='';" class="jt">[删除]</span> <span class="f_gray">图片尺寸94X94
+                                                <span onclick="_preview('/member/image/weixin_help.gif');" class="jt">如何获取？</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="tl">
+                                    官方微博
+                                </td>
+                                <td>
+                                    <input type="text" name="post_contact[weibo_name]" id="weibo_name" value="" size="30"
+                                        maxlength="25" />
+                                    <span class="f_red" id="dweibo_name"></span><span class="f_gray">请填写微博名称
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="tl">
+                                    微博二维码
+                                </td>
+                                <td>
+                                    <input type="text" name="post[weibo_pic]" id="weibo_pic" value="" size="60" maxlength="100"
+                                        readonly />
+                                    <span onclick="uploadFile('#weibo_pic','weibo_pic','Brand','img');" class="jt">
+                                        [上传]</span>&nbsp;&nbsp;<span onclick="_preview(Dd('weibo_pic').value);" class="jt">[预览]</span>&nbsp;&nbsp;<span
+                                            onclick="Dd('weibo_pic').value='';" class="jt">[删除]</span> <span class="f_gray">图片尺寸94X94</span>
+                                    <span onclick="_preview('/member/image/weibo_help.gif');" class="jt">如何获取？</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="tl">
+                                    微博链接
+                                </td>
+                                <td>
+                                    <input type="text" name="post_contact[weibo_linkurl]" id="weibo_linkurl" value=""
+                                        size="50" maxlength="100" />
+                                    <span class="f_red" id="dweibo_linkurl"></span><span class="f_gray">比如：http://weibo.com/taobao</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tr>
+                            <td class="tl">
+                                <span class="f_red">*</span> 商标注册证
+                            </td>
+                            <td class="tr">
+                                <input name="post_fields[shangbiao]" type="text" size="60" id="shangbiao" value=""
+                                    readonly />&nbsp;&nbsp;<span onclick="uploadFile('#shangbiao','RegisterNumber','Brand','img')"
+                                        class="jt">[上传]</span>&nbsp;&nbsp;<span onclick="_preview(Dd('shangbiao').value);"
+                                            class="jt">[预览]</span>&nbsp;&nbsp;<span onclick="Dd('shangbiao').value='';" class="jt">[删除]</span>
+                                <span class="f_red" id="dshangbiao"></span><span class="f_gray">图片尺寸800X1000 (JPG、PNG、GIF格式，大小在1M以内)
+                                    商标注册证已过期的请将续展证明和商标注册证一起拍照上传。</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="tl">
+                                详细说明
+                            </td>
+                            <td class="tr">
+                                <textarea name="post[content]" id="content" rows="10" cols="100"></textarea>
+                                <!--<script type="text/javascript">                                                                                                       var ModuleID = 13; var DTAdmin = 0; var EDPath = "fckeditor/"; var ABPath = "http://www.10brandchina.com/member/fckeditor/"; var EDW = "98%"; var EDH = "350"; var FCKID = "content";</script><script
+                                    type="text/javascript" src="../js/fckeditor/fckeditor.js"></script><script type="text/javascript">                                                                                                     window.onload = function () { var sBasePath = "fckeditor/"; var oFCKeditor = new FCKeditor("content"); oFCKeditor.Width = "98%"; oFCKeditor.Height = "350px"; oFCKeditor.BasePath = sBasePath; oFCKeditor.ToolbarSet = "Destoon"; oFCKeditor.ReplaceTextarea(); }</script><script
+                                        type="text/javascript" src="../js/fckeditor/fckeditor_m.js"></script>-->
+                                <span id="dcontent" class="f_red"></span>
+                            </td>
+                        </tr>
+                        <tr style="display: none;" id="weibo_sync">
+                            <td class="tl">
+                                同步主题
+                            </td>
+                            <td class="tr" id="weibo_show">
+                            </td>
+                        </tr>
+                        <td class="tl">
+                            &nbsp;
+                        </td>
+                        <td class="tr" height="50">
+                            <input type="button" name="submit" onclick="SaveBrand()" value=" 提 交 " class="btn" />&nbsp;&nbsp;&nbsp;&nbsp;<input
+                                type="button" value=" 返 回 " class="btn" onclick="history.back(-1);" />
+                        </td>
+            </tr>
+        </table>
+        </form>
+        <script type="text/javascript" src="http://img.10brandchina.com/file/script/clear.js"></script>
+        <script type="text/javascript">            s('mid_13'); m('add');</script>
+        <script>
+window.onload = function(){
+var titleWidth = $(".title").width()-200;
+$(".not_through_reason").css("width",titleWidth);
+$(".not_through_reason").css("display","inline-block");
+$(".not_through_reason").css("text-overflow","ellipsis");
+$(".not_through_reason").css("overflow","hidden");
+$(".not_through_reason").css("white-space","nowrap");
+var toph = $(".warn").height()+195;
+$(".mask_close").css("top","29%");
+$(".mask_close").css("left","1%");
+if(document.body.clientHeight<720&&document.body.clientHeight>=645)
+{
+$(".mask_prompt img").attr("src","http://img.10brandchina.com/member/image/mask_prompt_60.png");
+}
+else if(document.body.clientHeight<645)
+{
+$(".mask_prompt img").attr("src","http://img.10brandchina.com/member/image/mask_prompt_50.png");
+$(".mask_close").css("top","23%");
+}
+$(".mask_prompt").css("top",toph);
+var status = ;
+if(status ==3)
+{
+msg(28244);
+}
+else if(status == 2)
+{
+msg(806);
+}
+else if(status == 5)
+{
+msg(0);
+}
+else if(status == 1)
+{
+if(getCookie("prompt")){
+$(".notThroughMP").css("display","none");
+}else{
+mask_prompt();
+}
+msg(4);
+}
+else if(status == 4)
+{
+msg(0);
+}
+else if(status == 7)
+{
+if(getCookie("prompt")){
+$(".notThroughMP").css("display","none");
+}else{
+mask_prompt();
+}
+msg(4);
+}
+}
+function overdueTime(){
+var myDate = new Date(); 
+myDate.toLocaleDateString();
+var year = myDate.getFullYear();
+var month = myDate.getMonth()+1;
+var date = myDate.getDate();
+var time = year+"/"+month+"/"+date+" 23:59:59";
+var overdue_time = parseInt(new Date(time).getTime().toString()/1000) - parseInt(myDate.getTime().toString()/1000);
+return "s"+overdue_time;
+}
+function getCookie(name) 
+{ 
+    var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
+ 
+    if(arr=document.cookie.match(reg))
+ 
+        return unescape(arr[2]); 
+    else 
+        return null; 
+} 
+function setCookie(name,value,time)
+{ 
+    var strsec = getsec(time); 
+    var exp = new Date(); 
+    exp.setTime(exp.getTime() + strsec*1); 
+    document.cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString(); 
+} 
+function clearCookie(name) {  
+    setCookie(name, "", -1);  
+} 
+function getsec(str)
+{ 
+   var str1=str.substring(1,str.length)*1; 
+   var str2=str.substring(0,1); 
+   if (str2=="s")
+   { 
+        return str1*1000; 
+   }
+} 
+function mask_prompt(){
+$(".notThroughMP").css("display","block");
+var h = document.body.clientHeight;
+document.documentElement.style.overflowY = 'hidden';
+document.documentElement.style.overflowX = 'hidden';
+$(".mask").css("height",h);
+}
+function mask_close(){
+setCookie("prompt","yes",overdueTime());
+$(".notThroughMP").css("display","none");
+}
+function msg(nums){
+height = nums * 59;
+if(nums < 5){
+if(height < 295)
+{
+var marginTop = 295-height;
+}
+else{
+var marginTop = height;
+}
+}
+$(".limit").css("margin-top",marginTop);
+}
+        </script>
+        <script type="text/javascript">
+            function checkBrand()
+            {
+                var l;
+                var f;
+                f = 'subIndustry';
+                if (Dd(f).value == 0)
+                {
+                    Dmsg('请选择所属分类', f, 1);
+                    return false;
+                }
+                f = 'title';
+                l = Dd(f).value.length;
+                if (l < 2 || l > 30)
+                {
+                    Dmsg('标题应为2-30字，当前已输入' + l + '字', f);
+                    return false;
+                }
+                if (isexis)//brand is exis
+                {
+                    return false;
+                }
+                f = 'thumb';
+                l = Dd(f).value.length;
+                if (l < 10)
+                {
+                    Dmsg('请上传LOGO', f);
+                    return false;
+                }
+                f = 'weburl';
+                l = Dd(f).value.length;
+                if (l < 5)
+                {
+                    Dmsg('请填写官方网站', f);
+                    return false;
+                }
+                f = 'shangbiao';
+                l = Dd(f).value.length;
+                if (l < 10)
+                {
+                    Dmsg('请上传商标注册证', f);
+                    return false;
+                }
+                return true;
+            }
+            function chk_repeat(f, n)
+            {
+                v = Dd(f).value;
+                fname = f;
+                pinfo = n;
+                catid = Dd("subIndustry").value;
+                if (catid == 0) return true;
+                if (v == "") return true;
+
+                CheckMember('type=CheckMember&job=brand&cateID=' + catid + '&value=' + v, _chk_repeat);
+
+            }
+            function _chk_repeat(data)
+            {
+                if (!data["result"])
+                {
+                    Dd("d" + fname).innerHTML = "此" + pinfo + "在本分类中已存在";
+                    isexis = true;
+                }
+                else
+                {
+                    Dd("d" + fname).innerHTML = '';
+                    isexis = false;
+                }
+
+            }
+            var bc_oauth = '0';
+            var isexis = false;
+        </script>
+        </td> </tr> </table>
+    </div>
+    <script type="text/javascript">
+        if (document.body.clientHeight > Dd('main').scrollHeight) Dd('main').style.height = document.body.clientHeight + 'px';
+        if (get_cookie('m_side') == 11 && Dd('side_oh').className == 'side_h') { Dh('side'); Dd('side_oh').className = 'side_s'; }
+        var bc_message = 410;
+        var bc_chat = 0;
+        if (window.location.href.indexOf('message.php') == -1) $('#bc_space').html(sound('message_1'));
+    </script>
+    <style type="text/css">
+        #my_kefu_box
+        {
+            position: fixed;
+            z-index: 1;
+            width: 25px;
+            right: 1px;
+            top: 70%;
+            text-align: center;
+            margin-top: -50px;
+        }
+    </style>
+    <img id='my_kefu_box' class='my_kefu_mini' src="http://img.10brandchina.com/skin/default/wap/customer_service_icon.png" />
+    <div class="my_kefu_box" style='display: none;'>
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+    $(".my_kefu_mini").click(function ()
+    {
+        $(this).hide();
+        $(".my_kefu_box").fadeIn();
+    });
+    $(".my_kefu_box").click(function ()
+    {
+        $(".my_kefu_box").fadeOut();
+        $(".my_kefu_mini").show();
+        $(".my_kefu_mini").css('display', 'block');
+    });
+</script>

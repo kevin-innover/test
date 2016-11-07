@@ -1,0 +1,171 @@
+.box{
+	background: #fff;
+	width:655px;
+	margin:20px 0px 20px 20px;
+}
+.box1{
+	background: #fff;
+	width:655px;
+	margin:20px 0px 20px 20px;
+	position: relative;
+}
+.box2{
+	background: #fff;
+	width:440px;
+	margin:20px 0px 20px 0px;
+}
+.message_title{
+	font-size: 14px;
+	width:auto;
+	text-align: center;
+	float: left;
+}
+
+.message_more{
+	float: right;
+}
+.message_list{
+	border: #6C92AD 1px solid;
+    border-top: none;
+	padding-top:8px;
+}
+.message_list img{
+	margin-left:10px;
+	float: left;
+	margin-right: 10px;
+}
+.message_list ul{
+	float: left;
+}
+.message_list ul li{
+	width:380px;
+	text-overflow:ellipsis;
+	overflow:hidden; 
+	white-space:nowrap;
+	padding-bottom:10px;
+	font-size: 13px;
+}
+.message_list ul li a,.brand_text,.brand_text a{
+	color:#1e74d0;
+	cursor: pointer;
+}
+.member_body{
+	border: #6C92AD 1px solid;
+    border-top: none;
+}
+.company_info{
+	padding: 7px 10px;
+	font-size: 14px;
+}
+.company_info .value{
+	margin-top: 8px;
+	color: #1e74d0;
+	font-size: 13px;
+}
+.company_info .value a{
+	text-decoration:none;
+}
+.member_info{
+	padding: 7px 0px;;
+}
+.member_info .key{
+	padding-left:10px;
+
+	float: left;
+	font-size: 14px;
+}
+.member_info .value{
+	padding-right:10px;
+	float: right;
+	font-size: 13px;
+}
+.brand_logo{
+	padding-left: 6px;
+	height:135px;
+	font-size: 16px;
+	border: #6C92AD 1px solid;
+    border-top: none;
+}
+.brand_logo ul li{	
+	padding: 9px 15px;
+	float: left;
+	width:130px;
+}
+.brand_logo ul li div{
+	text-align: center;
+
+}
+.brand_logo ul li .logo_img{
+	height: 90px;	
+}
+.brand_logo .logo_img img{
+	margin-top: 10px;
+	border:1px #ccc solid;
+} 
+.brand_dian{
+	border: #6C92AD 1px solid;
+    border-top: none;
+	padding: 40px 0px;
+	font-size: 16px;
+}
+.brandLeft{
+	float: left;
+	text-align: center;
+	width:90px;
+	margin-left: 10px;
+}
+.brandLeft div{
+	padding-bottom: 10px;
+}
+.brandLeft .brand_Img{
+	height: 50px;
+}
+.jiahao img{
+	padding-top: 10px;
+	cursor: pointer;
+}
+
+.brandCenter{
+	float:left;
+	width:360px;
+	margin: 18px 2px 0px 55px;
+}
+.span_left{
+	margin-left: 9px;
+}
+.span_right{
+	margin-left: 52px;
+}
+.brandguanli{
+	width:360px;
+	float: left;
+	margin: 18px 2px 0px 55px;
+}.brandguanli span a{
+	color: #1e74d0;
+}
+.brandCenter span a{
+	color: #1e74d0;
+}
+.box_left{
+	float: left;
+	margin-right: 20px;
+}
+.box_right{
+	float: left;
+}
+.tf{
+	color: #1e74d0;
+	font-weight: bold;
+}
+.shuline{
+	position: absolute;
+	border-left: 1px solid #ccc;
+	height:260px;
+	top:20%;
+	left:17%;
+}
+.not_ava{
+	text-align: center;
+	line-height: 150px;	
+}
+
