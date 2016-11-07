@@ -1,0 +1,182 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" >
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>西北轴承奖牌证书</title>
+<link rel="stylesheet" type="text/css" href="http://img.10brandchina.com/skin/default/certificate.css" />
+<script type="text/javascript" src="http://img.10brandchina.com/lang/zh-cn/lang.js"></script>
+<script type="text/javascript" src="http://img.10brandchina.com/file/script/config.js"></script>
+<script type="text/javascript" src="http://img.10brandchina.com/file/script/jquery.js"></script>
+<script type="text/javascript" src="http://img.10brandchina.com/file/script/common.js"></script>
+<script type="text/javascript" src="http://img.10brandchina.com/file/script/jquery.qrcode.min.js" ></script>
+</head>
+<body>
+<canvas id="pic1" width="4685" height="3307" style="display:none;">您的浏览器不支持canvas！,请使用IE9及其以上版本，或Chrome浏览器</canvas>
+<div id="QRcode" style="display:none;"></div>
+<div id="QRcode1" style="display:none;"></div>
+<div class="pic2_bg" style="display:none;">
+<canvas id="pic2" width="3937" height="2756"></div>
+</div>
+<script type="text/javascript">
+function out_text(ctx,strs,x,y,space)
+{
+for (i=0;i<strs.length ;i++ ) 
+{ 
+ctx.fillText(strs[i], x, y);
+if(strs[i]==" ")
+{
+x=x+(space/2);
+}
+else if(!isNaN(strs[i]))
+{
+x=x+(space/2)+10;
+}
+else
+{
+x=x+space;
+}
+} 
+}
+function convertCanvasToImage(canvas) {
+  var image = new Image();
+  image.src = canvas.toDataURL("image/png");
+  return image;
+}
+var canvas1=document.getElementById('pic1');
+var ctx=canvas1.getContext('2d');
+var catname="轴承";
+var catlength=catname.length-2-0;
+var canvass=document.getElementsByTagName("canvas");
+function drawCert(){
+$('#pic1').show();
+var pic1Bg = new Image();
+    pic1Bg.src = SKPath+"vote/certificate_bg1.jpg";
+    pic1Bg.onload = function(){
+        ctx.drawImage(pic1Bg, 0, 0);
+//公司字体设置
+ctx.font = "Bold 178px 微软雅黑";
+ctx.fillStyle = "#000000";
+out_text(ctx,"西北轴承有限公司",466, 1363,208);
+//信息字体设置
+ctx.font = "128px 方正小标宋简体";
+ctx.fillStyle = "#000000";
+out_text(ctx,"经审核，贵公司生产的",685, 1730,138);
+
+nextX=2120+500+50;
+out_text(ctx,"牌轴承,",nextX,1730,138);
+
+nextX=nextX+414+69;
+//红字
+ctx.fillStyle = "#B3322C";
+//截取长度
+
+cutLength=2;
+if(nextX<=3586)
+{
+cutLength=6;
+}
+if(nextX<=3294)
+{
+cutLength=8;
+}
+out_text(ctx,"荣获2016中国轴承十大品牌".substr(0,cutLength),nextX, 1730,138);
+//红字下行
+out_text(ctx,("荣获2016中国轴承十大品牌").substr(cutLength),432, 1980,145);
+
+//二维码
+ctx.drawImage(convertCanvasToImage(canvass[1]), 575, 2487);
+ctx.drawImage(convertCanvasToImage(canvass[2]), 1243, 2487);
+ctx.strokeStyle="#FFFFFF";
+ctx.lineWidth=6;
+ctx.strokeRect(572,2484,254,254);
+ctx.strokeRect(1240,2484,254,254);
+//官方网站网址
+ctx.font = "90px 黑体";
+ctx.fillStyle = "#000000";
+out_text(ctx,"官方网站：品牌排行网",1562,2590,96);
+
+ctx.font = "94px 黑体";
+ctx.fillText("www.10brandchina.com",1575,2700);
+ctx.font = "90px 黑体";
+ctx.fillText("扫一扫  查看榜单   编号：179832016",380,2900);
+
+ctx.font = "Bold 85px 方正小标宋简体";
+out_text(ctx,"十大品牌",3565,2645,118);
+out_text(ctx,"排行活动组委会",3455,2765,100);
+out_text(ctx,"二0一六年九月",3430+((8-"二0一六年九月".length)*50),2890,100);
+    };
+imgLogo1=new Image();
+imgLogo1.src = "http://www.10brandchina.com/file/upload/201609/13/09-41-32-80-119428.png";
+imgLogo1.onload = function(){
+setTimeout("ctx.drawImage(imgLogo1, 2120, 1555)",100);
+}
+}
+var canvas2=document.getElementById('pic2');
+var ctx2=canvas2.getContext('2d');
+function drewMedal(){
+$('.pic2_bg').show();
+var cerLogo = new Image();
+    cerLogo.src = SKPath+"vote/certificate_logo.png";
+    cerLogo.onload = function(){
+        ctx2.drawImage(cerLogo, 1652,315);
+//公司字体设置
+ctx2.font = "Bold 150px 微软雅黑";
+ctx2.fillStyle = "#000000";
+out_text(ctx2,"西北轴承有限公司",300, 1100,175);
+//信息字体设置
+ctx2.font = "116px 方正小标宋简体";
+out_text(ctx2,"经审核，贵公司生产的",530, 1330,120);
+nextX=1776+500+50;
+
+cutLength=9-catlength+2;
+
+out_text(ctx2,"牌轴承，在全国品牌市场评选活动中，质量合格，信誉优良被评为：".substr(0,cutLength),nextX, 1330,120);
+//下行
+out_text(ctx2,"牌轴承，在全国品牌市场评选活动中，质量合格，信誉优良被评为：".substr(cutLength),310, 1550,120);
+
+//二维码
+ctx2.drawImage(convertCanvasToImage(canvass[1]), 400, 2125);
+ctx2.drawImage(convertCanvasToImage(canvass[2]), 1070, 2125);
+ctx2.strokeStyle="#FFFFFF";
+ctx2.lineWidth=6;
+ctx2.strokeRect(397,2122,254,254);
+ctx2.strokeRect(1067,2122,254,254);
+//官方网站网址
+ctx2.font = "90px 黑体";
+out_text(ctx2,"官方网站：品牌排行网",1400,2230,96);
+
+ctx2.font = "94px 黑体";
+ctx2.fillText("www.10brandchina.com",1410,2340);
+ctx2.font = "90px 黑体";
+ctx2.fillText("扫一扫  查看榜单  编号：179832016",240,2520);
+
+ctx2.font = "Bold 68px 方正小标宋简体";
+out_text(ctx2,"十大品牌",3055,2200,95);
+out_text(ctx2,"排行活动组委会",2955,2300,80);
+out_text(ctx2,"二0一六年九月",2950+((8-"二0一六年九月".length)*38),2405,76);
+
+ctx2.font = "Bold 310px 微软雅黑";
+ctx2.fillStyle = "#CC2A1E";
+out_text(ctx2,"中国"+catname+"十大品牌",660-((catname.length-2)*170),1940,340);
+    };
+imgLogo2=new Image();
+imgLogo2.src = "http://www.10brandchina.com/file/upload/201609/13/09-41-38-74-119428.png";
+imgLogo2.onload = function(){
+setTimeout("ctx2.drawImage(imgLogo2, 1776, 1155)",200);
+}
+}
+$(document).ready(function(){
+var url=DTPath+"wap/b.php?c=39852&y=2016";
+jQuery('#QRcode').qrcode({render: "canvas", text: url,width:"248",height:"248",correctLevel:0});
+jQuery('#QRcode1').qrcode({render: "canvas", text: DTPath+"index.html",width:"248",height:"248",correctLevel:0});
+drawCert();
+drewMedal();
+});
+</script>
+<div class="readme">
+说明：请使用Chrome 39以上浏览器，证书才能正常显示，另外运行的电脑需要有 <a href="/file/font/msyh.ttf" target="_blank">微软雅黑</a>(一般电脑上都有),<a href="/file/font/fangzheng.ttf" target="_blank">方正小标宋简体</a>,没有的请先安装,否则奖牌证书上的字体都是宋体
+<br />
+按不同比例查看可用：&quot;<strong>CTRL++</strong>和<strong>CTRL+-</strong>&quot;快捷键,在图片上点右键<strong>“复制图片”</strong>可粘贴到图像软件中，<strong>“图片另存为”</strong>即可保存成图片！</div>
+<br />
+</body>
+</html>

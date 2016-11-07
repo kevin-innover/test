@@ -1,0 +1,275 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>管理中心 - 品牌排行网</title>
+    <meta name="robots" content="noindex,nofollow" />
+    <meta http-equiv="x-ua-compatible" content="IE=8" />
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="bookmark" type="image/x-icon" href="favicon.ico" />
+    <script type="text/javascript">        window.onerror = function () { return true; }</script>
+    <script type="text/javascript" src="../js/jquery.js">    </script>
+    <script type="text/javascript" src="../js/public.js">    </script>
+    <script type="text/javascript" src="../js/entity.js">    </script>
+    <script type="text/javascript" src="../js/prompt/ymPrompt.js">    </script>
+    <link rel="stylesheet" id='Link1' type="text/css" href="../js/prompt/skin/qq/ymPrompt.css" />
+    <link rel="stylesheet" id='skin' type="text/css" href="../skin/style.css" />
+    <script type="text/javascript" src="../js/calendar.js"></script>
+    <script type="text/javascript" src="../js/jquery-ui.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../js/jquery-ui.min.css" />
+    <link href="../js/jquery-ui.theme.css" rel="stylesheet">
+</head>
+<body>
+    <div id="msgbox" onmouseover="closemsg();" style="display: none;">
+    </div>
+    <div class="menu" onselectstart="return false" id="bc_menu">
+        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+            <tr>
+                <td valign="bottom">
+                    <table cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td width="10">
+                                &nbsp;
+                            </td>
+                            <td id="Tab0" class="tab">
+                                <a href="?action=add">添加合同</a>
+                            </td>
+                            <td class="tab_nav">
+                                &nbsp;
+                            </td>
+                            <td id="Tab1" class="tab">
+                                <a href="ContractList.aspx">合同列表</a>
+                            </td>
+                            <td class="tab_nav">
+                                &nbsp;
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td width="110">
+                    <div>
+                        <img src="admin/image/spacer.gif" width="40" height="24" title="刷新" onclick="window.location.reload();"
+                            style="cursor: pointer;" alt="" /><img src="admin/image/spacer.gif" width="20" height="24"
+                                title="后退" onclick="history.back(-1);" style="cursor: pointer;" alt="" /><img src="admin/image/spacer.gif"
+                                    width="20" height="24" title="前进" onclick="history.go(1);" style="cursor: pointer;"
+                                    alt="" /><img src="admin/image/spacer.gif" width="20" height="24" title="帮助" onclick="Go('http://www.destoon.com/client.php?action=help&product=b2b&mfa=brand-paybrand-add');"
+                                        style="cursor: help;" alt="" /></div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <style type="text/css">
+        #suggest_ul
+        {
+            width: 156px;
+            max-height: 1000px;
+            margin: 0px;
+            padding: 0px;
+            border: 1px solid #ccc;
+        }
+        
+        #suggest_ul li
+        {
+            padding-left: 5px;
+            line-height: 22px;
+            font-size: 13px;
+            width: 155px;
+            height: 22px;
+        }
+    </style>
+    <form method="post" action="?" id="dform">
+    <input type="hidden" name="moduleid" value="13" />
+    <input type="hidden" name="file" value="paybrand" />
+    <input type="hidden" name="action" value="add" />
+    <input type="hidden" name="itemid" value="0" />
+    <input type="hidden" name="forward" value="http://www.10brandchina.com/shangadmin.php?moduleid=13&file=paybrand" />
+    <div class="tt">
+        添加合同</div>
+    <table cellpadding="2" cellspacing="1" class="tb">
+        <tr>
+            <td class="tl">
+                <span class="f_red">*</span> 所属行业
+            </td>
+            <td>
+                <input name="post[catid]" id="catid_1" type="hidden" value="0" /><span id="IndustryCtrlID">
+                    <select onchange="loadcategory(this.value);" id="bigIndustry">
+                    </select>
+                    <select id="subIndustry" onchange="loadAllBrandNames(this.value);$('#brandtitle').val('');$('#dbrandtitle').hide()">
+                    </select>
+                </span><span id="dcatid" class="f_red"></span>
+            </td>
+        </tr>
+        <tr>
+            <td class="tl">
+                <span class="f_red">*</span> 品牌名
+            </td>
+            <td>
+                <input name="post[brandtitle]" type="text" id="brandtitle" autocomplete="off" onblur="if (checkBrandName($('#brandtitle').val()))
+                          {showBrandInfo()}" value="" />
+                <span id="dbrandtitle" class="f_red"></span>
+            </td>
+        </tr>
+        <tr>
+            <td class="tl">
+                <span class="f_red"></span>品牌LOGO
+            </td>
+            <td>
+                <input name="post[thumb]" id="thumb" type="text" size="60" value="" readonly="readonly" />&nbsp;&nbsp;<span
+                    onclick="_preview(Dd('thumb').value);" class="jt"> [预览]</span><span id="dthumb" class="f_red"></span>
+            </td>
+        </tr>
+        <input type="hidden" id='bdid' name="post[itemid]" value="" />
+        <tr>
+            <td class="tl">
+                <span class="f_red">*</span> 公司名
+            </td>
+            <td>
+                <input name="post[company]" type="text" id="company" onfocus='getcompany();' readonly="readonly" value="" />
+                <span id="dcompany" class="f_red"></span>
+            </td>
+        </tr>
+        <!-- <tr>
+<td class="tl"><span class="f_red">*</span> 收费时间</td>
+<td><input name="post[chargetime]" type="text" id="chargetime"  value="" /> <span id="dchargetime" class="f_red"></span></td>
+</tr> -->
+        <tr>
+            <td class="tl">
+                <span class="f_red">*</span> 收费金额
+            </td>
+            <td>
+                <input name="post[money]" type="text" id="money" onfocus='hide();' value="" />
+                <span id="dmoney" class="f_red"></span>
+            </td>
+        </tr>
+        <!--   <tr>
+            <td class="tl">
+                <span class="f_red">*</span> 发票
+            </td>
+            <td>
+                <input name="post[invoice]" type="text" id="invoice" onfocus='hide();' value="" /><span
+                    id="dinvoice" class="f_red"></span>
+            </td>
+        </tr>-->
+        <tr>
+            <td class="tl">
+                <span class="f_red"></span>发票截图
+            </td>
+            <td>
+                <input name="post[thumb1]" id="thumb1" type="text" size="60" value="" />&nbsp;&nbsp;<span
+                    onclick="Dthumb(13,
+	'1280','1000', Dd('thumb1').value,true,'thumb1');" class="jt">[上传]</span>&nbsp;&nbsp;<span
+        onclick="_preview(Dd('thumb1').value);" class="jt"> [预览]</span>&nbsp;&nbsp;<span
+            onclick="Dd('thumb1').value='';" class="jt">[删除]</span><span id="dthumb1" class="f_red"></span>
+            </td>
+        </tr>
+        <tr>
+            <td class="tl">
+                <span class="f_red">*</span> 合同截图
+            </td>
+            <td>
+                <input name="post[thumb2]" id="thumb2" type="text" size="60" value="" />&nbsp;&nbsp;<span
+                    onclick="Dthumb(13,
+	'1280','1000', Dd('thumb2').value,true,'thumb2');" class="jt">[上传]</span>&nbsp;&nbsp;<span
+        onclick="_preview(Dd('thumb2').value);" class="jt"> [预览]</span>&nbsp;&nbsp;<span
+            onclick="Dd('thumb2').value='';" class="jt">[删除]</span><span id="dthumb2" class="f_red"></span>
+            </td>
+        </tr>
+        <tr>
+            <td class="tl">
+                <span class="f_red">*</span> 收费时间
+            </td>
+            <td>
+                <input type="text" name="post[chargetime]" id="postchargetime" value="" size="10"
+                    onfocus="ca_show('postchargetime', this, '-');" readonly ondblclick="this.value='';" />
+                <img src="../images/calendar.gif" align="absmiddle" onclick="ca_show('postchargetime', this, '-');"
+                    style="cursor: pointer;" /><span id="dchargetime" class="f_red"></span>
+            </td>
+        </tr>
+        <tr>
+            <td class="tl">
+                <span class="f_red">*</span> 行业专员
+            </td>
+            <td>
+                <select name='post[userid]' onchange="changeuserid(this.value)" id="userctrl">
+                </select>&nbsp;<span id="duserid" class="f_red"></span>
+            </td>
+        </tr>
+    </table>
+    <div class="sbt">
+        <input type="button" name="submit" value=" 确 定 " onclick="SaveContract()" class="btn" />&nbsp;&nbsp;&nbsp;&nbsp;</div>
+    </form>
+    <script type="text/javascript">
+        
+        function showBrandInfo()
+        {
+            $('#company').val(selectCompanyName)
+            $('#thumb').val(selectLogoPath)
+        }
+        function check()
+        {
+            var l;
+            var f;
+            f = 'catid';
+
+            if ($("#subIndustry").children().length == 0 || $('#subIndustry').val() == 0)
+            {
+                Dmsg('选择行业', f);
+                return false;
+            }
+
+            f = 'brandtitle';
+            if ($('#brandtitle').val() == '')
+            {
+
+                Dmsg('请填写品牌名', f);
+                return false;
+            }
+
+            if (!checkBrandName($('#brandtitle').val()))
+            {
+
+                Dmsg('此行业中品牌名不存在', f);
+                return false;
+            }
+            f = 'company';
+            if ($('#company').val() == '')
+            {
+                Dmsg('请填写公司名', f);
+                return false;
+            }
+
+            f = 'money';
+            if ($('#money').val() == '')
+            {
+                Dmsg('请填写收费金额', f);
+                return false;
+            }
+            if (isNaN($('#money').val()))
+            {
+                Dmsg('收费金额必须是数字', f);
+                return false;
+            }
+            // f = 'salesman';
+            // if($('#salesman').attr('value')=='') {
+            // 	Dmsg('请填写行业专员', f);
+            // 	return false;
+            // }
+            f = 'thumb2';
+            if ($('#thumb2').val() == '')
+            {
+                Dmsg('请填写合同截图', f);
+                return false;
+            }
+            // f = 'invoice';
+            // if($('#invoice').attr('value')==''){
+            // 	Dmsg('请填写发票',f);
+            // 	return false;
+            // }
+
+            return true;
+        }
+    </script>
+    <script type="text/javascript">        Menuon(0);</script>
+    <script type="text/javascript">        Menuon(0);</script>
+</body>
+</html>

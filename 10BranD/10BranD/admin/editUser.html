@@ -1,0 +1,211 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>管理中心 - 品牌排行网</title>
+    <meta name="robots" content="noindex,nofollow" />
+    <meta http-equiv="x-ua-compatible" content="IE=8" />
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="bookmark" type="image/x-icon" href="favicon.ico" />
+    <script type="text/javascript">        window.onerror = function () { return true; }</script>
+    <link rel="stylesheet" href="../skin/style.css" type="text/css" />
+    <script type="text/javascript" src="../js/jquery.js">    </script>
+    <script type="text/javascript" src="../js/public.js">    </script>
+    <script type="text/javascript" src="../js/users.js">    </script>
+    <script type="text/javascript" src="../js/prompt/ymPrompt.js">    </script>
+    <link rel="stylesheet" id='skin' type="text/css" href="../js/prompt/skin/qq/ymPrompt.css" />
+</head>
+<body>
+    <div id="msgbox" onmouseover="closemsg();" style="display: none;">
+    </div>
+    <div class="menu" onselectstart="return false" id="bc_menu">
+        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+            <tr>
+                <td valign="bottom">
+                    <table cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td width="10">
+                                &nbsp;
+                            </td>
+                            <td id="Tab0" class="tab">
+                                <a href="editUser.html?action=add">添加专员</a>
+                            </td>
+                            <td class="tab_nav">
+                                &nbsp;
+                            </td>
+                            <td id="Tab1" class="tab">
+                                <a href="UserList.aspx">专员列表</a>
+                            </td>
+                            <td class="tab_nav">
+                                &nbsp;
+                            </td>
+                           
+                        </tr>
+                    </table>
+                </td>
+                <td width="110">
+                    <div>
+                        <img src="admin/image/spacer.gif" width="40" height="24" title="刷新" onclick="window.location.reload();"
+                            style="cursor: pointer;" alt="" /><img src="admin/image/spacer.gif" width="20" height="24"
+                                title="后退" onclick="history.back(-1);" style="cursor: pointer;" alt="" /><img src="admin/image/spacer.gif"
+                                    width="20" height="24" title="前进" onclick="history.go(1);" style="cursor: pointer;"
+                                    alt="" /><img src="admin/image/spacer.gif" width="20" height="24" title="帮助" onclick="Go('http://www.destoon.com/client.php?action=help&product=b2b&mfa=brand-salesman-edit');"
+                                        style="cursor: help;" alt="" /></div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <form method="post" action="?" id="dform" onsubmit="return check();">
+    <input type="hidden" name="moduleid" value="13" />
+    <input type="hidden" name="file" value="salesman" />
+    <input type="hidden" name="action" value="edit" />
+    <input type="hidden" name="itemid" value="1" />
+    <input type="hidden" name="forward" value="http://www.10brandchina.com/shangadmin.php?moduleid=13&file=salesman" />
+    <div class="tt">
+        添加专员</div>
+    <table cellpadding="2" cellspacing="1" class="tb">
+        <tr>
+            <td class="tl">
+                <span class="f_red">*</span> 姓 名
+            </td>
+            <td>
+                <input name="post[truename]" type="text" id="truename" value="田静" />
+                <span id="dtruename" class="f_red"></span>
+            </td>
+        </tr>
+        <tr>
+            <td class="tl">
+                <span class="f_red">*</span> 会员名
+            </td>
+            <td>
+                <input name="post[username]" type="text" id="username" value="tianjingjing" />
+                <span id="dusername" class="f_red"></span>
+            </td>
+        </tr>
+        <tr>
+            <td class="tl">
+                <span class="f_red">*</span> 客服qq
+            </td>
+            <td>
+                <input name="post[qq]" type="text" id="qq" value="2851921688" />
+                <span id="dqq" class="f_red"></span>
+            </td>
+        </tr>
+        <tr>
+            <td class="tl">
+                <span class="f_red">*</span> 客服电话
+            </td>
+            <td>
+                <input name="post[tel]" type="text" id="tel" value="010-57032801" />
+                <span id="dtel" class="f_red"></span>
+            </td>
+        </tr>
+        <tr>
+            <td class="tl">
+                <span class="f_red">*</span> 最大行业数
+            </td>
+            <td>
+                <input name="post[num]" type="text" id="num" value="100" />
+            </td>
+        </tr>
+        <tr>
+            <td class="tl">
+                <span class="f_red">*</span> 排序X
+            </td>
+            <td>
+                <input name="post[listorder]" type="text" id="listorder" value="0" />
+            </td>
+        </tr>
+        <tr>
+            <td class="tl">
+                <span class="f_red">*</span> 资质审核电话
+            </td>
+            <td>
+                <input name="post[audit_tel]" type="text" id="audit_tel" value="010-57032801" />
+                <span id="daudit_tel" class="f_red"></span>
+            </td>
+        </tr>
+        <tr>
+            <td class="tl">
+                <span class="f_red">*</span> 资质审核邮箱
+            </td>
+            <td>
+                <input name="post[mail]" type="text" id="mail" value="tianjingjing@10brandchina.com" />
+                <span id="dmail" class="f_red"></span>
+            </td>
+        </tr>
+        <tr>
+            <td class="tl">
+                <span class="f_red">*</span> 资质审核文件
+            </td>
+            <td>
+                <input name="post[audit_file]" type="text" size="60" id="audit_file" value="http://www.10brandchina.com/file/upload/201601/14/16-11-59-11-2.doc">&nbsp;&nbsp;<span
+                    class="f_red" id="daudit_file"></span> <span onclick="uploadFile('#audit_file','AuditFile','User','doc')"
+                        class="jt">[上传]</span>&nbsp;&nbsp;<span onclick="if(Dd('audit_file').value) window.open(Dd('audit_file').value);"
+                            class="jt">[预览]</span> &nbsp;&nbsp;<span onclick="Dd('audit_file').value='';" class="jt">[删除]</span>
+                <span class="f_red" id="daudit_file"></span>
+            </td>
+        </tr>
+        <tr>
+            <td class="tl">
+                <span class="f_red">*</span> 行业经理X
+            </td>
+            <td>
+                <select name="post[muser]">
+                    <option value="">暂无</option>
+                    <option value="jiangcheng">姜程</option>
+                </select>
+            </td>
+        </tr>
+    </table>
+    <div class="sbt">
+        <input type="button" onclick="SaveUser()" name="submit" value=" 确 定 " class="btn" />&nbsp;&nbsp;&nbsp;&nbsp;</div>
+    </form>
+    <script type="text/javascript">
+        function check() {
+            var l;
+            var f;
+            f = 'truename';
+            if (Dd(f).value.length < 2) {
+                Dmsg('请填写姓名', f);
+                return false;
+            }
+            f = 'username';
+            if (Dd(f).value.length < 2) {
+                Dmsg('请填写会员名', f);
+                return false;
+            }
+            f = 'qq';
+            if (Dd(f).value.length < 2) {
+                Dmsg('请填写客服qq', f);
+                return false;
+            }
+            f = 'tel';
+            if (Dd(f).value.length < 2) {
+                Dmsg('客服电话', f);
+                return false;
+            }
+            f = 'audit_tel';
+            if (Dd(f).value.length < 2) {
+                Dmsg('资质审核电话', f);
+                return false;
+            }
+            f = 'mail';
+            if (Dd(f).value.length < 2) {
+                Dmsg('资质审核邮箱', f);
+                return false;
+            }
+            f = 'audit_file';
+            if (Dd(f).value.length < 2) {
+                Dmsg('请上传资质审核表文件', f);
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+    <script type="text/javascript">        Menuon(0);</script>
+    <br />
+    <script type="text/javascript">        Menuon(0);</script>
+</body>
+</html>

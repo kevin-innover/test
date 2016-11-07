@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html class="ui-mobile" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+  <link rel="stylesheet" type="text/css" href="../skin/rankPublish.css" />
+    <script type="text/javascript" src="../js/public.js"></script>
+    <script type="text/javascript" src="../js/jquery.js">    </script>
+    <script type="text/javascript" src="../js/jquery.qrcode.min.js">    </script>
+    <script type="text/javascript" src="../js/rankPublish.js">    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            try {
+                var Request = new Object();
+                Request = GetRequest();
+
+                var industryID = Request['IndustryID']
+                var year = Request['y']
+                var industryID = Request['i']
+                var name = Request['in']
+                var href = "rankPublish.html?y=" + year + "&i=" + industryID
+
+                $("#domainUrl").attr("href", DomainPath)
+                $("#domainUrl").text(DomainPath)
+                var title = year + "年度中国" + name + "行业十大品牌"
+            
+                $("#title").text(title)
+
+                document.title = title; 
+            }
+            catch (e) {
+                alert("Error---" + e.message);
+            }
+        }) </script>
+</head>
+<style type="text/css">
+#qrcodeTable{position:fixed;z-index:1;width:168px;*width:134px;right:20px;top:50%;*bottom:124px;text-align:center;margin-top:-50px}
+.f_red{color:red}
+#myCanvas {
+border: 5px solid #FFF;
+width: 99px;
+-webkit-box-shadow: 2px 2px 2px;
+-moz-box-shadow: 2px 2px 2px;
+box-shadow: 2px 2px 2px;
+margin: 0 auto 6px auto;
+background:#fff
+}
+</style>
+<body style="background:url(http://img.10brandchina.com/skin/default/wap/wap_bg.jpg);background-size:100%;margin:0;padding:0;">
+<img src="http://img.10brandchina.com/skin/default/wap/wap_top.jpg" width="100%" />
+<h1 id="title"></h1>
+<h2>品牌排行网</h2>
+<h3>官方网站：<a id="domainUrl"  target="_blank"></a></h3>
+<div class="item_bg">
+<div  align="center">
+<div class="bshare-custom" style="font-size:1.5em;">
+<a title="分享到" href="http://www.bShare.cn/" id="bshare-shareto" class="bshare-more">分享到</a><a title="分享到QQ空间" class="bshare-qzone">QQ空间</a><a title="分享到新浪微博" class="bshare-sinaminiblog">新浪微博</a><a title="分享到人人网" class="bshare-renren">人人网</a><a title="分享到腾讯微博" class="bshare-qqmb">腾讯微博</a><a title="分享到网易微博" class="bshare-neteasemb">网易微博</a><a title="更多平台" class="bshare-more bshare-more-icon more-style-addthis">更多</a>
+<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=&amp;pophcol=2&amp;lang=zh"></script><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC0.js"></script>
+</div>
+</div>
+</div>
+<div id="qrcodeTable" style="margin-right:30px;">
+<canvas id="myCanvas" width="114" height="114"></canvas>
+<div style='color:white;display:none;' id="QRcode"></div>
+<script type="text/javascript">
+function convertCanvasToImage(canvas) {
+  var image = new Image();
+  image.src = canvas.toDataURL("image/png");
+  return image;
+}
+var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d");
+var canvass=document.getElementsByTagName("canvas");
+var voteurl = "http://www.10brandchina.com/wap/b.php?c=39661&y=2016";
+jQuery('#QRcode').qrcode({render: "canvas", text: voteurl,width:"109",height:"109",correctLevel:0});
+    ctx.drawImage(convertCanvasToImage(canvass[1]), 3, 3);
+</script>
+<div style="margin-top:4px;"><span class="f_red">扫描二维码,用手机浏览</span><div style="margin-top:4px;">微信扫描分享至朋友圈</div></div></div><div><img src="http://img.10brandchina.com/skin/default/wap/wap_bottom.jpg" width="100%" /></div>
+<script language="javascript">
+var UA = navigator.userAgent.toLowerCase();
+var isGecko = UA.indexOf('webkit') != -1;
+bShare.addEntry({
+    title: "2016年度中国大闸蟹行业十大品牌",
+    url: 'http://www.10brandchina.com/wap/b.php?c=39661&y=2016',
+    summary: '引导品牌消费，打造世界品牌，品牌排行网',
+    pic: 'http://www.10brandchina.com/skin/default/image/sharelogo.gif'});
+function Dd(i) {return document.getElementById(i);}
+function Ds(i) {Dd(i).style.display = '';}
+function Dh(i) {Dd(i).style.display = 'none';}
+</script>
+<div style="display:none"><script src="http://s96.cnzz.com/z_stat.php?id=1000189609&web_id=1000189609" language="JavaScript"></script></div>
+</body>
+</html>

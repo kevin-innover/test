@@ -1,0 +1,1069 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>管理中心 - 品牌排行网</title>
+    <meta name="robots" content="noindex,nofollow" />
+    <meta http-equiv="x-ua-compatible" content="IE=8" />
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="bookmark" type="image/x-icon" href="favicon.ico" />
+    <script type="text/javascript">        window.onerror = function () { return true; }</script>
+    <link rel="stylesheet" href="../skin/style.css" type="text/css" />
+    <script type="text/javascript" src="../js/jquery.js">    </script>
+    <script type="text/javascript" src="../js/public.js">    </script>
+    <script type="text/javascript" src="../js/entity.js">    </script>
+    <script type="text/javascript" src="../js/prompt/ymPrompt.js">    </script>
+    <link rel="stylesheet" id='skin' type="text/css" href="../js/prompt/skin/qq/ymPrompt.css" />
+</head>
+<body>
+    <div id="msgbox" onmouseover="closemsg();" style="display: none;">
+    </div>
+    <div class="menu" onselectstart="return false" id="bc_menu">
+        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+            <tr>
+                <td valign="bottom">
+                    <table cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td width="10">
+                                &nbsp;
+                            </td>
+                            <td id="Tab0" class="tab">
+                                <a href="editBrand.html?action=add">添加品牌</a>
+                            </td>
+                            <td class="tab_nav">
+                                &nbsp;
+                            </td>
+                            <td id="Tab1" class="tab">
+                                <a href="brandList.aspx?action=list">品牌列表</a>
+                            </td>
+                            <td class="tab_nav">
+                                &nbsp;
+                            </td>
+                            <td id="Tab2" class="tab">
+                                <a href="brandList.aspx?action=check">审核品牌</a>
+                            </td>
+                            <td class="tab_nav">
+                                &nbsp;
+                            </td>
+                            <td id="Tab3" class="tab">
+                                <a href="brandList.aspx?action=reject">未通过品牌</a>
+                            </td>
+                            <td class="tab_nav">
+                                &nbsp;
+                            </td>
+                            <td id="Tab4" class="tab">
+                                <a href="brandList.aspx?action=recycle">回收站</a>
+                            </td>
+                            <td class="tab_nav">
+                                &nbsp;
+                            </td>
+                            <td id="Tab5" class="tab">
+                                <a href="?moduleid=13&action=move">移动分类</a>
+                            </td>
+                            <td class="tab_nav">
+                                &nbsp;
+                            </td>
+                            <td id="Tab6" class="tab">
+                                <a href="?moduleid=13&action=nopay">未支付品牌</a>
+                            </td>
+                            <td class="tab_nav">
+                                &nbsp;
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td width="110">
+                    <div>
+                        <img src="../images/spacer.gif" width="40" height="24" title="刷新" onclick="window.location.reload();"
+                            style="cursor: pointer;" alt="" /><img src="../images/spacer.gif" width="20" height="24"
+                                title="后退" onclick="history.back(-1);" style="cursor: pointer;" alt="" /><img src="../images/spacer.gif"
+                                    width="20" height="24" title="前进" onclick="history.go(1);" style="cursor: pointer;"
+                                    alt="" /><img src="../images/spacer.gif" width="20" height="24" title="帮助" onclick="Go('http://www.destoon.com/client.php?action=help&product=b2b&mfa=brand-index-edit');"
+                                        style="cursor: help;" alt="" /></div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <form method="post" action="?" id="dform" onsubmit="return check();">
+    <input type="hidden" name="moduleid" value="13" />
+    <input type="hidden" name="file" value="index" />
+    <input type="hidden" name="action" value="edit" />
+    <input type="hidden" name="itemid" value="51876" />
+    <input type="hidden" name="forward" value="http://www.10brandchina.com/shangadmin.php?moduleid=13" />
+    <div class="tt">
+        修改品牌</div>
+    <table cellpadding="2" cellspacing="1" class="tb">
+        <tr>
+            <td class="tl">
+                <span class="f_red">*</span> 所属分类
+            </td>
+            <td>
+                <span id="catechange">
+                    <input name="post[catid]" id="catid_1" type="hidden" value="40432" /><span id="load_category_1"><select
+                        onchange="loadcategory(this.value);" id="bigIndustry"><option value="0">选择分类</option>
+                     
+                    </select>
+                        <select id="subIndustry">
+                            <option value="0">选择分类</option>
+                        </select>
+                    </span>
+                    <script type="text/javascript">                        var category_moduleid = new Array; category_moduleid[1] = "13"; var category_title = new Array; category_title[1] = '选择分类'; var category_extend = new Array; category_extend[1] = ''; var category_catid = new Array; category_catid[1] = '40432'; var category_deep = new Array; category_deep[1] = '0';</script>
+                    <script type="text/javascript" src="http://img.10brandchina.com/file/script/category.js"></script>
+                    <span id="dcatid" class="f_red"></span></span><span id="catechange1">&nbsp;&nbsp;&nbsp;搜索
+                        <input name="category" type="text" id="category" autocomplete="off" value="" />
+                        <span id="dbrandtitle" class="f_red"></span>
+                        <ul id="suggest_ul">
+                        </ul>
+                        <span>
+            </td>
+        </tr>
+        <tr>
+            <td class="tl">
+                <span class="f_red">*</span> 品牌名称
+            </td>
+            <td>
+                <input name="post[title]" type="text" id="title" size="60" value="" onblur="chk_repeat('title','品牌')" />
+                <select name="post[level]">
+                    <option value="0">级别</option>
+                    <option value="1">1 级 推荐品牌</option>
+                    <option value="2">2 级 台历下面</option>
+                    <option value="3">3 级</option>
+                    <option value="4">4 级</option>
+                    <option value="5">5 级</option>
+                    <option value="6">6 级</option>
+                    <option value="7">7 级</option>
+                    <option value="8">8 级</option>
+                    <option value="9">9 级</option>
+                </select>
+                <script type="text/javascript" src="http://img.10brandchina.com/file/script/color.js"></script>
+                <input type="hidden" name="post[style]" id="color_input_1" value="" /><img src="http://www.10brandchina.com/file/image/color.gif"
+                    width="21" height="18" align="absmiddle" id="color_img_1" style="cursor: pointer;
+                    background: " onclick="color_show(1, Dd('color_input_1').value, this);" />
+                <br />
+                <span id="dtitle" class="f_red"></span>
+            </td>
+        </tr>
+        <tr>
+            <td class="tl">
+                <span class="f_red">*</span> 品牌LOGO
+            </td>
+            <td>
+                <input name="post[thumb]" id="thumb" type="text" size="60" value="http://www.10brandchina.com/file/upload/201607/12/11-55-15-29-100014.png" />&nbsp;&nbsp;<span
+                    onclick="uploadFile('#thumb','LogoPath','Brand','img')" class="jt">[上传]</span>&nbsp;&nbsp;<span
+                        onclick="_preview(Dd('thumb').value);" class="jt">[预览]</span>&nbsp;&nbsp;<span onclick="Dd('thumb').value='';"
+                            class="jt">[删除]X</span><span id="dthumb" class="f_red"></span>
+            </td>
+        </tr>
+        <tr>
+            <td class="tl">
+                <span class="f_red">*</span> 官方网站
+            </td>
+            <td>
+                <input name="post[homepage]" id="homepage" type="text" size="60" value="" />&nbsp;&nbsp;<a
+                    class="jt" id="viewURL" href="" target="_blank">[预览]</a>
+            </td>
+        </tr>
+        <tr>
+            <td class="tl">
+                <span class="f_hid">*</span> 投票数
+            </td>
+            <td>
+                <input type="text" name="post_fields[toupiao]" id="toupiao" value="0" size="30" readonly />
+                <span class="f_red" id="dtoupiao"></span>
+            </td>
+        </tr>
+        <tr>
+            <td class="tl">
+                <span class="f_hid">*</span> 联系人
+            </td>
+            <td>
+                <input type="text" name="post_fields[contact]" id="contact" value="" size="30" />
+                <span class="f_red" id="dcontact"></span>
+            </td>
+        </tr>
+        <tr>
+            <td class="tl">
+                <span class="f_hid">*</span> 职位
+            </td>
+            <td>
+                <input type="text" name="post_fields[cjob]" id="cjob" value="" size="30" />
+                <span class="f_red" id="dcjob"></span>
+            </td>
+        </tr>
+        <tr>
+            <td class="tl">
+                <span class="f_hid">*</span> 电话
+            </td>
+            <td>
+                <input type="text" name="post_fields[ctel]" id="ctel" value="" size="30" />
+                <span class="f_red" id="dctel"></span>
+            </td>
+        </tr>
+        <tr>
+            <td class="tl">
+                <span class="f_hid">*</span> QQ号
+            </td>
+            <td>
+                <input type="text" name="post_fields[cqq]" id="cqq" value="" size="30" />
+                <span class="f_red" id="dcqq"></span>
+            </td>
+        </tr>
+        <tr>
+            <td class="tl">
+                <span class="f_hid">*</span> 传真
+            </td>
+            <td>
+                <input type="text" name="post_fields[cfax]" id="cfax" value="" size="30" />
+                <span class="f_red" id="dcfax"></span>
+            </td>
+        </tr>
+        <tr>
+            <td class="tl">
+                <span class="f_hid">*</span> 电子邮件
+            </td>
+            <td>
+                <input type="text" name="post_fields[cemail]" id="cemail" value="" size="30" />
+                <span class="f_red" id="dcemail"></span>
+            </td>
+        </tr>
+        <tr>
+            <td class="tl">
+                <span class="f_hid">*</span> 下次联系时间x
+            </td>
+            <td>
+                <script type="text/javascript" src="../js/calendar.js"></script>
+                <input type="text" name="post_fields[ctime]" id="post_fieldsctime" value="" size="10"
+                    onfocus="ca_show('post_fieldsctime', this, '-');" readonly ondblclick="this.value='';" />
+                <img src="../images/calendar.gif" align="absmiddle" onclick="ca_show('post_fieldsctime', this, '-');"
+                    style="cursor: pointer;" />
+                <span class="f_red" id="post_dfieldsctime"></span>
+            </td>
+        </tr>
+        <tr>
+            <td class="tl">
+                <span class="f_hid">*</span> 是否十大品牌
+            </td>
+            <td>
+                <span id="topten">
+                    <input type="radio" name="post_fields[topten]" value="0" id="topten_0" checked>
+                    否&nbsp;&nbsp;&nbsp;<input type="radio" name="post_fields[topten]" value="1" id="topten_1">
+                    是&nbsp;&nbsp;&nbsp;</span> <span class="f_red" id="dtopten"></span>
+            </td>
+        </tr>
+        <tr>
+            <td class="tl">
+                <span class="f_hid">*</span> 资质审核设置最大投票数
+            </td>
+            <td>
+                <input type="text" name="post_fields[maxtoupiao]" id="maxtoupiao" value="0" size="5" />
+                <span class="f_red" id="dmaxtoupiao"></span>0或空为不限制！
+            </td>
+        </tr>
+        <tr>
+            <td class="tl">
+                <span class="f_hid">*</span> 手机每分钟最多投票数
+            </td>
+            <td>
+                <input type="text" name="post_fields[mtoupiaolimit]" id="mtoupiaolimit" value="0"
+                    size="5" />
+                <span class="f_red" id="dmtoupiaolimit"></span>0或空为不限制！
+            </td>
+        </tr>
+        <tr>
+            <td class="tl">
+                <span class="f_hid">*</span> App每分钟最多投票数
+            </td>
+            <td>
+                <input type="text" name="post_fields[apptoupiaolimit]" id="apptoupiaolimit" value="0"
+                    size="5" />
+                <span class="f_red" id="dapptoupiaolimit"></span>0或空为不限制！
+            </td>
+        </tr>
+        <tr>
+            <td class="tl">
+                <span class="f_hid">*</span> 商标注册证
+            </td>
+            <td>
+                <input name="post_fields[shangbiao]" type="text" size="60" id="shangbiao" value="" />&nbsp;&nbsp;<span
+                    onclick="uploadFile('#shangbiao','RegisterNumber','Brand','img')" class="jt">[上传]</span>&nbsp;&nbsp;<span
+                        onclick="_preview(Dd('shangbiao').value);" class="jt">[预览]</span>&nbsp;&nbsp;<span
+                            onclick="Dd('shangbiao').value='';" class="jt">[删除]</span> <span class="f_red" id="dshangbiao">
+                            </span>没有商标注册证，不予审核通过
+            </td>
+        </tr>
+        <tr>
+            <td class="tl">
+                <span class="f_hid">*</span> 停止投票
+            </td>
+            <td>
+                <span id="stoptoupiao">
+                    <input type="radio" name="post_fields[stoptoupiao]" value="1" id="stoptoupiao_0">
+                    是&nbsp;&nbsp;&nbsp;<input type="radio" name="post_fields[stoptoupiao]" value="0"
+                        id="stoptoupiao_1" checked>
+                    否&nbsp;&nbsp;&nbsp;</span> <span class="f_red" id="dstoptoupiao"></span>是否禁止此品牌投票
+            </td>
+        </tr>
+        <tr>
+            <td class="tl">
+                <span class="f_hid">*</span> 禁止电脑投票
+            </td>
+            <td>
+                <span id="closepc">
+                    <input type="radio" name="post_fields[closepc]" value="1" id="closepc_0">
+                    是&nbsp;&nbsp;&nbsp;<input type="radio" name="post_fields[closepc]" value="0" id="closepc_1"
+                        checked>
+                    否&nbsp;&nbsp;&nbsp;</span> <span class="f_red" id="dclosepc"></span>
+            </td>
+        </tr>
+        <tr>
+            <td class="tl">
+                <span class="f_hid">*</span> 限制PC网站投票
+            </td>
+            <td>
+                <span id="frompc">
+                    <input type="radio" name="post_fields[frompc]" value="1" id="frompc_0">
+                    是&nbsp;&nbsp;&nbsp;<input type="radio" name="post_fields[frompc]" value="0" id="frompc_1"
+                        checked>
+                    否&nbsp;&nbsp;&nbsp;</span> <span class="f_red" id="dfrompc"></span>限制后用PC网站投票每分钟最多一票
+            </td>
+        </tr>
+        <tr>
+            <td class="tl">
+                <span class="f_hid">*</span> 是否涉嫌刷票
+            </td>
+            <td>
+                <input type="text" name="post_fields[isshuapiao]" id="isshuapiao" value="0" size="5" />
+                <span class="f_red" id="disshuapiao"></span>0或空为不涉嫌，1为涉嫌
+            </td>
+        </tr>
+        <tr>
+            <td class="tl">
+                <span class="f_hid">*</span> 验证码类型x
+            </td>
+            <td>
+                <span id="captcha">
+                    <input type="radio" name="post_fields[captcha]" value="0" id="captcha_0" checked>
+                    自动&nbsp;&nbsp;&nbsp;<input type="radio" name="post_fields[captcha]" value="1" id="captcha_1">
+                    英文&nbsp;&nbsp;&nbsp;<input type="radio" name="post_fields[captcha]" value="2" id="captcha_2">
+                    中文&nbsp;&nbsp;&nbsp;<input type="radio" name="post_fields[captcha]" value="3" id="captcha_3">
+                    问题&nbsp;&nbsp;&nbsp;<input type="radio" name="post_fields[captcha]" value="4" id="captcha_4">
+                    中文1&nbsp;&nbsp;&nbsp;<input type="radio" name="post_fields[captcha]" value="5" id="captcha_5">
+                    中文2&nbsp;&nbsp;&nbsp;<input type="radio" name="post_fields[captcha]" value="10" id="captcha_6">
+                    防刷&nbsp;&nbsp;&nbsp;</span> <span class="f_red" id="dcaptcha"></span>
+            </td>
+        </tr>
+        <tr>
+            <td class="tl">
+                <span class="f_hid">*</span> 验证自动切换提示x
+            </td>
+            <td>
+                <input type="text" name="post_fields[captchatime]" id="captchatime" value="0" size="15" />
+                <span class="f_red" id="dcaptchatime"></span>0或空清除提示
+            </td>
+        </tr>
+        <tr>
+            <td class="tl">
+                <span class="f_hid">*</span> 资质审核图1
+            </td>
+            <td>
+                <input name="post_fields[thumb1]" type="text" size="60" id="thumb1" value="" />&nbsp;&nbsp;<span
+                    onclick="uploadFile('#thumb1','Image1','Brand','img')" class="jt">[上传]</span>&nbsp;&nbsp;<span
+                        onclick="_preview(Dd('thumb1').value);" class="jt">[预览]</span>&nbsp;&nbsp;<span onclick="Dd('thumb1').value='';"
+                            class="jt">[删除]</span> <span class="f_red" id="dthumb1"></span>
+            </td>
+        </tr>
+        <tr>
+            <td class="tl">
+                <span class="f_hid">*</span> 资质审核图2
+            </td>
+            <td>
+                <input name="post_fields[thumb2]" type="text" size="60" id="thumb2" value="" />&nbsp;&nbsp;<span
+                    onclick="uploadFile('#thumb2','Image2','Brand','img')" class="jt">[上传]</span>&nbsp;&nbsp;<span
+                        onclick="_preview(Dd('thumb2').value);" class="jt">[预览]</span>&nbsp;&nbsp;<span onclick="Dd('thumb2').value='';"
+                            class="jt">[删除]</span> <span class="f_red" id="dthumb2"></span>
+            </td>
+        </tr>
+        <tr hidden="true">
+            <td class="tl">
+                <span class="f_hid">*</span> 注册地
+            </td>
+            <td>
+                 <select id="areaid"><option value="0">请选择</option>
+                        <option value="1">北京</option>
+                        <option value="2">上海</option>
+                        <option value="3">天津</option>
+                        <option value="4">重庆</option>
+                        <option value="5">河北</option>
+                        <option value="6">山西</option>
+                        <option value="7">内蒙古</option>
+                        <option value="8">辽宁</option>
+                        <option value="9">吉林</option>
+                        <option value="10">黑龙江</option>
+                        <option value="11">江苏</option>
+                        <option value="12">浙江</option>
+                        <option value="13">安徽</option>
+                        <option value="14">福建</option>
+                        <option value="15">江西</option>
+                        <option value="16">山东</option>
+                        <option value="17">河南</option>
+                        <option value="18">湖北</option>
+                        <option value="19">湖南</option>
+                        <option value="20">广东</option>
+                        <option value="21">广西</option>
+                        <option value="22">海南</option>
+                        <option value="23">四川</option>
+                        <option value="24">贵州</option>
+                        <option value="25">云南</option>
+                        <option value="26">西藏</option>
+                        <option value="27">陕西</option>
+                        <option value="28">甘肃</option>
+                        <option value="29">青海</option>
+                        <option value="30">宁夏</option>
+                        <option value="31">新疆</option>
+                        <option value="32">台湾</option>
+                        <option value="33">香港</option>
+                        <option value="34">澳门</option>
+                    </select>
+                
+                <!--<script type="text/javascript">                    var area_title = new Array; area_title[1] = '请选择'; var area_extend = new Array; area_extend[1] = ''; var area_areaid = new Array; area_areaid[1] = '0'; var area_deep = new Array; area_deep[1] = '0';</script>-->
+                <!--  <script type="text/javascript" src="http://img.10brandchina.com/file/script/area.js"></script>-->
+                <span class="f_red" id="dcompanycity"></span>
+            </td>
+        </tr>
+        <tr>
+            <td class="tl">
+                <span class="f_red">*</span> 企业名称
+            </td>
+            <td>
+                <input type="text" name="post_fields[gongsi]" id="gongsi" value="" size="50" />
+                <span class="f_red" id="dgongsi"></span>
+            </td>
+        </tr>
+        <tr>
+            <td class="tl">
+                <span class="f_hid">*</span> 公司注册证号
+            </td>
+            <td>
+                <input type="text" name="post_fields[zhucehao]" id="zhucehao" value="" size="30" />
+                <span class="f_red" id="dzhucehao"></span>
+            </td>
+        </tr>
+        <tr>
+            <td class="tl">
+                <span class="f_red">*</span> 企业地址
+            </td>
+            <td>
+                <input type="text" name="post_fields[dizhi]" id="dizhi" value="石家庄市高新开发区信工路18号" size="50" />
+                <span class="f_red" id="ddizhi"></span>
+            </td>
+        </tr>
+        <tr>
+            <td class="tl">
+                <span class="f_hid">*</span> 备注
+            </td>
+            <td>
+                <textarea name="post_fields[remark]" id="remark" rows="15" cols="120"></textarea>
+                <span class="f_red" id="dremark"></span>内部标记使用
+            </td>
+        </tr>
+        <tr>
+            <td class="tl">
+                <span class="f_hid">*</span> 开启抽奖x
+            </td>
+            <td>
+                <span id="prize">
+                    <input type="radio" name="post_fields[prize]" value="1" id="prize_0">
+                    开&nbsp;&nbsp;&nbsp;<input type="radio" name="post_fields[prize]" value="0" id="prize_1"
+                        checked>
+                    关&nbsp;&nbsp;&nbsp;</span> <span class="f_red" id="dprize"></span>
+            </td>
+        </tr>
+        <tr>
+            <td class="tl">
+                <span class="f_hid">*</span> 奖品名称x
+            </td>
+            <td>
+                <input type="text" name="post_fields[prizetitle]" id="prizetitle" value="" onclick="select_prize(3, 'prize');" />
+                <span class="f_red" id="dprizetitle"></span>
+            </td>
+        </tr>
+        <tr>
+            <td class="tl">
+                <span class="f_hid">*</span> 奖品idx
+            </td>
+            <td>
+                <input type="text" name="post_fields[prizeid]" id="prizeid" value="0" size="30" />
+                <span class="f_red" id="dprizeid"></span>
+            </td>
+        </tr>
+        <tr>
+            <td class="tl">
+                <span class="f_hid">*</span> 加入可信品牌数据库x
+            </td>
+            <td>
+                <input name="post_fields[istrust]" type="radio" value="1" onclick="Ds('brand_trust')" />
+                是&nbsp;&nbsp;
+                <input name="post_fields[istrust]" type="radio" value="0" checked onclick="Dh('brand_trust')" />
+                否&nbsp;&nbsp; <span class="f_red" id="distrust"></span>
+                <input name="post_trust[itemid]" type="hidden" value="0" />
+            </td>
+        </tr>
+        <tbody id="brand_trust" style="display: none">
+            <tr>
+                <td class="tl">
+                    <span class="f_hid">*</span> 可信品牌二维码x
+                </td>
+                <td>
+                    <input type="text" name="post_trust[bqrcode]" id="bqrcode" value="" size="100" />
+                    <span class="f_red" id="dbqrcode"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="tl">
+                    <span class="f_hid">*</span> 可信认证过期时间x
+                </td>
+                <td>
+                    <input type="text" name="post_trust[bvalid]" id="bvalid" value="" size="10" onfocus="ca_show('bvalid', this, '-');"
+                        readonly ondblclick="this.value='';" />
+                    <img src="http://www.10brandchina.com/file/image/calendar.gif" align="absmiddle"
+                        onclick="ca_show('bvalid', this, '-');" style="cursor: pointer;" />
+                    <span class="f_red" id="dbvalid"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="tl">
+                    <span class="f_hid">*</span> 商标类别x
+                </td>
+                <td>
+                    <input type="text" name="post_trust[bclass]" id="bclass" value="" size="30" />
+                    <span class="f_red" id="dbclass"></span>比如（第42类）
+                </td>
+            </tr>
+            <tr>
+                <td class="tl">
+                    <span class="f_hid">*</span> 商标注册号x
+                </td>
+                <td>
+                    <input type="text" name="post_trust[bzhucehao]" id="bzhucehao" value="" size="30" />
+                    <span class="f_red" id="dbzhucehao"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="tl">
+                    <span class="f_hid">*</span> 商标星级x
+                </td>
+                <td>
+                    <input type="text" name="post_trust[bstar]" id="bstar" value="" size="30" />
+                    <span class="f_red" id="dbstar"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="tl">
+                    <span class="f_hid">*</span> 企业类型x
+                </td>
+                <td>
+                    <input type="text" name="post_trust[btype]" id="btype" value="" size="30" />
+                    <span class="f_red" id="dbtype"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="tl">
+                    <span class="f_hid">*</span> 经营范围x
+                </td>
+                <td>
+                    <textarea name="post_trust[business]" id="business" rows="3" cols="100"></textarea>
+                    <span class="f_red" id="dbusiness"></span>
+                </td>
+            </tr>
+        </tbody>
+        <tr>
+            <td class="tl">
+                <span class="f_hid">*</span> 评分及调x查数据显示
+            </td>
+            <td>
+                <input name="diaochashow" type="radio" value="1" onclick="Ds('brand_diaocha')" />
+                是&nbsp;&nbsp;
+                <input name="diaochashow" type="radio" value="0" checked onclick="Dh('brand_diaocha')" />
+                否&nbsp;&nbsp; <span class="f_red" id="diaochashow"></span>
+            </td>
+        </tr>
+        <tbody id="brand_diaocha" style="display: none">
+            <tr>
+                <td class="tl">
+                    <span class="f_hid">*</span> 综合评分x
+                </td>
+                <td>
+                    <input type="text" name="post_diaocha[pingfen]" id="pingfen" value="0" />
+                </td>
+            </tr>
+            <tr>
+                <td class="tl">
+                    <span class="f_hid">*</span> 5星x
+                </td>
+                <td>
+                    <input type="text" name="post_diaocha[pingfen5]" id="pingfen5" value="0" />
+                </td>
+            </tr>
+            <tr>
+                <td class="tl">
+                    <span class="f_hid">*</span> 4星x
+                </td>
+                <td>
+                    <input type="text" name="post_diaocha[pingfen4]" id="pingfen4" value="0" />
+                </td>
+            </tr>
+            <tr>
+                <td class="tl">
+                    <span class="f_hid">*</span> 3星x
+                </td>
+                <td>
+                    <input type="text" name="post_diaocha[pingfen3]" id="pingfen3" value="0" />
+                </td>
+            </tr>
+            <tr>
+                <td class="tl">
+                    <span class="f_hid">*</span> 2星x
+                </td>
+                <td>
+                    <input type="text" name="post_diaocha[pingfen2]" id="pingfen2" value="0" />
+                </td>
+            </tr>
+            <tr>
+                <td class="tl">
+                    <span class="f_hid">*</span> 1星x
+                </td>
+                <td>
+                    <input type="text" name="post_diaocha[pingfen1]" id="pingfen1" value="0" />
+                </td>
+            </tr>
+            <tr>
+                <td class="tl">
+                    <span class="f_hid">*</span> 在21品牌网看到的x
+                </td>
+                <td>
+                    <input type="text" name="post_diaocha[diaocha1]" id="diaocha1" value="0" />
+                </td>
+            </tr>
+            <tr>
+                <td class="tl">
+                    <span class="f_hid">*</span> 了解该品牌，并使用过x
+                </td>
+                <td>
+                    <input type="text" name="post_diaocha[diaocha2]" id="diaocha2" value="0" />
+                </td>
+            </tr>
+            <tr>
+                <td class="tl">
+                    <span class="f_hid">*</span> 只是听过，但没接x触过
+                </td>
+                <td>
+                    <input type="text" name="post_diaocha[diaocha3]" id="diaocha3" value="0" />
+                </td>
+            </tr>
+            <tr>
+                <td class="tl">
+                    <span class="f_hid">*</span> 同本公司有过业务往来x
+                </td>
+                <td>
+                    <input type="text" name="post_diaocha[diaocha4]" id="diaocha4" value="0" />
+                </td>
+            </tr>
+            <tr>
+                <td class="tl">
+                    <span class="f_hid">*</span> 该品牌知名度大x
+                </td>
+                <td>
+                    <input type="text" name="post_diaocha[diaocha5]" id="diaocha5" value="0" />
+                </td>
+            </tr>
+            <tr>
+                <td class="tl">
+                    <span class="f_hid">*</span> 听朋友或同行介绍x
+                </td>
+                <td>
+                    <input type="text" name="post_diaocha[diaocha6]" id="diaocha6" value="0" />
+                </td>
+            </tr>
+            <tr>
+                <td class="tl">
+                    <span class="f_hid">*</span> 信任产品质量x
+                </td>
+                <td>
+                    <input type="text" name="post_diaocha[diaocha7]" id="diaocha7" value="0" />
+                </td>
+            </tr>
+            <tr>
+                <td class="tl">
+                    <span class="f_hid">*</span> 认可其实力和诚信度x
+                </td>
+                <td>
+                    <input type="text" name="post_diaocha[diaocha8]" id="diaocha8" value="0" />
+                </td>
+            </tr>
+            <tr>
+                <td class="tl">
+                    <span class="f_hid">*</span> 第一次尝试使用x
+                </td>
+                <td>
+                    <input type="text" name="post_diaocha[diaocha9]" id="diaocha9" value="0" />
+                </td>
+            </tr>
+            <tr>
+                <td class="tl">
+                    <span class="f_hid">*</span> 公司产品有特色x
+                </td>
+                <td>
+                    <input type="text" name="post_diaocha[diaocha10]" id="diaocha10" value="0" />
+                </td>
+            </tr>
+        </tbody>
+        <tr>
+            <td class="tl">
+                <span class="f_hid">*</span> 微信微博显示x
+            </td>
+            <td>
+                <input name="contactshow" type="radio" value="1" onclick="Ds('brand_contact')" />
+                是&nbsp;&nbsp;
+                <input name="contactshow" type="radio" value="0" checked="checked" onclick="Dh('brand_contact')" />
+                否
+                <input name="post[iscontact]" type="hidden" value="0" />
+                <input name="post_contact[itemid]" type="hidden" value="0" />
+            </td>
+        </tr>
+        <tbody id="brand_contact" style="display: none;">
+            <tr>
+                <td class="tl">
+                    <span class="f_hid">*</span> 微信名称x
+                </td>
+                <td>
+                    <input type="text" name="post_contact[weixin_name]" id="weixin_name" value="" size="30" />
+                    <span class="f_red" id="dweixin_name"></span>比如：效菘世纪
+                </td>
+            </tr>
+            <tr>
+                <td class="tl">
+                    <span class="f_hid">*</span> 微信二维x码
+                </td>
+                <td>
+                    <input type="text" name="post[weixin_pic]" id="weixin_pic" value="" size="50" />
+                    <span onclick="Dthumb(13,94,94, Dd('weixin_pic').value,true,'weixin_pic');" class="jt">
+                        [上传]</span>&nbsp;&nbsp;<span onclick="_preview(Dd('weixin_pic').value);" class="jt">[预览]</span>&nbsp;&nbsp;<span
+                            onclick="Dd('weixin_pic').value='';" class="jt">[删除]</span><span id="dweixin_pic"
+                                class="f_red"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="tl">
+                    <span class="f_hid">*</span> 微博名称x
+                </td>
+                <td>
+                    <input type="text" name="post_contact[weibo_name]" id="weibo_name" value="" size="30" />
+                    <span class="f_red" id="dweibo_name"></span>比如 淘宝
+                </td>
+            </tr>
+            <tr>
+                <td class="tl">
+                    <span class="f_hid">*</span> 微博二维码x
+                </td>
+                <td>
+                    <input type="text" name="post[weibo_pic]" id="weibo_pic" value="" size="50" />
+                    <span onclick="Dthumb(13,94,94, Dd('weibo_pic').value,true,'weibo_pic');" class="jt">
+                        [上传]</span>&nbsp;&nbsp;<span onclick="_preview(Dd('weibo_pic').value);" class="jt">[预览]</span>&nbsp;&nbsp;<span
+                            onclick="Dd('weibo_pic').value='';" class="jt">[删除]</span><span id="dweibo_pic" class="f_red"></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="tl">
+                    <span class="f_hid">*</span> 微博链接x
+                </td>
+                <td>
+                    <input type="text" name="post_contact[weibo_linkurl]" id="weibo_linkurl" value=""
+                        size="50" />
+                    <span class="f_red" id="dweibo_linkurl"></span>比如：http://weibo.com/taobao
+                </td>
+            </tr>
+        </tbody>
+        <tr>
+            <td class="tl">
+                <span class="f_hid">*</span> 详细说明x
+            </td>
+            <td>
+                <textarea name="post[content]" id="content" class="dsn">&nbsp;</textarea>
+                <script type="text/javascript">                    var ModuleID = 13; var DTAdmin = 1; var EDPath = ""; var ABPath = "http://www.10brandchina.com/member/fckeditor/"; var EDW = "98%"; var EDH = "150"; var FCKID = "content";</script>
+                <script type="text/javascript" src="../js/fckeditor.js"></script>
+                <script type="text/javascript">                    window.onload = function () { var sBasePath = ""; var oFCKeditor = new FCKeditor("content"); oFCKeditor.Width = "98%"; oFCKeditor.Height = "150px"; oFCKeditor.BasePath = sBasePath; oFCKeditor.ToolbarSet = "Destoon"; oFCKeditor.ReplaceTextarea(); }</script>
+                <script type="text/javascript" src="../js/fckeditor_m.js"></script>
+                <span id="dcontent" class="f_red"></span>
+            </td>
+        </tr>
+        <tr>
+            <td class="tl" height="30">
+                <span class="f_hid">*</span> 内容选项x
+            </td>
+            <td>
+                <input type="checkbox" name="post[save_remotepic]" value="1" />下载远程图片&nbsp;&nbsp;
+                <input type="checkbox" name="post[clear_link]" value="1" />清除链接&nbsp;&nbsp;
+            </td>
+        </tr>
+        <tbody id="d_member" style="display: ">
+            <tr>
+                <td class="tl">
+                    <span class="f_red">*</span> 会员名x
+                </td>
+                <td>
+                    <input name="post[username]" type="text" size="20" value="" id="username" />
+                    <a href="javascript:_user(Dd('username').value);" class="t">[资料]</a> <span id="dusername"
+                        class="f_red"></span>
+                </td>
+            </tr>
+        </tbody>
+        <tr>
+            <td class="tl">
+                <span class="f_hid">*</span> 品牌状态
+            </td>
+            <td>
+                <input type="radio" id='status0' name="post[status]" value="3" />
+                通过
+                <input type="radio" id='status1' name="post[status]" value="2" />
+                待审
+                <input type="radio" id='status2' name="post[status]" value="1" onclick="if(this.checked) Dd('note').style.display='';" />
+                拒绝
+                <input type="radio" id='status3' name="post[status]" value="4" />
+                过期
+                <input type="radio" id='status4' name="post[status]" value="0" />
+                删除
+            </td>
+        </tr>
+        <tr id="note" style="display: none">
+            <td class="tl">
+                <span class="f_red">*</span> 拒绝理由
+            </td>
+            <td>
+                <input name="post[note]" type="text" size="40" value="" />
+            </td>
+        </tr>
+        <tr>
+            <td class="tl">
+                <span class="f_hid">*</span> 添加时间
+            </td>
+            <td>
+                <input type="text" size="22" name="post[addtime]" value="2016-07-12 11:39:44" />
+            </td>
+        </tr>
+        <tr>
+            <td class="tl">
+                <span class="f_hid">*</span> 浏览次数x
+            </td>
+            <td>
+                <input name="post[hits]" type="text" size="10" value="1" />
+            </td>
+        </tr>
+        <tr>
+            <td class="tl">
+                <span class="f_hid">*</span> 内容收费x
+            </td>
+            <td>
+                <input name="post[fee]" type="text" size="5" value="0" />
+                <img src="../images/help.png" width="11" height="11" title="不填或填0表示继承模块设置价格，-1表示不收费<br/>大于0的数字表示具体收费价格"
+                    alt="tips" class="c_p" onclick="Dconfirm(this.title, '', 450);" />
+            </td>
+        </tr>
+        <tr>
+            <td class="tl">
+                <span class="f_hid">*</span> 内容模板x
+            </td>
+            <td>
+                <span id="bc_template_1">
+                    <select name="post[template]" id="template">
+                        <option value="">默认模板</option>
+                    </select></span>&nbsp;&nbsp;<a href="javascript:tpl_edit('show', 'brand', 1);" class="t">[修改]</a>
+                &nbsp;<a href="javascript:tpl_add('show', 'brand');" class="t">[新建]</a>
+                <img src="../images/help.png" width="11" height="11" title="如果没有特殊需要，一般不需要选择<br/>系统会自动继承分类或模块设置"
+                    alt="tips" class="c_p" onclick="Dconfirm(this.title, '', 450);" />
+            </td>
+        </tr>
+    </table>
+    <div class="sbt">
+        <input type="button" onclick="SaveBrand()" name="submit" value=" 确 定 " class="btn" />&nbsp;&nbsp;&nbsp;&nbsp;<input
+            type="reset" name="reset" value=" 重 置 " class="btn" /></div>
+    </form>
+    <script type="text/javascript" src="http://img.10brandchina.com/file/script/clear.js"></script>
+    <script type="text/javascript">
+        function checkBrand()
+        {
+            var l;
+            var f;
+            f = 'catid_1';
+
+            if (Dd(f).value == 0)
+            {
+                Dmsg('请选择所属分类', 'catid', 1);
+                return false;
+            }
+            f = 'title';
+            l = Dd(f).value.length;
+            if (l < 2)
+            {
+                Dmsg('请填写品牌名称', f);
+                return false;
+            }
+            if (Dd('dtitle').innerHTML == '此品牌在本分类中已存在')
+            {
+                alert('此品牌在本分类中已存在');
+                Dd('title').focus();
+                return false;
+            }
+
+            f = 'thumb';
+            l = Dd(f).value.length;
+            if (l < 10)
+            {
+                Dmsg('请上传LOGO', f);
+                return false;
+            }
+            //  if (Dd('ismember_1').checked)
+         if ( false)
+            {
+                f = 'username';
+                l = Dd(f).value.length;
+                if (l < 2)
+                {
+                    Dmsg('请填写会员名', f);
+                    return false;
+                }
+
+            } else
+            {
+               
+                f = 'gongsi';
+                l = Dd(f).value.length;
+                if (l < 2)
+                {
+                    Dmsg('请填写公司名称', f);
+                    return false;
+                }
+                f = 'dizhi';
+                l = Dd(f).value.length;
+                if (l < 2)
+                {
+                    Dmsg('请填写公司地址', f);
+                    return false;
+                }
+                
+//                if (Dd('areaid').value == 0)
+//                {
+//                    Dmsg('请选择所在地区', 'companycity', 1);
+//                    return false;
+//                }
+
+                f = 'username';
+                l = Dd(f).value.length;
+              
+//                if (l < 2)
+//                {
+//                    Dmsg('请填写联系人', 'username');
+//                    return false;
+//                }
+//                f = 'ctel';
+//                l = Dd(f).value.length;
+//                if (l < 7)
+//                {
+//                    Dmsg('请填写手机', f);
+//                    return false;
+//                }
+                
+            }
+            if (Dd('property_require') != null)
+            {
+                var ptrs = Dd('property_require').getElementsByTagName('option');
+                for (var i = 0; i < ptrs.length; i++)
+                {
+                    f = 'property-' + ptrs[i].value;
+                    if (Dd(f).value == 0 || Dd(f).value == '')
+                    {
+                        Dmsg('请填写或选择' + ptrs[i].innerHTML, f);
+                        return false;
+                    }
+                }
+            }
+           
+            return true;
+        }
+        function chk_repeat(f, n)
+        {
+            v = Dd(f).value;
+            fname = f;
+            pinfo = n;
+            catid = Dd("catid_1").value;
+            if (catid == 0) return true;
+            if (v == "") return true;
+            makeRequest("mid=13&action=repeat&f=" + f + "&v=" + v + "&catid=" + catid, "/ajax.php", "_chk_repeat");
+        }
+        function _chk_repeat()
+        {
+            if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+            {
+                Dd("d" + fname).innerHTML = xmlHttp.responseText ? "此" + pinfo + "在本分类中已存在" : '';
+            }
+        }
+
+        $('#category').keyup(function ()
+        {
+
+            if ($('#category').attr('value') != '')
+            {
+                var vad_strings = $("#category").attr('value');
+                $.ajax({
+                    type: 'post',
+                    // url:"shangadmin.php?moduleid=13&action=search",  
+                    url: "/ajax.php",
+                    data: { vad_strings: vad_strings, action: "category", moduleid: 13, status: 123 },
+                    cache: false,
+                    dataType: 'json',
+                    success: function (data)
+                    {
+                        var contents = "";
+                        for (var i = 0; i < data.length; i++)
+                        {
+                            var keywords = data[i].catname;
+                            var catid = data[i].catid;
+                            var status = data[i].status;
+
+                            if (status == 0)
+                            {
+                                status = "结束";
+                            } else if (status == 1)
+                            {
+                                status = "投票";
+                            } else if (status == 2)
+                            {
+                                status = "揭榜";
+                            } else if (status == 3)
+                            {
+                                status = "未开始";
+                            }
+                            contents = contents + "<a style='cursor:pointer;'><li onclick='changeval(\"" + keywords + "\"," + catid + ");'>" + keywords + "(" + status + ")" + "</li></a>";
+                        }
+                        $("#suggest_ul").show();
+                        $("#suggest_ul").html(contents);
+                        $('#dbrandtitle').html('');
+                        $('#category').html('');
+
+                    }
+                });
+            }
+        });
+
+        function changeval(keywords, catid)
+        {
+            $("#category").val(keywords);
+            $('#catechange').html('');
+            $('#suggest_ul').html('');
+
+            $('#dbrandtitle').html('<input type="hidden" name="post[catid]" value=' + catid + '>');
+        }
+
+    </script>
+    <script type="text/javascript">        Menuon(1);</script>
+</body>
+</html>

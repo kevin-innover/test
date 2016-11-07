@@ -1,0 +1,140 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<title>管理中心 - 品牌排行网</title>
+<meta name="robots" content="noindex,nofollow"/>
+<meta http-equiv="x-ua-compatible" content="IE=8"/>
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
+<link rel="bookmark" type="image/x-icon" href="favicon.ico"/>
+<script type="text/javascript">window.onerror= function(){return true;}</script><link rel="stylesheet" href="../images/style.css" type="text/css"/>
+<script type="text/javascript" src="http://img.10brandchina.com/file/script/public.js"></script>
+<script type="text/javascript" src="http://img.10brandchina.com/file/script/jquery.js"></script>
+<script type="text/javascript" src="http://img.10brandchina.com/file/script/admin.js"></script>
+
+   <script type="text/javascript" src="../js/jquery-1.7.2.min.js">    </script>
+  
+    <script type="text/javascript" src="../js/public.js">    </script>
+  
+    <script type="text/javascript" src="../js/rank.js">    </script> 
+    
+     <script type="text/javascript" src="../js/prompt/ymPrompt.js">    </script>
+    <link rel="stylesheet" id='skin' type="text/css" href="../js/prompt/skin/qq/ymPrompt.css" />
+</head>
+<body>
+<div id="msgbox" onmouseover="closemsg();" style="display:none;"></div>
+<div class="menu" onselectstart="return false" id="bc_menu">
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td valign="bottom">
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td width="10">&nbsp;</td>
+<td id="Tab0" class="tab"><a href="?moduleid=13&file=bangdan&action=add" >添加榜单</a></td><td class="tab_nav">&nbsp;</td><td id="Tab1" class="tab"><a href="?moduleid=13&file=bangdan" >榜单列表</a></td><td class="tab_nav">&nbsp;</td><td id="Tab2" class="tab"><a href="?moduleid=13&file=bangdan&action=item" >榜单详细</a></td><td class="tab_nav">&nbsp;</td></tr>
+</table>
+</td>
+<td width="110"><div><img src="../images/spacer.gif" width="40" height="24" title="刷新" onclick="window.location.reload();" style="cursor:pointer;" alt=""/><img src="../images/spacer.gif" width="20" height="24" title="后退" onclick="history.back(-1);" style="cursor:pointer;" alt=""/><img src="../images/spacer.gif" width="20" height="24" title="前进" onclick="history.go(1);" style="cursor:pointer;" alt=""/><img src="../images/spacer.gif" width="20" height="24" title="帮助" onclick="Go('http://www.destoon.com/client.php?action=help&product=b2b&mfa=brand-bangdan-itemedit');" style="cursor:help;" alt=""/></div></td>
+</tr>
+</table>
+</div><form method="post" action="?action=edit" id="dform" onsubmit="return check();">
+<input type="hidden" name="moduleid" value="13"/>
+<input type="hidden" name="file" value="bangdan"/>
+<input type="hidden" name="action" value="itemedit"/>
+<input type="hidden" name="bangdanid" value="425"/>
+<input type="hidden" name="id" value="4231"/>
+<input type="hidden" name="forward" value="http://www.10brandchina.com/shangadmin.php?moduleid=13&file=bangdan&action=item&bangdanid=425"/>
+<div class="tt">味好美</div>
+<table cellpadding="2" cellspacing="1" class="tb">
+<tr>
+<td class="tl"><span class="f_red">*</span> 名 称</td>
+<td><input name="post[title]" type="text" id="title" size="60" value="味好美" />  <br/><span id="dtitle" class="f_red"></span></td>
+</tr>
+<tr>
+<td class="tl"> 去除牌字X</td>
+<td><input name="post[hidepai]" id="hidepai"  type="checkbox"  value="1" />  隐藏奖牌证书上的"牌"字</td>
+</tr>
+
+<tr>
+<td class="tl"> 品牌LOGO</td>
+<td><input name="post[thumb]" id="thumb" type="text" size="60" value="http://www.10brandchina.com/file/upload/201608/29/18-00-01-742-40916.png"/>&nbsp;&nbsp;<span onclick="uploadFile()" class="jt">[上传]</span>&nbsp;&nbsp;<span onclick="_preview(Dd('thumb').value);" class="jt">[预览X]</span>&nbsp;&nbsp;<span onclick="Dd('thumb').value='';" class="jt">[删除X]</span><span id="dthumb" class="f_red"></span> </td>
+</tr>
+
+<tr>
+<td class="tl"> 奖牌证书</td>
+<td><input name="post[status]" type="radio" value="1"   />有 <input name="post[status]"  type="radio" value="2"   />仅证书
+<input name="post[status]"  type="radio" value="3"  />仅奖牌 <input name="post[status]"  type="radio" value="4"   />仅显示 
+<input name="post[status]"  type="radio" value="0" checked="checked" />不显示
+</td>
+</tr>
+<tr>
+<td class="tl"> 证书LOGO</td>
+<td><input name="post[thumb1]" id="thumb1" type="text" size="60" value=""/>&nbsp;&nbsp;<span onclick="Dthumb(13,0,0, Dd('thumb1').value,true,'thumb1');" class="jt">[上传]</span>&nbsp;&nbsp;<span onclick="_preview(Dd('thumb1').value);" class="jt">[预览]</span>&nbsp;&nbsp;<span onclick="Dd('thumb1').value='';" class="jt">[删除]</span><span id="dthumb1" class="f_red"></span> 格式PNG透明,最大800X400</td>
+</tr>
+<tr>
+<td class="tl"> 奖牌LOGO</td>
+<td><input name="post[thumb2]" id="thumb2" type="text" size="60" value=""/>&nbsp;&nbsp;<span onclick="Dthumb(13,0,0, Dd('thumb2').value,true,'thumb2');" class="jt">[上传]</span>&nbsp;&nbsp;<span onclick="_preview(Dd('thumb2').value);" class="jt">[预览]</span>&nbsp;&nbsp;<span onclick="Dd('thumb2').value='';" class="jt">[删除]</span><span id="dthumb2" class="f_red"></span> 格式PNG透明,最大800X400，不填写和证书Logo一样</td>
+</tr>
+
+<tr>
+<td class="tl" rowspan="2"> 证书邮寄至</td>
+<td><input name="post[hidemail]"  type="checkbox" id="hidemail"  value="1"   /> 隐藏邮寄信息X<a 
+        href="editBrand.html">editBrand.html</a></td>
+</tr>
+<tr>
+<td><textarea name="post[mailinfo]" cols="60" id="mailinfo"></textarea> 
+<span id="daddress" class="f_red"></span></td>
+</tr>
+
+
+<tr>
+<td class="tl"><span class="f_red">*</span> 官方网站</td>
+<td><input name="post[homepage]" id="homepage" type="text" size="60" value="http://www.mccormick.com.cn/"/>&nbsp;&nbsp;<a class="jt" id="viewURL" href="http://www.mccormick.com.cn/" target="_blank">[预览]</a> <span id="dhomepage" class="f_red"></span></td>
+</tr>
+<tr>
+<td class="tl"><span class="f_red">*</span> 公 司</td>
+<td><input name="post[company]" type="text" id="company" size="60" value="上海味好美食品有限公司" /> <span id="dcompany" class="f_red"></span></td>
+</tr>
+<tr>
+<td class="tl"><span class="f_red">*</span> 地 址</td>
+<td><input name="post[address]" type="text" id="address" size="60" value="上海市闵行区虹梅南路701号" /> <span id="daddress" class="f_red"></span></td>
+</tr>
+
+</table>
+<div class="sbt"><input type="button" name="submit" onclick="SaveRank()" value=" 确 定 " class="btn"/>&nbsp;&nbsp;&nbsp;&nbsp;<input type="reset" name="reset" value=" 重 置 " class="btn"/></div>
+</form>
+<script type="text/javascript">
+function check() {
+	var l;
+	var f;
+	f = 'title';
+	l = Dd(f).value.length;
+	if(l < 2) {
+		Dmsg('请填写品牌名称', f);
+		return false;
+	}
+	f = 'homepage';
+	l = Dd(f).value.length;
+	if(l < 2) {
+		Dmsg('请填写官网', f);
+		return false;
+	}
+	f = 'company';
+	l = Dd(f).value.length;
+	if(l < 2) {
+		Dmsg('请填写公司名称', f);
+		return false;
+	}
+	f = 'address';
+	l = Dd(f).value.length;
+	if(l < 5) {
+		Dmsg('请填写地址',f);
+		return false;
+}
+    return true
+	
+}
+</script>
+<br/>
+<script type="text/javascript">Menuon(2);</script>
+</body>
+</html>

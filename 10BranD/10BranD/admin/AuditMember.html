@@ -1,0 +1,600 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<title>管理中心 - 品牌排行网</title>
+<meta name="robots" content="noindex,nofollow"/>
+<meta http-equiv="x-ua-compatible" content="IE=8"/>
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
+<link rel="bookmark" type="image/x-icon" href="favicon.ico"/>
+<script type="text/javascript">window.onerror= function(){return true;}</script> 
+  <link rel="stylesheet" href="../skin/style.css" type="text/css" />
+    <script type="text/javascript" src="../js/jquery.js">    </script>
+    <script type="text/javascript" src="../js/public.js">    </script>
+    <script type="text/javascript" src="../js/entity.js">    </script>
+    <script type="text/javascript" src="../js/prompt/ymPrompt.js">    </script>
+    <link rel="stylesheet" id='skin' type="text/css" href="../js/prompt/skin/qq/ymPrompt.css" />
+</head>
+<body>
+<div id="msgbox" onmouseover="closemsg();" style="display:none;"></div>
+<div class="menu" onselectstart="return false" id="bc_menu">
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td valign="bottom">
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td width="10">&nbsp;</td>
+<td id="Tab0" class="tab"><a href="?moduleid=2&action=add" >添加会员</a></td><td class="tab_nav">&nbsp;</td><td id="Tab1" class="tab"><a href="?moduleid=2" >会员列表</a></td><td class="tab_nav">&nbsp;</td><td id="Tab2" class="tab"><a href="?moduleid=2&action=check" >审核会员</a></td><td class="tab_nav">&nbsp;</td><td id="Tab3" class="tab"><a href="?moduleid=2&file=grade&action=check" >会员升级</a></td><td class="tab_nav">&nbsp;</td><td id="Tab4" class="tab"><a href="?moduleid=2&file=contact" >联系会员</a></td><td class="tab_nav">&nbsp;</td><td id="Tab5" class="tab"><a href="?moduleid=4" >公司列表</a></td><td class="tab_nav">&nbsp;</td><td id="Tab6" class="tab"><a href="?moduleid=4&file=vip" >VIP列表</a></td><td class="tab_nav">&nbsp;</td></tr>
+</table>
+</td>
+<td width="110"><div><img src="admin/image/spacer.gif" width="40" height="24" title="刷新" onclick="window.location.reload();" style="cursor:pointer;" alt=""/><img src="admin/image/spacer.gif" width="20" height="24" title="后退" onclick="history.back(-1);" style="cursor:pointer;" alt=""/><img src="admin/image/spacer.gif" width="20" height="24" title="前进" onclick="history.go(1);" style="cursor:pointer;" alt=""/><img src="admin/image/spacer.gif" width="20" height="24" title="帮助" onclick="Go('http://www.destoon.com/client.php?action=help&product=b2b&mfa=member-index-');" style="cursor:help;" alt=""/></div></td>
+</tr>
+</table>
+</div><form action="?">
+<div class="tt">会员搜索</div>
+<input type="hidden" name="moduleid" value="2"/>
+<input type="hidden" name="action" value=""/>
+<table cellpadding="2" cellspacing="1" class="tb">
+<tr>
+<td>&nbsp;
+<select name="fields"  ><option value="0" selected=selected>按条件</option><option value="1">公司名</option><option value="2">会员名</option><option value="3">密码</option><option value="4">姓名</option><option value="5">手机号码</option><option value="6">部门</option><option value="7">职位</option><option value="8">Email</option><option value="9">QQ</option><option value="10">MSN</option><option value="11">阿里旺旺</option><option value="12">Skype</option><option value="13">注册IP</option><option value="14">登录IP</option><option value="15">客服专员</option><option value="16">开户银行</option><option value="17">银行帐号</option><option value="18">支付宝</option><option value="19">推荐人</option></select>&nbsp;
+<input type="text" size="20" name="kw" value="" title="关键词"/>&nbsp;
+<select name="groupid" ><option value="0">会员组</option><option value="1">管理员</option><option value="2">禁止访问</option><option value="3">游客</option><option value="4">待审核会员</option><option value="5">个人会员</option><option value="6">企业会员</option><option value="7">经销商</option><option value="8">专卖店</option><option value="9">品牌商</option></select>&nbsp;
+<select name="gender"  ><option value="0" selected=selected>性别</option><option value="1">先生</option><option value="2">女士</option></select>&nbsp;
+<input name="areaid" id="areaid_1" type="hidden" value="0"/><span id="load_area_1"><select onchange="load_area(this.value, 1);" ><option value="0">所在地区</option><option value="1">北京</option><option value="2">上海</option><option value="3">天津</option><option value="4">重庆</option><option value="5">河北</option><option value="6">山西</option><option value="7">内蒙古</option><option value="8">辽宁</option><option value="9">吉林</option><option value="10">黑龙江</option><option value="11">江苏</option><option value="12">浙江</option><option value="13">安徽</option><option value="14">福建</option><option value="15">江西</option><option value="16">山东</option><option value="17">河南</option><option value="18">湖北</option><option value="19">湖南</option><option value="20">广东</option><option value="21">广西</option><option value="22">海南</option><option value="23">四川</option><option value="24">贵州</option><option value="25">云南</option><option value="26">西藏</option><option value="27">陕西</option><option value="28">甘肃</option><option value="29">青海</option><option value="30">宁夏</option><option value="31">新疆</option><option value="32">台湾</option><option value="33">香港</option><option value="34">澳门</option></select> </span><script type="text/javascript">var area_title = new Array;area_title[1]='所在地区';var area_extend = new Array;area_extend[1]='';var area_areaid = new Array;area_areaid[1]='0';var area_deep = new Array;area_deep[1]='0';</script><script type="text/javascript" src="http://img.10brandchina.com/file/script/area.js"></script>&nbsp;
+<select name="order"  ><option value="0" selected=selected>结果排序方式</option><option value="1">注册时间降序</option><option value="2">注册时间升序</option><option value="3">登录时间降序</option><option value="4">登录时间升序</option><option value="5">登录次数降序</option><option value="6">登录次数升序</option><option value="7">账户资金降序</option><option value="8">账户资金升序</option><option value="9">会员积分降序</option><option value="10">会员积分升序</option><option value="11">短信余额降序</option><option value="12">短信余额升序</option><option value="13">密码排序</option></select>&nbsp;
+<input type="text" name="psize" value="20" size="2" class="t_c" title="条/页"/>
+<input type="checkbox" name="islimit" value="1"/>宝妈兼职&nbsp;
+<input type="submit" value="搜 索" class="btn"/>&nbsp;
+<input type="button" value="重 置" class="btn" onclick="Go('?moduleid=2&action=');"/>
+</td>
+</tr>
+<tr>
+<td>&nbsp;
+<select name="timetype">
+<option value="regtime" selected>注册时间</option>
+<option value="logintime" >登录时间</option>
+</select>&nbsp;
+<script type="text/javascript" src="../js/calendar.js"></script><input type="text" name="fromtime" id="fromtime" value="" size="10" onfocus="ca_show('fromtime', this, '-');" readonly ondblclick="this.value='';"/> <img src="../images/calendar.gif" align="absmiddle" onclick="ca_show('fromtime', this, '-');" style="cursor:pointer;"/> 至 <input type="text" name="totime" id="totime" value="" size="10" onfocus="ca_show('totime', this, '-');" readonly ondblclick="this.value='';"/> <img src="../images/calendar.gif" align="absmiddle" onclick="ca_show('totime', this, '-');" style="cursor:pointer;"/>&nbsp;
+资金：<input type="text" size="3" name="minmoney" value=""/> ~ <input type="text" size="3" name="maxmoney" value=""/>&nbsp;
+积分：<input type="text" size="3" name="mincredit" value=""/> ~ <input type="text" size="3" name="maxcredit" value=""/>&nbsp;
+短信：<input type="text" size="3" name="minsms" value=""/> ~ <input type="text" size="3" name="maxsms" value=""/>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;
+<select name="vprofile"  ><option value="0" selected=selected>资料</option><option value="1">已完善</option><option value="2">未完善</option></select> 
+<select name="vemail"  ><option value="0" selected=selected>邮件</option><option value="1">已认证</option><option value="2">未认证</option></select> 
+<select name="vmobile"  ><option value="0" selected=selected>手机</option><option value="1">已认证</option><option value="2">未认证</option></select> 
+<select name="vtruename"  ><option value="0" selected=selected>实名</option><option value="1">已认证</option><option value="2">未认证</option></select> 
+<select name="vbank"  ><option value="0" selected=selected>银行</option><option value="1">已认证</option><option value="2">未认证</option></select> 
+<select name="vcompany"  ><option value="0" selected=selected>公司</option><option value="1">已认证</option><option value="2">未认证</option></select> 
+<select name="vtrade"  ><option value="0" selected=selected>支付宝</option><option value="1">已认证</option><option value="2">未认证</option></select> 
+<select name="avatar"  ><option value="0" selected=selected>头像</option><option value="1">已上传</option><option value="2">未上传</option></select> 
+会员名：<input type="text" name="username" value="" size="8"/>&nbsp;
+会员ID：<input type="text" name="uid" value="" size="4"/>
+</td>
+</tr>
+</table>
+</form>
+<form method="post">
+<div class="tt">会员管理</div>
+<table cellpadding="2" cellspacing="1" class="tb">
+<tr>
+<th width="25"><input type="checkbox" onclick="checkall(this.form);"/></th>
+<th>会员ID</th>
+<th>会员名称</th>
+<th>密码</th>
+<th>宝妈兼职</th>
+<th>公司</th>
+<th>资金</th>
+<th>积分</th>
+<th>短信验证</th>
+<th>性别</th>
+<th>会员组</th>
+<th>注册时间</th>
+<th>最后登录</th>
+<th>登录次数</th>
+<th width="100">操作</th>
+</tr>
+<tr onmouseover="this.className='on';" onmouseout="this.className='';" align="center">
+<td><input type="checkbox" name="userid[]" value="167788"/></td>
+<td class="px11">167788</td>
+<td align="left">&nbsp;<a href="javascript:_user('15315890499');" title="手机~499">15315890499</a></td>
+<td align="left">&nbsp;b286ff9e94dbb977fc4f7846dccd4b02</td>
+<td class="f_red">&nbsp;</td>
+<td align="left">&nbsp;<a href="http://www.10brandchina.com/index.php?homepage=15315890499" target="_blank">手机~499</a></td>
+<td class="px11"><a href="javascript:Dwidget('?moduleid=2&file=record&username=15315890499', '[15315890499] 资金记录');">0.00</a></td>
+<td class="px11"><a href="javascript:Dwidget('?moduleid=2&file=credit&username=15315890499', '[15315890499] 积分记录');">0</a></td>
+<td class="f_red"></td>
+<td>先生</td>
+<td><a href="?moduleid=2&groupid=5">个人会员</a></td>
+<td class="px11">2016-09-18 23:34</td>
+<td class="px11">2016-09-18 23:34</td>
+<td class="px11"><a href="javascript:Dwidget('?moduleid=2&file=loginlog&username=15315890499&action=record', '[15315890499] 登录记录');" title="网站">2</a></td>
+<td>
+<a href="?moduleid=2&action=edit&userid=167788"><img src="admin/image/edit.png" width="16" height="16" title="修改" alt=""/></a>&nbsp;
+<a href="?moduleid=2&action=show&userid=167788"><img src="admin/image/view.png" width="16" height="16" title="会员[15315890499]详细资料" alt=""/></a>&nbsp;
+<a href="?moduleid=2&action=login&userid=167788" target="_blank"><img src="admin/image/set.png" width="16" height="16" title="进入会员商务中心" alt=""/></a>&nbsp;
+<a href="?moduleid=2&file=index&action=delete&userid=167788" onclick="if(!confirm('确定危险！！要删除此会员吗？系统将删除选中用户所有信息，此操作将不可撤销')) return false;"><img src="admin/image/delete.png" width="16" height="16" title="删除" alt=""/></a>
+</td>
+</tr>
+<tr onmouseover="this.className='on';" onmouseout="this.className='';" align="center">
+<td><input type="checkbox" name="userid[]" value="167787"/></td>
+<td class="px11">167787</td>
+<td align="left">&nbsp;<a href="javascript:_user('15826831000');" title="手机~000">15826831000</a></td>
+<td align="left">&nbsp;4fb8247c19e82b5b3eee4aa68181490e</td>
+<td class="f_red">&nbsp;</td>
+<td align="left">&nbsp;<a href="http://www.10brandchina.com/index.php?homepage=15826831000" target="_blank">手机~000</a></td>
+<td class="px11"><a href="javascript:Dwidget('?moduleid=2&file=record&username=15826831000', '[15826831000] 资金记录');">0.00</a></td>
+<td class="px11"><a href="javascript:Dwidget('?moduleid=2&file=credit&username=15826831000', '[15826831000] 积分记录');">1</a></td>
+<td class="f_red"></td>
+<td>先生</td>
+<td><a href="?moduleid=2&groupid=5">个人会员</a></td>
+<td class="px11">2016-09-18 23:33</td>
+<td class="px11">2016-09-18 23:33</td>
+<td class="px11"><a href="javascript:Dwidget('?moduleid=2&file=loginlog&username=15826831000&action=record', '[15826831000] 登录记录');" title="安卓">2</a></td>
+<td>
+<a href="?moduleid=2&action=edit&userid=167787"><img src="admin/image/edit.png" width="16" height="16" title="修改" alt=""/></a>&nbsp;
+<a href="?moduleid=2&action=show&userid=167787"><img src="admin/image/view.png" width="16" height="16" title="会员[15826831000]详细资料" alt=""/></a>&nbsp;
+<a href="?moduleid=2&action=login&userid=167787" target="_blank"><img src="admin/image/set.png" width="16" height="16" title="进入会员商务中心" alt=""/></a>&nbsp;
+<a href="?moduleid=2&file=index&action=delete&userid=167787" onclick="if(!confirm('确定危险！！要删除此会员吗？系统将删除选中用户所有信息，此操作将不可撤销')) return false;"><img src="admin/image/delete.png" width="16" height="16" title="删除" alt=""/></a>
+</td>
+</tr>
+<tr onmouseover="this.className='on';" onmouseout="this.className='';" align="center">
+<td><input type="checkbox" name="userid[]" value="167786"/></td>
+<td class="px11">167786</td>
+<td align="left">&nbsp;<a href="javascript:_user('15895088192');" title="手机~192">15895088192</a></td>
+<td align="left">&nbsp;568d18c435a6f3a3d12424a770026059</td>
+<td class="f_red">&nbsp;</td>
+<td align="left">&nbsp;<a href="http://www.10brandchina.com/index.php?homepage=15895088192" target="_blank">手机~192</a></td>
+<td class="px11"><a href="javascript:Dwidget('?moduleid=2&file=record&username=15895088192', '[15895088192] 资金记录');">0.03</a></td>
+<td class="px11"><a href="javascript:Dwidget('?moduleid=2&file=credit&username=15895088192', '[15895088192] 积分记录');">0</a></td>
+<td class="f_red"></td>
+<td>先生</td>
+<td><a href="?moduleid=2&groupid=5">个人会员</a></td>
+<td class="px11">2016-09-18 23:31</td>
+<td class="px11">2016-09-18 23:31</td>
+<td class="px11"><a href="javascript:Dwidget('?moduleid=2&file=loginlog&username=15895088192&action=record', '[15895088192] 登录记录');" title="苹果">2</a></td>
+<td>
+<a href="?moduleid=2&action=edit&userid=167786"><img src="admin/image/edit.png" width="16" height="16" title="修改" alt=""/></a>&nbsp;
+<a href="?moduleid=2&action=show&userid=167786"><img src="admin/image/view.png" width="16" height="16" title="会员[15895088192]详细资料" alt=""/></a>&nbsp;
+<a href="?moduleid=2&action=login&userid=167786" target="_blank"><img src="admin/image/set.png" width="16" height="16" title="进入会员商务中心" alt=""/></a>&nbsp;
+<a href="?moduleid=2&file=index&action=delete&userid=167786" onclick="if(!confirm('确定危险！！要删除此会员吗？系统将删除选中用户所有信息，此操作将不可撤销')) return false;"><img src="admin/image/delete.png" width="16" height="16" title="删除" alt=""/></a>
+</td>
+</tr>
+<tr onmouseover="this.className='on';" onmouseout="this.className='';" align="center">
+<td><input type="checkbox" name="userid[]" value="167785"/></td>
+<td class="px11">167785</td>
+<td align="left">&nbsp;<a href="javascript:_user('13430121559');" title="手机~559">13430121559</a></td>
+<td align="left">&nbsp;378f0c677551fd1bfcd0209cbe8b0ff4</td>
+<td class="f_red">&nbsp;</td>
+<td align="left">&nbsp;<a href="http://www.10brandchina.com/index.php?homepage=13430121559" target="_blank">手机~559</a></td>
+<td class="px11"><a href="javascript:Dwidget('?moduleid=2&file=record&username=13430121559', '[13430121559] 资金记录');">0.00</a></td>
+<td class="px11"><a href="javascript:Dwidget('?moduleid=2&file=credit&username=13430121559', '[13430121559] 积分记录');">1</a></td>
+<td class="f_red"></td>
+<td>先生</td>
+<td><a href="?moduleid=2&groupid=5">个人会员</a></td>
+<td class="px11">2016-09-18 23:18</td>
+<td class="px11">2016-09-18 23:18</td>
+<td class="px11"><a href="javascript:Dwidget('?moduleid=2&file=loginlog&username=13430121559&action=record', '[13430121559] 登录记录');" title="安卓">2</a></td>
+<td>
+<a href="?moduleid=2&action=edit&userid=167785"><img src="admin/image/edit.png" width="16" height="16" title="修改" alt=""/></a>&nbsp;
+<a href="?moduleid=2&action=show&userid=167785"><img src="admin/image/view.png" width="16" height="16" title="会员[13430121559]详细资料" alt=""/></a>&nbsp;
+<a href="?moduleid=2&action=login&userid=167785" target="_blank"><img src="admin/image/set.png" width="16" height="16" title="进入会员商务中心" alt=""/></a>&nbsp;
+<a href="?moduleid=2&file=index&action=delete&userid=167785" onclick="if(!confirm('确定危险！！要删除此会员吗？系统将删除选中用户所有信息，此操作将不可撤销')) return false;"><img src="admin/image/delete.png" width="16" height="16" title="删除" alt=""/></a>
+</td>
+</tr>
+<tr onmouseover="this.className='on';" onmouseout="this.className='';" align="center">
+<td><input type="checkbox" name="userid[]" value="167784"/></td>
+<td class="px11">167784</td>
+<td align="left">&nbsp;<a href="javascript:_user('18874224283');" title="手机~283">18874224283</a></td>
+<td align="left">&nbsp;eeb03173cec5e2cd15af07c81224f2c3</td>
+<td class="f_red">&nbsp;</td>
+<td align="left">&nbsp;<a href="http://www.10brandchina.com/index.php?homepage=18874224283" target="_blank">手机~283</a></td>
+<td class="px11"><a href="javascript:Dwidget('?moduleid=2&file=record&username=18874224283', '[18874224283] 资金记录');">0.00</a></td>
+<td class="px11"><a href="javascript:Dwidget('?moduleid=2&file=credit&username=18874224283', '[18874224283] 积分记录');">0</a></td>
+<td class="f_red"></td>
+<td>先生</td>
+<td><a href="?moduleid=2&groupid=5">个人会员</a></td>
+<td class="px11">2016-09-18 23:16</td>
+<td class="px11">2016-09-18 23:16</td>
+<td class="px11"><a href="javascript:Dwidget('?moduleid=2&file=loginlog&username=18874224283&action=record', '[18874224283] 登录记录');" title="苹果">2</a></td>
+<td>
+<a href="?moduleid=2&action=edit&userid=167784"><img src="admin/image/edit.png" width="16" height="16" title="修改" alt=""/></a>&nbsp;
+<a href="?moduleid=2&action=show&userid=167784"><img src="admin/image/view.png" width="16" height="16" title="会员[18874224283]详细资料" alt=""/></a>&nbsp;
+<a href="?moduleid=2&action=login&userid=167784" target="_blank"><img src="admin/image/set.png" width="16" height="16" title="进入会员商务中心" alt=""/></a>&nbsp;
+<a href="?moduleid=2&file=index&action=delete&userid=167784" onclick="if(!confirm('确定危险！！要删除此会员吗？系统将删除选中用户所有信息，此操作将不可撤销')) return false;"><img src="admin/image/delete.png" width="16" height="16" title="删除" alt=""/></a>
+</td>
+</tr>
+<tr onmouseover="this.className='on';" onmouseout="this.className='';" align="center">
+<td><input type="checkbox" name="userid[]" value="167783"/></td>
+<td class="px11">167783</td>
+<td align="left">&nbsp;<a href="javascript:_user('18275346117');" title="手机~117">18275346117</a></td>
+<td align="left">&nbsp;acf819d88130bce6ec82c073f4d2770c</td>
+<td class="f_red">&nbsp;</td>
+<td align="left">&nbsp;<a href="http://www.10brandchina.com/index.php?homepage=18275346117" target="_blank">爱纺家纺</a></td>
+<td class="px11"><a href="javascript:Dwidget('?moduleid=2&file=record&username=18275346117', '[18275346117] 资金记录');">0.00</a></td>
+<td class="px11"><a href="javascript:Dwidget('?moduleid=2&file=credit&username=18275346117', '[18275346117] 积分记录');">0</a></td>
+<td class="f_red"></td>
+<td>先生</td>
+<td><a href="?moduleid=2&groupid=9">品牌商</a></td>
+<td class="px11">2016-09-18 23:16</td>
+<td class="px11">2016-09-18 23:16</td>
+<td class="px11"><a href="javascript:Dwidget('?moduleid=2&file=loginlog&username=18275346117&action=record', '[18275346117] 登录记录');" title="网站">1</a></td>
+<td>
+<a href="?moduleid=2&action=edit&userid=167783"><img src="admin/image/edit.png" width="16" height="16" title="修改" alt=""/></a>&nbsp;
+<a href="?moduleid=2&action=show&userid=167783"><img src="admin/image/view.png" width="16" height="16" title="会员[18275346117]详细资料" alt=""/></a>&nbsp;
+<a href="?moduleid=2&action=login&userid=167783" target="_blank"><img src="admin/image/set.png" width="16" height="16" title="进入会员商务中心" alt=""/></a>&nbsp;
+<a href="?moduleid=2&file=index&action=delete&userid=167783" onclick="if(!confirm('确定危险！！要删除此会员吗？系统将删除选中用户所有信息，此操作将不可撤销')) return false;"><img src="admin/image/delete.png" width="16" height="16" title="删除" alt=""/></a>
+</td>
+</tr>
+<tr onmouseover="this.className='on';" onmouseout="this.className='';" align="center">
+<td><input type="checkbox" name="userid[]" value="167782"/></td>
+<td class="px11">167782</td>
+<td align="left">&nbsp;<a href="javascript:_user('18137409588');" title="手机~588">18137409588</a></td>
+<td align="left">&nbsp;848d2c697ebbc943768236526ce17e26</td>
+<td class="f_red">&nbsp;</td>
+<td align="left">&nbsp;<a href="http://www.10brandchina.com/index.php?homepage=18137409588" target="_blank">手机~588</a></td>
+<td class="px11"><a href="javascript:Dwidget('?moduleid=2&file=record&username=18137409588', '[18137409588] 资金记录');">0.00</a></td>
+<td class="px11"><a href="javascript:Dwidget('?moduleid=2&file=credit&username=18137409588', '[18137409588] 积分记录');">2</a></td>
+<td class="f_red"></td>
+<td>先生</td>
+<td><a href="?moduleid=2&groupid=5">个人会员</a></td>
+<td class="px11">2016-09-18 23:16</td>
+<td class="px11">2016-09-18 23:16</td>
+<td class="px11"><a href="javascript:Dwidget('?moduleid=2&file=loginlog&username=18137409588&action=record', '[18137409588] 登录记录');" title="安卓">2</a></td>
+<td>
+<a href="?moduleid=2&action=edit&userid=167782"><img src="admin/image/edit.png" width="16" height="16" title="修改" alt=""/></a>&nbsp;
+<a href="?moduleid=2&action=show&userid=167782"><img src="admin/image/view.png" width="16" height="16" title="会员[18137409588]详细资料" alt=""/></a>&nbsp;
+<a href="?moduleid=2&action=login&userid=167782" target="_blank"><img src="admin/image/set.png" width="16" height="16" title="进入会员商务中心" alt=""/></a>&nbsp;
+<a href="?moduleid=2&file=index&action=delete&userid=167782" onclick="if(!confirm('确定危险！！要删除此会员吗？系统将删除选中用户所有信息，此操作将不可撤销')) return false;"><img src="admin/image/delete.png" width="16" height="16" title="删除" alt=""/></a>
+</td>
+</tr>
+<tr onmouseover="this.className='on';" onmouseout="this.className='';" align="center">
+<td><input type="checkbox" name="userid[]" value="167781"/></td>
+<td class="px11">167781</td>
+<td align="left">&nbsp;<a href="javascript:_user('13776808416');" title="手机~416">13776808416</a></td>
+<td align="left">&nbsp;3991d55bb28f0845a9cf703f2bbf0197</td>
+<td class="f_red">&nbsp;</td>
+<td align="left">&nbsp;<a href="http://www.10brandchina.com/index.php?homepage=13776808416" target="_blank">手机~416</a></td>
+<td class="px11"><a href="javascript:Dwidget('?moduleid=2&file=record&username=13776808416', '[13776808416] 资金记录');">0.10</a></td>
+<td class="px11"><a href="javascript:Dwidget('?moduleid=2&file=credit&username=13776808416', '[13776808416] 积分记录');">0</a></td>
+<td class="f_red"></td>
+<td>先生</td>
+<td><a href="?moduleid=2&groupid=5">个人会员</a></td>
+<td class="px11">2016-09-18 23:15</td>
+<td class="px11">2016-09-18 23:15</td>
+<td class="px11"><a href="javascript:Dwidget('?moduleid=2&file=loginlog&username=13776808416&action=record', '[13776808416] 登录记录');" title="苹果">2</a></td>
+<td>
+<a href="?moduleid=2&action=edit&userid=167781"><img src="admin/image/edit.png" width="16" height="16" title="修改" alt=""/></a>&nbsp;
+<a href="?moduleid=2&action=show&userid=167781"><img src="admin/image/view.png" width="16" height="16" title="会员[13776808416]详细资料" alt=""/></a>&nbsp;
+<a href="?moduleid=2&action=login&userid=167781" target="_blank"><img src="admin/image/set.png" width="16" height="16" title="进入会员商务中心" alt=""/></a>&nbsp;
+<a href="?moduleid=2&file=index&action=delete&userid=167781" onclick="if(!confirm('确定危险！！要删除此会员吗？系统将删除选中用户所有信息，此操作将不可撤销')) return false;"><img src="admin/image/delete.png" width="16" height="16" title="删除" alt=""/></a>
+</td>
+</tr>
+<tr onmouseover="this.className='on';" onmouseout="this.className='';" align="center">
+<td><input type="checkbox" name="userid[]" value="167780"/></td>
+<td class="px11">167780</td>
+<td align="left">&nbsp;<a href="javascript:_user('13382872023');" title="手机~023">13382872023</a></td>
+<td align="left">&nbsp;b33ff192fec64a9712cfe10bfe062ca3</td>
+<td class="f_red">&nbsp;</td>
+<td align="left">&nbsp;<a href="http://www.10brandchina.com/index.php?homepage=13382872023" target="_blank">手机~023</a></td>
+<td class="px11"><a href="javascript:Dwidget('?moduleid=2&file=record&username=13382872023', '[13382872023] 资金记录');">0.22</a></td>
+<td class="px11"><a href="javascript:Dwidget('?moduleid=2&file=credit&username=13382872023', '[13382872023] 积分记录');">0</a></td>
+<td class="f_red"></td>
+<td>先生</td>
+<td><a href="?moduleid=2&groupid=5">个人会员</a></td>
+<td class="px11">2016-09-18 23:13</td>
+<td class="px11">2016-09-18 23:13</td>
+<td class="px11"><a href="javascript:Dwidget('?moduleid=2&file=loginlog&username=13382872023&action=record', '[13382872023] 登录记录');" title="安卓">2</a></td>
+<td>
+<a href="?moduleid=2&action=edit&userid=167780"><img src="admin/image/edit.png" width="16" height="16" title="修改" alt=""/></a>&nbsp;
+<a href="?moduleid=2&action=show&userid=167780"><img src="admin/image/view.png" width="16" height="16" title="会员[13382872023]详细资料" alt=""/></a>&nbsp;
+<a href="?moduleid=2&action=login&userid=167780" target="_blank"><img src="admin/image/set.png" width="16" height="16" title="进入会员商务中心" alt=""/></a>&nbsp;
+<a href="?moduleid=2&file=index&action=delete&userid=167780" onclick="if(!confirm('确定危险！！要删除此会员吗？系统将删除选中用户所有信息，此操作将不可撤销')) return false;"><img src="admin/image/delete.png" width="16" height="16" title="删除" alt=""/></a>
+</td>
+</tr>
+<tr onmouseover="this.className='on';" onmouseout="this.className='';" align="center">
+<td><input type="checkbox" name="userid[]" value="167779"/></td>
+<td class="px11">167779</td>
+<td align="left">&nbsp;<a href="javascript:_user('13407583477');" title="手机~477">13407583477</a></td>
+<td align="left">&nbsp;cb54797d3bbffc5f1f97af9360032e52</td>
+<td class="f_red">&nbsp;</td>
+<td align="left">&nbsp;<a href="http://www.10brandchina.com/index.php?homepage=13407583477" target="_blank">手机~477</a></td>
+<td class="px11"><a href="javascript:Dwidget('?moduleid=2&file=record&username=13407583477', '[13407583477] 资金记录');">0.00</a></td>
+<td class="px11"><a href="javascript:Dwidget('?moduleid=2&file=credit&username=13407583477', '[13407583477] 积分记录');">0</a></td>
+<td class="f_red"></td>
+<td>先生</td>
+<td><a href="?moduleid=2&groupid=5">个人会员</a></td>
+<td class="px11">2016-09-18 23:11</td>
+<td class="px11">2016-09-18 23:11</td>
+<td class="px11"><a href="javascript:Dwidget('?moduleid=2&file=loginlog&username=13407583477&action=record', '[13407583477] 登录记录');" title="苹果">2</a></td>
+<td>
+<a href="?moduleid=2&action=edit&userid=167779"><img src="admin/image/edit.png" width="16" height="16" title="修改" alt=""/></a>&nbsp;
+<a href="?moduleid=2&action=show&userid=167779"><img src="admin/image/view.png" width="16" height="16" title="会员[13407583477]详细资料" alt=""/></a>&nbsp;
+<a href="?moduleid=2&action=login&userid=167779" target="_blank"><img src="admin/image/set.png" width="16" height="16" title="进入会员商务中心" alt=""/></a>&nbsp;
+<a href="?moduleid=2&file=index&action=delete&userid=167779" onclick="if(!confirm('确定危险！！要删除此会员吗？系统将删除选中用户所有信息，此操作将不可撤销')) return false;"><img src="admin/image/delete.png" width="16" height="16" title="删除" alt=""/></a>
+</td>
+</tr>
+<tr onmouseover="this.className='on';" onmouseout="this.className='';" align="center">
+<td><input type="checkbox" name="userid[]" value="167778"/></td>
+<td class="px11">167778</td>
+<td align="left">&nbsp;<a href="javascript:_user('13832297949');" title="手机~949">13832297949</a></td>
+<td align="left">&nbsp;59145011219fc62d5d613d5ad7ad4681</td>
+<td class="f_red">&nbsp;</td>
+<td align="left">&nbsp;<a href="http://www.10brandchina.com/index.php?homepage=13832297949" target="_blank">手机~949</a></td>
+<td class="px11"><a href="javascript:Dwidget('?moduleid=2&file=record&username=13832297949', '[13832297949] 资金记录');">0.00</a></td>
+<td class="px11"><a href="javascript:Dwidget('?moduleid=2&file=credit&username=13832297949', '[13832297949] 积分记录');">1</a></td>
+<td class="f_red"></td>
+<td>先生</td>
+<td><a href="?moduleid=2&groupid=5">个人会员</a></td>
+<td class="px11">2016-09-18 23:05</td>
+<td class="px11">2016-09-18 23:05</td>
+<td class="px11"><a href="javascript:Dwidget('?moduleid=2&file=loginlog&username=13832297949&action=record', '[13832297949] 登录记录');" title="安卓">2</a></td>
+<td>
+<a href="?moduleid=2&action=edit&userid=167778"><img src="admin/image/edit.png" width="16" height="16" title="修改" alt=""/></a>&nbsp;
+<a href="?moduleid=2&action=show&userid=167778"><img src="admin/image/view.png" width="16" height="16" title="会员[13832297949]详细资料" alt=""/></a>&nbsp;
+<a href="?moduleid=2&action=login&userid=167778" target="_blank"><img src="admin/image/set.png" width="16" height="16" title="进入会员商务中心" alt=""/></a>&nbsp;
+<a href="?moduleid=2&file=index&action=delete&userid=167778" onclick="if(!confirm('确定危险！！要删除此会员吗？系统将删除选中用户所有信息，此操作将不可撤销')) return false;"><img src="admin/image/delete.png" width="16" height="16" title="删除" alt=""/></a>
+</td>
+</tr>
+<tr onmouseover="this.className='on';" onmouseout="this.className='';" align="center">
+<td><input type="checkbox" name="userid[]" value="167777"/></td>
+<td class="px11">167777</td>
+<td align="left">&nbsp;<a href="javascript:_user('18616212626');" title="手机~626">18616212626</a></td>
+<td align="left">&nbsp;20d806098c795eea8d41841a6cfca478</td>
+<td class="f_red">&nbsp;</td>
+<td align="left">&nbsp;<a href="http://www.10brandchina.com/index.php?homepage=18616212626" target="_blank">手机~626</a></td>
+<td class="px11"><a href="javascript:Dwidget('?moduleid=2&file=record&username=18616212626', '[18616212626] 资金记录');">0.00</a></td>
+<td class="px11"><a href="javascript:Dwidget('?moduleid=2&file=credit&username=18616212626', '[18616212626] 积分记录');">0</a></td>
+<td class="f_red"></td>
+<td>先生</td>
+<td><a href="?moduleid=2&groupid=5">个人会员</a></td>
+<td class="px11">2016-09-18 23:02</td>
+<td class="px11">2016-09-18 23:02</td>
+<td class="px11"><a href="javascript:Dwidget('?moduleid=2&file=loginlog&username=18616212626&action=record', '[18616212626] 登录记录');" title="苹果">2</a></td>
+<td>
+<a href="?moduleid=2&action=edit&userid=167777"><img src="admin/image/edit.png" width="16" height="16" title="修改" alt=""/></a>&nbsp;
+<a href="?moduleid=2&action=show&userid=167777"><img src="admin/image/view.png" width="16" height="16" title="会员[18616212626]详细资料" alt=""/></a>&nbsp;
+<a href="?moduleid=2&action=login&userid=167777" target="_blank"><img src="admin/image/set.png" width="16" height="16" title="进入会员商务中心" alt=""/></a>&nbsp;
+<a href="?moduleid=2&file=index&action=delete&userid=167777" onclick="if(!confirm('确定危险！！要删除此会员吗？系统将删除选中用户所有信息，此操作将不可撤销')) return false;"><img src="admin/image/delete.png" width="16" height="16" title="删除" alt=""/></a>
+</td>
+</tr>
+<tr onmouseover="this.className='on';" onmouseout="this.className='';" align="center">
+<td><input type="checkbox" name="userid[]" value="167776"/></td>
+<td class="px11">167776</td>
+<td align="left">&nbsp;<a href="javascript:_user('13294747668');" title="手机~668">13294747668</a></td>
+<td align="left">&nbsp;0981d06ece858f928abfb6a344a54a58</td>
+<td class="f_red">&nbsp;</td>
+<td align="left">&nbsp;<a href="http://www.10brandchina.com/index.php?homepage=13294747668" target="_blank">手机~668</a></td>
+<td class="px11"><a href="javascript:Dwidget('?moduleid=2&file=record&username=13294747668', '[13294747668] 资金记录');">0.00</a></td>
+<td class="px11"><a href="javascript:Dwidget('?moduleid=2&file=credit&username=13294747668', '[13294747668] 积分记录');">0</a></td>
+<td class="f_red"></td>
+<td>先生</td>
+<td><a href="?moduleid=2&groupid=5">个人会员</a></td>
+<td class="px11">2016-09-18 23:00</td>
+<td class="px11">2016-09-18 23:00</td>
+<td class="px11"><a href="javascript:Dwidget('?moduleid=2&file=loginlog&username=13294747668&action=record', '[13294747668] 登录记录');" title="苹果">2</a></td>
+<td>
+<a href="?moduleid=2&action=edit&userid=167776"><img src="admin/image/edit.png" width="16" height="16" title="修改" alt=""/></a>&nbsp;
+<a href="?moduleid=2&action=show&userid=167776"><img src="admin/image/view.png" width="16" height="16" title="会员[13294747668]详细资料" alt=""/></a>&nbsp;
+<a href="?moduleid=2&action=login&userid=167776" target="_blank"><img src="admin/image/set.png" width="16" height="16" title="进入会员商务中心" alt=""/></a>&nbsp;
+<a href="?moduleid=2&file=index&action=delete&userid=167776" onclick="if(!confirm('确定危险！！要删除此会员吗？系统将删除选中用户所有信息，此操作将不可撤销')) return false;"><img src="admin/image/delete.png" width="16" height="16" title="删除" alt=""/></a>
+</td>
+</tr>
+<tr onmouseover="this.className='on';" onmouseout="this.className='';" align="center">
+<td><input type="checkbox" name="userid[]" value="167775"/></td>
+<td class="px11">167775</td>
+<td align="left">&nbsp;<a href="javascript:_user('13294747652');" title="手机~652">13294747652</a></td>
+<td align="left">&nbsp;0981d06ece858f928abfb6a344a54a58</td>
+<td class="f_red">&nbsp;</td>
+<td align="left">&nbsp;<a href="http://www.10brandchina.com/index.php?homepage=13294747652" target="_blank">手机~652</a></td>
+<td class="px11"><a href="javascript:Dwidget('?moduleid=2&file=record&username=13294747652', '[13294747652] 资金记录');">0.00</a></td>
+<td class="px11"><a href="javascript:Dwidget('?moduleid=2&file=credit&username=13294747652', '[13294747652] 积分记录');">0</a></td>
+<td class="f_red"></td>
+<td>先生</td>
+<td><a href="?moduleid=2&groupid=5">个人会员</a></td>
+<td class="px11">2016-09-18 22:59</td>
+<td class="px11">2016-09-18 22:59</td>
+<td class="px11"><a href="javascript:Dwidget('?moduleid=2&file=loginlog&username=13294747652&action=record', '[13294747652] 登录记录');" title="苹果">2</a></td>
+<td>
+<a href="?moduleid=2&action=edit&userid=167775"><img src="admin/image/edit.png" width="16" height="16" title="修改" alt=""/></a>&nbsp;
+<a href="?moduleid=2&action=show&userid=167775"><img src="admin/image/view.png" width="16" height="16" title="会员[13294747652]详细资料" alt=""/></a>&nbsp;
+<a href="?moduleid=2&action=login&userid=167775" target="_blank"><img src="admin/image/set.png" width="16" height="16" title="进入会员商务中心" alt=""/></a>&nbsp;
+<a href="?moduleid=2&file=index&action=delete&userid=167775" onclick="if(!confirm('确定危险！！要删除此会员吗？系统将删除选中用户所有信息，此操作将不可撤销')) return false;"><img src="admin/image/delete.png" width="16" height="16" title="删除" alt=""/></a>
+</td>
+</tr>
+<tr onmouseover="this.className='on';" onmouseout="this.className='';" align="center">
+<td><input type="checkbox" name="userid[]" value="167774"/></td>
+<td class="px11">167774</td>
+<td align="left">&nbsp;<a href="javascript:_user('15036882306');" title="手机~306">15036882306</a></td>
+<td align="left">&nbsp;6628264d50e85198de1c8e563d96536c</td>
+<td class="f_red">&nbsp;</td>
+<td align="left">&nbsp;<a href="http://www.10brandchina.com/index.php?homepage=15036882306" target="_blank">手机~306</a></td>
+<td class="px11"><a href="javascript:Dwidget('?moduleid=2&file=record&username=15036882306', '[15036882306] 资金记录');">0.00</a></td>
+<td class="px11"><a href="javascript:Dwidget('?moduleid=2&file=credit&username=15036882306', '[15036882306] 积分记录');">1</a></td>
+<td class="f_red"></td>
+<td>先生</td>
+<td><a href="?moduleid=2&groupid=5">个人会员</a></td>
+<td class="px11">2016-09-18 22:54</td>
+<td class="px11">2016-09-18 22:54</td>
+<td class="px11"><a href="javascript:Dwidget('?moduleid=2&file=loginlog&username=15036882306&action=record', '[15036882306] 登录记录');" title="安卓">2</a></td>
+<td>
+<a href="?moduleid=2&action=edit&userid=167774"><img src="admin/image/edit.png" width="16" height="16" title="修改" alt=""/></a>&nbsp;
+<a href="?moduleid=2&action=show&userid=167774"><img src="admin/image/view.png" width="16" height="16" title="会员[15036882306]详细资料" alt=""/></a>&nbsp;
+<a href="?moduleid=2&action=login&userid=167774" target="_blank"><img src="admin/image/set.png" width="16" height="16" title="进入会员商务中心" alt=""/></a>&nbsp;
+<a href="?moduleid=2&file=index&action=delete&userid=167774" onclick="if(!confirm('确定危险！！要删除此会员吗？系统将删除选中用户所有信息，此操作将不可撤销')) return false;"><img src="admin/image/delete.png" width="16" height="16" title="删除" alt=""/></a>
+</td>
+</tr>
+<tr onmouseover="this.className='on';" onmouseout="this.className='';" align="center">
+<td><input type="checkbox" name="userid[]" value="167773"/></td>
+<td class="px11">167773</td>
+<td align="left">&nbsp;<a href="javascript:_user('13568709772');" title="手机~772">13568709772</a></td>
+<td align="left">&nbsp;4bd071cbae3a2f36b1d2c7cee47a6044</td>
+<td class="f_red">&nbsp;</td>
+<td align="left">&nbsp;<a href="http://www.10brandchina.com/index.php?homepage=13568709772" target="_blank">手机~772</a></td>
+<td class="px11"><a href="javascript:Dwidget('?moduleid=2&file=record&username=13568709772', '[13568709772] 资金记录');">0.08</a></td>
+<td class="px11"><a href="javascript:Dwidget('?moduleid=2&file=credit&username=13568709772', '[13568709772] 积分记录');">1</a></td>
+<td class="f_red"></td>
+<td>先生</td>
+<td><a href="?moduleid=2&groupid=5">个人会员</a></td>
+<td class="px11">2016-09-18 22:52</td>
+<td class="px11">2016-09-18 22:52</td>
+<td class="px11"><a href="javascript:Dwidget('?moduleid=2&file=loginlog&username=13568709772&action=record', '[13568709772] 登录记录');" title="安卓">2</a></td>
+<td>
+<a href="?moduleid=2&action=edit&userid=167773"><img src="admin/image/edit.png" width="16" height="16" title="修改" alt=""/></a>&nbsp;
+<a href="?moduleid=2&action=show&userid=167773"><img src="admin/image/view.png" width="16" height="16" title="会员[13568709772]详细资料" alt=""/></a>&nbsp;
+<a href="?moduleid=2&action=login&userid=167773" target="_blank"><img src="admin/image/set.png" width="16" height="16" title="进入会员商务中心" alt=""/></a>&nbsp;
+<a href="?moduleid=2&file=index&action=delete&userid=167773" onclick="if(!confirm('确定危险！！要删除此会员吗？系统将删除选中用户所有信息，此操作将不可撤销')) return false;"><img src="admin/image/delete.png" width="16" height="16" title="删除" alt=""/></a>
+</td>
+</tr>
+<tr onmouseover="this.className='on';" onmouseout="this.className='';" align="center">
+<td><input type="checkbox" name="userid[]" value="167772"/></td>
+<td class="px11">167772</td>
+<td align="left">&nbsp;<a href="javascript:_user('13190637864');" title="手机~864">13190637864</a></td>
+<td align="left">&nbsp;0981d06ece858f928abfb6a344a54a58</td>
+<td class="f_red">&nbsp;</td>
+<td align="left">&nbsp;<a href="http://www.10brandchina.com/index.php?homepage=13190637864" target="_blank">手机~864</a></td>
+<td class="px11"><a href="javascript:Dwidget('?moduleid=2&file=record&username=13190637864', '[13190637864] 资金记录');">0.00</a></td>
+<td class="px11"><a href="javascript:Dwidget('?moduleid=2&file=credit&username=13190637864', '[13190637864] 积分记录');">0</a></td>
+<td class="f_red"></td>
+<td>先生</td>
+<td><a href="?moduleid=2&groupid=5">个人会员</a></td>
+<td class="px11">2016-09-18 22:52</td>
+<td class="px11">2016-09-18 22:52</td>
+<td class="px11"><a href="javascript:Dwidget('?moduleid=2&file=loginlog&username=13190637864&action=record', '[13190637864] 登录记录');" title="苹果">2</a></td>
+<td>
+<a href="?moduleid=2&action=edit&userid=167772"><img src="admin/image/edit.png" width="16" height="16" title="修改" alt=""/></a>&nbsp;
+<a href="?moduleid=2&action=show&userid=167772"><img src="admin/image/view.png" width="16" height="16" title="会员[13190637864]详细资料" alt=""/></a>&nbsp;
+<a href="?moduleid=2&action=login&userid=167772" target="_blank"><img src="admin/image/set.png" width="16" height="16" title="进入会员商务中心" alt=""/></a>&nbsp;
+<a href="?moduleid=2&file=index&action=delete&userid=167772" onclick="if(!confirm('确定危险！！要删除此会员吗？系统将删除选中用户所有信息，此操作将不可撤销')) return false;"><img src="admin/image/delete.png" width="16" height="16" title="删除" alt=""/></a>
+</td>
+</tr>
+<tr onmouseover="this.className='on';" onmouseout="this.className='';" align="center">
+<td><input type="checkbox" name="userid[]" value="167771"/></td>
+<td class="px11">167771</td>
+<td align="left">&nbsp;<a href="javascript:_user('18620017530');" title="手机~530">18620017530</a></td>
+<td align="left">&nbsp;eac1a968f39ffb0a77b8f0adc1cd15e1</td>
+<td class="f_red">&nbsp;</td>
+<td align="left">&nbsp;<a href="http://www.10brandchina.com/index.php?homepage=18620017530" target="_blank">手机~530</a></td>
+<td class="px11"><a href="javascript:Dwidget('?moduleid=2&file=record&username=18620017530', '[18620017530] 资金记录');">0.00</a></td>
+<td class="px11"><a href="javascript:Dwidget('?moduleid=2&file=credit&username=18620017530', '[18620017530] 积分记录');">0</a></td>
+<td class="f_red"></td>
+<td>先生</td>
+<td><a href="?moduleid=2&groupid=5">个人会员</a></td>
+<td class="px11">2016-09-18 22:52</td>
+<td class="px11">2016-09-18 22:52</td>
+<td class="px11"><a href="javascript:Dwidget('?moduleid=2&file=loginlog&username=18620017530&action=record', '[18620017530] 登录记录');" title="苹果">2</a></td>
+<td>
+<a href="?moduleid=2&action=edit&userid=167771"><img src="admin/image/edit.png" width="16" height="16" title="修改" alt=""/></a>&nbsp;
+<a href="?moduleid=2&action=show&userid=167771"><img src="admin/image/view.png" width="16" height="16" title="会员[18620017530]详细资料" alt=""/></a>&nbsp;
+<a href="?moduleid=2&action=login&userid=167771" target="_blank"><img src="admin/image/set.png" width="16" height="16" title="进入会员商务中心" alt=""/></a>&nbsp;
+<a href="?moduleid=2&file=index&action=delete&userid=167771" onclick="if(!confirm('确定危险！！要删除此会员吗？系统将删除选中用户所有信息，此操作将不可撤销')) return false;"><img src="admin/image/delete.png" width="16" height="16" title="删除" alt=""/></a>
+</td>
+</tr>
+<tr onmouseover="this.className='on';" onmouseout="this.className='';" align="center">
+<td><input type="checkbox" name="userid[]" value="167770"/></td>
+<td class="px11">167770</td>
+<td align="left">&nbsp;<a href="javascript:_user('13190637943');" title="手机~943">13190637943</a></td>
+<td align="left">&nbsp;0981d06ece858f928abfb6a344a54a58</td>
+<td class="f_red">&nbsp;</td>
+<td align="left">&nbsp;<a href="http://www.10brandchina.com/index.php?homepage=13190637943" target="_blank">手机~943</a></td>
+<td class="px11"><a href="javascript:Dwidget('?moduleid=2&file=record&username=13190637943', '[13190637943] 资金记录');">0.00</a></td>
+<td class="px11"><a href="javascript:Dwidget('?moduleid=2&file=credit&username=13190637943', '[13190637943] 积分记录');">0</a></td>
+<td class="f_red"></td>
+<td>先生</td>
+<td><a href="?moduleid=2&groupid=5">个人会员</a></td>
+<td class="px11">2016-09-18 22:51</td>
+<td class="px11">2016-09-18 22:51</td>
+<td class="px11"><a href="javascript:Dwidget('?moduleid=2&file=loginlog&username=13190637943&action=record', '[13190637943] 登录记录');" title="苹果">2</a></td>
+<td>
+<a href="?moduleid=2&action=edit&userid=167770"><img src="admin/image/edit.png" width="16" height="16" title="修改" alt=""/></a>&nbsp;
+<a href="?moduleid=2&action=show&userid=167770"><img src="admin/image/view.png" width="16" height="16" title="会员[13190637943]详细资料" alt=""/></a>&nbsp;
+<a href="?moduleid=2&action=login&userid=167770" target="_blank"><img src="admin/image/set.png" width="16" height="16" title="进入会员商务中心" alt=""/></a>&nbsp;
+<a href="?moduleid=2&file=index&action=delete&userid=167770" onclick="if(!confirm('确定危险！！要删除此会员吗？系统将删除选中用户所有信息，此操作将不可撤销')) return false;"><img src="admin/image/delete.png" width="16" height="16" title="删除" alt=""/></a>
+</td>
+</tr>
+<tr onmouseover="this.className='on';" onmouseout="this.className='';" align="center">
+<td><input type="checkbox" name="userid[]" value="167769"/></td>
+<td class="px11">167769</td>
+<td align="left">&nbsp;<a href="javascript:_user('18625295505');" title="手机~505">18625295505</a></td>
+<td align="left">&nbsp;96c58a484dea2a9f254f158ff7e3dc71</td>
+<td class="f_red">&nbsp;</td>
+<td align="left">&nbsp;<a href="http://www.10brandchina.com/index.php?homepage=18625295505" target="_blank">手机~505</a></td>
+<td class="px11"><a href="javascript:Dwidget('?moduleid=2&file=record&username=18625295505', '[18625295505] 资金记录');">0.00</a></td>
+<td class="px11"><a href="javascript:Dwidget('?moduleid=2&file=credit&username=18625295505', '[18625295505] 积分记录');">1</a></td>
+<td class="f_red"></td>
+<td>先生</td>
+<td><a href="?moduleid=2&groupid=5">个人会员</a></td>
+<td class="px11">2016-09-18 22:47</td>
+<td class="px11">2016-09-18 22:47</td>
+<td class="px11"><a href="javascript:Dwidget('?moduleid=2&file=loginlog&username=18625295505&action=record', '[18625295505] 登录记录');" title="安卓">2</a></td>
+<td>
+<a href="?moduleid=2&action=edit&userid=167769"><img src="admin/image/edit.png" width="16" height="16" title="修改" alt=""/></a>&nbsp;
+<a href="?moduleid=2&action=show&userid=167769"><img src="admin/image/view.png" width="16" height="16" title="会员[18625295505]详细资料" alt=""/></a>&nbsp;
+<a href="?moduleid=2&action=login&userid=167769" target="_blank"><img src="admin/image/set.png" width="16" height="16" title="进入会员商务中心" alt=""/></a>&nbsp;
+<a href="?moduleid=2&file=index&action=delete&userid=167769" onclick="if(!confirm('确定危险！！要删除此会员吗？系统将删除选中用户所有信息，此操作将不可撤销')) return false;"><img src="admin/image/delete.png" width="16" height="16" title="删除" alt=""/></a>
+</td>
+</tr>
+</table>
+<div class="btns">
+<input type="submit" value=" 删除会员X " class="btn" onclick="if(confirm('确定要删除选中会员吗？系统将删除选中用户所有信息，此操作将不可撤销')){this.form.action='?moduleid=2&action=delete'}else{return false;}"/>&nbsp;
+<input type="submit" value=" 禁止访问X " class="btn" onclick="if(confirm('确定要禁止选中会员访问吗？')){this.form.action='?moduleid=2&action=move&groupids=2'}else{return false;}"/>&nbsp;
+<input type="submit" value=" 登录验证X " class="btn" onclick="if(confirm('确定要选中会员登录验证码？')){this.form.action='?moduleid=2&action=delvmobile'}else{return false;}"/>&nbsp;
+
+<input type="submit" value=" 设置VIPX " class="btn" onclick="this.form.action='?moduleid=4&file=vip&action=add';"/>&nbsp;
+<input type="submit" value=" 资金增减X " class="btn" onclick="this.form.action='?moduleid=2&file=record&action=add';"/>&nbsp;
+<input type="submit" value=" 积分奖惩X " class="btn" onclick="this.form.action='?moduleid=2&file=credit&action=add';"/>&nbsp;
+<input type="submit" value=" 短信增减X " class="btn" onclick="this.form.action='?moduleid=2&file=sms&action=add';"/>&nbsp;
+<input type="submit" value=" 发送短信X " class="btn" onclick="this.form.action='?moduleid=2&file=sendsms';"/>&nbsp;
+<input type="submit" value=" 发送邮件X " class="btn" onclick="this.form.action='?moduleid=2&file=sendmail';"/>&nbsp;
+<input type="submit" value=" 发送消息X " class="btn" onclick="this.form.action='?moduleid=2&file=message&action=send';"/>&nbsp;
+<input type="submit" value=" 贸易提醒X " class="btn" onclick="this.form.action='?moduleid=2&file=alert&action=add';"/>&nbsp;
+<input type="submit" value=" 移动至X " class="btn" onclick="if(Dd('mgroupid').value==0){alert('请选择会员组');Dd('mgroupid').focus();return false;}this.form.action='?moduleid=2&action=move';"/> <select name="groupid" id="mgroupid"><option value="0">会员组</option><option value="1">管理员</option><option value="2">禁止访问</option><option value="3">游客</option><option value="4">待审核会员</option><option value="5">个人会员</option><option value="6">企业会员</option><option value="7">经销商</option><option value="8">专卖店</option><option value="9">品牌商</option></select> 
+</div>
+</form>
+<div class="pages"><input type="hidden" id="bc_previous" value="http://www.10brandchina.com/shangadmin.php?moduleid=2&sum=134389&page=6720"/><a href="http://www.10brandchina.com/shangadmin.php?moduleid=2&sum=134389&page=6720">&nbsp;&#171;上一页&nbsp;</a> <strong>&nbsp;1&nbsp;</strong>  <a href="http://www.10brandchina.com/shangadmin.php?moduleid=2&sum=134389&page=2">&nbsp;2&nbsp;</a>  &nbsp;&#8230;&nbsp; <a href="http://www.10brandchina.com/shangadmin.php?moduleid=2&sum=134389&page=3">&nbsp;3&nbsp;</a>   <a href="http://www.10brandchina.com/shangadmin.php?moduleid=2&sum=134389&page=4">&nbsp;4&nbsp;</a>   <a href="http://www.10brandchina.com/shangadmin.php?moduleid=2&sum=134389&page=5">&nbsp;5&nbsp;</a>   <a href="http://www.10brandchina.com/shangadmin.php?moduleid=2&sum=134389&page=6">&nbsp;6&nbsp;</a>   <a href="http://www.10brandchina.com/shangadmin.php?moduleid=2&sum=134389&page=7">&nbsp;7&nbsp;</a>   <a href="http://www.10brandchina.com/shangadmin.php?moduleid=2&sum=134389&page=8">&nbsp;8&nbsp;</a>   <a href="http://www.10brandchina.com/shangadmin.php?moduleid=2&sum=134389&page=9">&nbsp;9&nbsp;</a>  &nbsp;&#8230;&nbsp; <a href="http://www.10brandchina.com/shangadmin.php?moduleid=2&sum=134389&page=6719">&nbsp;6719&nbsp;</a>   <a href="http://www.10brandchina.com/shangadmin.php?moduleid=2&sum=134389&page=6720">&nbsp;6720&nbsp;</a>  <a href="http://www.10brandchina.com/shangadmin.php?moduleid=2&sum=134389&page=2">&nbsp;下一页&#187;&nbsp;</a> <input type="hidden" id="bc_next" value="http://www.10brandchina.com/shangadmin.php?moduleid=2&sum=134389&page=2"/>&nbsp;<cite>共134389条/6720页</cite>&nbsp;<input type="text" class="pages_inp" id="bc_pageno" value="1" onkeydown="if(event.keyCode==13 && this.value) {window.location.href='http://www.10brandchina.com/shangadmin.php?moduleid=2&sum=134389&page={bc_page}'.replace(/\{bc_page\}/, this.value);return false;}"> <input type="button" class="pages_btn" value="GO" onclick="if(Dd('bc_pageno').value>0)window.location.href='http://www.10brandchina.com/shangadmin.php?moduleid=2&sum=134389&page={bc_page}'.replace(/\{bc_page\}/, Dd('bc_pageno').value);"/></div>
+<div class="tt">修改会员名</div>
+<form method="post" action="?">
+<input type="hidden" name="moduleid" value="2"/>
+<input type="hidden" name="file" value="index"/>
+<input type="hidden" name="action" value="rename"/>
+<a name="#editusername"></a>
+<table cellpadding="2" cellspacing="1" class="tb">
+<tr>
+<td>&nbsp;当前会员名： <input type="text" name="cusername" size="20" value=""/> &nbsp; 新会员名： <input type="text" name="nusername" size="20"/>  &nbsp; <input type="submit" name="submit" value=" 确 定 " class="btn"/>&nbsp;&nbsp;<span class="f_gray">如无特殊情况，建议不要频繁修改会员名</span>
+</td>
+</tr>
+</table>
+</form>	
+<div class="tt">手机查询</div>
+<table cellpadding="2" cellspacing="1" class="tb">
+<tr>
+<td>&nbsp;手机号： <input type="text" name="mob" size="30" id="mob"/> &nbsp; <input type="button"  value=" 查 询 " class="btn" onclick="if(Dd('mob').value){_mobile(Dd('mob').value);}"/>&nbsp;&nbsp;<span class="f_gray">可查询手机所在地区</span>
+</td>
+</tr>
+</table>
+<div class="tt">IP查询</div>
+<table cellpadding="2" cellspacing="1" class="tb">
+<tr>
+<td>&nbsp;IP地址： <input type="text" name="ip" size="30" id="ip"/> &nbsp; <input type="button"  value=" 查 询 " class="btn" onclick="if(Dd('ip').value){_ip(Dd('ip').value);}"/>&nbsp;&nbsp;<span class="f_gray">可查询IP所在地区</span>
+</td>
+</tr>
+</table>
+<div class="tt">IP解锁</div>
+<form method="post" action="?">
+<input type="hidden" name="moduleid" value="2"/>
+<input type="hidden" name="file" value="index"/>
+<input type="hidden" name="action" value="unlock"/>
+<table cellpadding="2" cellspacing="1" class="tb">
+<tr>
+<td>&nbsp;IP地址： <input type="text" name="ip" size="30"/> &nbsp; <input type="submit" name="submit" value=" 解 锁 " class="btn"/>&nbsp;&nbsp;<span class="f_gray">可解除因登录失败次数过多而被锁定登录的IP</span>
+</td>
+</tr>
+</table>
+</form>
+<br/><br/><br/>
+<script type="text/javascript">Menuon(1);</script>
+</body>
+</html>

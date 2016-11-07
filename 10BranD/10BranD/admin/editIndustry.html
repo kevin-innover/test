@@ -1,0 +1,420 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>管理中心 - 品牌排行网</title>
+    <meta name="robots" content="noindex,nofollow" />
+    <meta http-equiv="x-ua-compatible" content="IE=8" />
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="bookmark" type="image/x-icon" href="favicon.ico" />
+    <script type="text/javascript">        window.onerror = function () { return true; }</script>
+    <link rel="stylesheet" href="../images/style.css" type="text/css" />
+    <script type="text/javascript" src="../js/jquery.js">    </script>
+ 
+    <script type="text/javascript" src="../js/public.js">    </script>
+    <script type="text/javascript" src="../js/entity.js">    </script>
+    <script type="text/javascript" src="../js/prompt/ymPrompt.js">    </script>
+    <link rel="stylesheet" id='skin' type="text/css" href="../js/prompt/skin/qq/ymPrompt.css" />
+</head>
+<body>
+    <div id="msgbox" onmouseover="closemsg();" style="display: none;">
+    </div>
+    <div class="menu" onselectstart="return false" id="bc_menu">
+        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+            <tr>
+                <td valign="bottom">
+                    <table cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td width="10">
+                                &nbsp;
+                            </td>
+                            <td id="Tab0" class="tab">
+                                <a href="?file=category&action=add&mid=13&parentid=0">添加分类</a>
+                            </td>
+                            <td class="tab_nav">
+                                &nbsp;
+                            </td>
+                            <td id="Tab1" class="tab">
+                                <a href="IndustryList.aspx">管理分类</a>
+                            </td>
+                            <td class="tab_nav">
+                                &nbsp;
+                            </td>
+                            <td id="Tab2" class="tab">
+                                <a href="?file=category&action=copy&mid=13">分类复制</a>
+                            </td>
+                            <td class="tab_nav">
+                                &nbsp;
+                            </td>
+                            <td id="Tab3" class="tab">
+                                <a href="?file=category&action=letters&mid=13">批量索引</a>
+                            </td>
+                            <td class="tab_nav">
+                                &nbsp;
+                            </td>
+                            <td id="Tab4" class="tab">
+                                <a href="?file=category&action=url&mid=13">更新地址</a>
+                            </td>
+                            <td class="tab_nav">
+                                &nbsp;
+                            </td>
+                            <td id="Tab5" class="tab">
+                                <a href="?file=category&action=count&mid=13">更新统计</a>
+                            </td>
+                            <td class="tab_nav">
+                                &nbsp;
+                            </td>
+                            <td id="Tab6" class="tab">
+                                <a href="?file=category&action=cache&mid=13">更新缓存</a>
+                            </td>
+                            <td class="tab_nav">
+                                &nbsp;
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td width="110">
+                    <div>
+                        <img src="../images/spacer.gif" width="40" height="24" title="刷新" onclick="window.location.reload();"
+                            style="cursor: pointer;" alt="" /><img src="../images/spacer.gif" width="20" height="24"
+                                title="后退" onclick="history.back(-1);" style="cursor: pointer;" alt="" /><img src="../images/spacer.gif"
+                                    width="20" height="24" title="前进" onclick="history.go(1);" style="cursor: pointer;"
+                                    alt="" /><img src="../images/spacer.gif" width="20" height="24" title="帮助" onclick="Go('http://www.destoon.com/client.php?action=help&product=b2b&mfa=destoon-category-edit');"
+                                        style="cursor: help;" alt="" /></div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <form method="post" action="?save=1" onsubmit="return check();">
+    <input type="hidden" name="file" value="category" />
+    <input type="hidden" name="action" value="edit" />
+    <input type="hidden" name="mid" value="13" />
+    <input type="hidden" name="catid" value="39421" />
+    <input type="hidden" name="forward" value="http://www.10brandchina.com/shangadmin.php?file=category&mid=13" />
+    <div class="tt">
+        分类修改</div>
+    <table cellpadding="2" cellspacing="1" class="tb">
+        <tr>
+            <td class="tl">
+                <span class="f_hid">*</span> 上级分类
+            </td>
+            <td>
+                <input name="category[parentid]" id="catid_1" type="hidden" value="0" /><span id="load_category_1"><select
+                    id="bigIndustry" onchange="load_category(this.value, 1,0);"><option value="0">请选择</option>
+                    <option value="39421">家居建材/装饰五金</option>
+                    <option value="39424">家电/厨卫</option>
+                    <option value="39425">能源/化工/农用产品</option>
+                    <option value="39426">床具/服装</option>
+                    <option value="39427">保健/医疗器械/药品</option>
+                    <option value="39428">交通/运输</option>
+                    <option value="39429">网络/游戏/软件</option>
+                    <option value="39431">现代服务业</option>
+                    <option value="39432">食品/饮品/酒类</option>
+                    <option value="39434">日用百货</option>
+                    <option value="39683">乐器/娱乐</option>
+                    <option value="39692">美发用品</option>
+                    <option value="39698">户外</option>
+                    <option value="39748">机电仪器仪表</option>
+                    <option value="39870">电子制造</option>
+                    <option value="39951">园林艺术</option>
+                </select>
+                </span>
+                <script type="text/javascript">                    var category_moduleid = new Array; category_moduleid[1] = "13"; var category_title = new Array; category_title[1] = '请选择'; var category_extend = new Array; category_extend[1] = ''; var category_catid = new Array; category_catid[1] = '0'; var category_deep = new Array; category_deep[1] = '0';</script>
+                <script type="text/javascript" src="http://img.10brandchina.com/file/script/category.js"></script>
+                <img src="../images/help.png" width="11" height="11" title="如果不选择，则为顶级分类" alt="tips"
+                    class="c_p" onclick="Dconfirm(this.title, '', 450);" />
+            </td>
+        </tr>
+        <tr>
+            <td class="tl">
+                <span class="f_red">*</span> 分类名称
+            </td>
+            <td>
+                <input name="category[catname]" type="text" id="catname" size="20" value="" />
+                <script type="text/javascript" src="http://img.10brandchina.com/file/script/color.js"></script>
+                <input type="hidden" name="category[style]" id="color_input_1" value="#99CC00" /><img
+                    src="http://www.10brandchina.com/file/image/color.gif" width="21" height="18"
+                    align="absmiddle" id="color_img_1" style="cursor: pointer; background: #99CC00"
+                    onclick="color_show(1, Dd('color_input_1').value, this);" />
+                <span id="dcatname" class="f_red"></span>
+            </td>
+        </tr>
+        <tr>
+            <td class="tl">
+                <span class="f_red">*</span> 分类目录[英文名]
+            </td>
+            <td>
+                <input name="category[catdir]" type="text" id="catdir" size="20" value="" />
+                <img src="../images/help.png" width="11" height="11" title="限英文、数字、中划线、下划线，该分类相关的html文件将保存在此目录"
+                    alt="tips" class="c_p" onclick="Dconfirm(this.title, '', 450);" />
+                <span id="dcatdir" class="f_red"></span>
+            </td>
+        </tr>
+        <tr>
+            <td class="tl">
+                <span class="f_hid">*</span> 字母索引
+            </td>
+            <td>
+                <input name="category[letter]" type="text" id="letter" size="2" value="j" />
+            </td>
+        </tr>
+        <tr><link href="jquery-ui.theme.css" rel="stylesheet">
+            <td class="tl">
+                <span class="f_hid">*</span> 级别
+            </td>
+            <td>
+                <input name="category[level]" type="text" size="2" value="1" />
+                <img src="../images/help.png" width="11" height="11" title="0 - 不在首页显示 1 - 正常显示 2 - 首页和上级分类并列显示"
+                    alt="tips" class="c_p" onclick="Dconfirm(this.title, '', 450);" />
+            </td>
+        </tr>
+        <tr>
+            <td class="tl">
+                <span class="f_hid">*</span> Title(SEO标题)
+            </td>
+            <td>
+                <input name="category[seo_title]" type="text" id="seo_title" value="" size="61">
+            </td>
+        </tr>
+        <tr>
+            <td class="tl">
+                <span class="f_hid">*</span> Meta Keywords<br />
+                &nbsp; (网页关键词)
+            </td>
+            <td>
+                <textarea name="category[seo_keywords]" cols="60" rows="3" id="seo_keywords"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td class="tl">
+                <span class="f_hid">*</span> Meta Description<br />
+                &nbsp; (网页描述)
+            </td>
+            <td>
+                <textarea name="category[seo_description]" cols="60" rows="3" id="seo_description"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td class="tl">
+                <span class="f_hid">*</span> 资质认证
+            </td>
+            <td>
+                <input name="category[verification]" type="text" value="10" size="3" />
+                最大票数限制后，提示进入前x名需要认证
+            </td>
+        </tr>
+        <tr>
+            <td class="tl">
+                <span class="f_hid">*</span> 投票状态
+            </td>
+            <td>
+                <input name="category[status]" id='status0' type="radio" value="1" />正在进行
+                <input name="category[status]" id='status1' type="radio" value="2" />榜单揭晓
+                <input name="category[status]" id='status2' type="radio" value="0" checked="checked" />投票结束
+                <input name="category[status]" id='status3' type="radio" value="3" />未开始
+            </td>
+        </tr>
+        <tr>
+            <td class="tl">
+                <span class="f_hid">*</span> 投票限制
+            </td>
+            <td>
+                <input name="category[xianzhi]" type="radio" value="1" />无限制
+                <input name="category[xianzhi]" type="radio" value="2" />5分钟
+                <input name="category[xianzhi]" type="radio" value="3" />10分钟
+                <input name="category[xianzhi]" type="radio" value="4" />30分钟
+                <input name="category[xianzhi]" type="radio" value="0" checked="checked" />仅一次
+            </td>
+        </tr>
+        <tr>
+            <td class="tl">
+                <span class="f_hid">*</span> 关闭电脑投票
+            </td>
+            <td>
+                <input name="category[closepc]" type="checkbox" value="1" />
+                启用后只能通过手机PAD等客户端投票
+            </td>
+        </tr>
+        <tr>
+            <td class="tl">
+                <span class="f_hid">*</span> 使用验证码X
+            </td>
+            <td>
+                <input name="category[captcha]" type="radio" value="0" checked="checked" />自动
+                <input name="category[captcha]" type="radio" value="1" />英文
+                <input name="category[captcha]" type="radio" value="2" />中文
+                <input name="category[captcha]" type="radio" value="3" />问题
+                <input name="category[captcha]" type="radio" value="4" />中文1,
+                <input name="category[captcha]" type="radio" value="5" />中文2,
+                <input name="category[captcha]" type="radio" value="6" />中文3,
+                <input name="category[captcha]" type="radio" value="7" />滑动
+            </td>
+        </tr>
+        <tr>
+            <td class="tl">
+                <span class="f_hid">*</span> 显示图片X
+            </td>
+            <td>
+                <input name="temp[switch1]" type="checkbox" value="128" />
+                警告
+                <input name="temp[switch2]" type="checkbox" value="64" />
+                近期榜单
+                <input name="temp[switch3]" type="checkbox" value="32" />
+                App下载
+            </td>
+        </tr>
+        <tr>
+            <td class="tl">
+                <span class="f_hid">*</span> 启用抽奖X
+            </td>
+            <td>
+                <input name="category[prize]" type="checkbox" value="1" />
+                <span class="f_red">启用后可抽奖</span>
+            </td>
+        </tr>
+        <tr>
+            <td class="tl">
+                <span class="f_hid">*</span> 奖品内容X
+            </td>
+            <td>
+                <input name="category[prizetitle]" id="prizetitle" type="text" size="61" value=""
+                    onclick="select_prize(3, 'prize');">
+                点击选择
+                <input name="category[prizeid]" id="prizeid" type="hidden" value="0">
+            </td>
+        </tr>
+        <tr>
+            <td class="tl">
+                <span class="f_hid">*</span> 启用抽红包X
+            </td>
+            <td>
+                <input name="category[redpacketid]" id="redpacketid" type="text" size="61" value="0"
+                    onclick="select_redpacket(3, 'redpacket');">
+                点击选择
+            </td>
+        </tr>
+        <tr>
+            <td class="tl">
+                <span class="f_hid">*</span> 行业专员
+            </td>
+            <td>
+                <select name="category[userid]" id="users">
+                    <option value="0" selected="selected">暂无</option>
+                    <option value="7">田静</option>
+                    <option value="6">张倩</option>
+                    <option value="40899">于凤梅</option>
+                    <option value="18406">郝艳</option>
+                    <option value="27518">田颖</option>
+                    <option value="31224">刘倩</option>
+                    <option value="31367">唐立新</option>
+                    <option value="37731">曹贺</option>
+                    <option value="37755">张灵芝</option>
+                    <option value="38756">姜程</option>
+                    <option value="29480">王卫东</option>
+                    <option value="39915">赵梓然</option>
+                    <option value="40414">孔茹</option>
+                    <option value="41452">王梅</option>
+                    <option value="79051">李娜</option>
+                    <option value="88998">申婧妍</option>
+                    <option value="140351">白会科</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td class="tl">
+                <span class="f_hid">*</span> 投票日期
+            </td>
+            <td>
+                <script type="text/javascript" src="../js/calendar.js"></script>
+                <input type="text" name="category[fromdate]" id="categoryfromdate" value="" size="10"
+                    onfocus="ca_show('categoryfromdate', this, '');" readonly ondblclick="this.value='';" />
+                <img src="../images/calendar.gif" align="absmiddle"
+                    onclick="ca_show('categoryfromdate', this, '-');" style="cursor: pointer;" />
+                至
+                <input type="text" name="category[todate]" id="categorytodate" value="" size="10"
+                    onfocus="ca_show('categorytodate', this, '-');" readonly ondblclick="this.value='';" />
+                <img src="../images/calendar.gif" align="absmiddle"
+                    onclick="ca_show('categorytodate', this, '-');" style="cursor: pointer;" />
+            </td>
+        </tr>
+        <tr>
+            <td class="tl">
+                <span class="f_hid">*</span> 投票说明
+            </td>
+            <td>
+                <textarea name="category[shuoming]" cols="60" rows="3" id="shuoming"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td class="tl">
+                <span class="f_hid">*</span> 投票说明1
+            </td>
+            <td>
+                <textarea name="category[shuoming1]" cols="60" rows="3" id="shuoming1"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td class="tl">
+                <span class="f_hid">*</span> 发布媒体
+            </td>
+            <td>
+                <input name="category[fabumt]" type="text" size="61" value="http://www.baidu.com/">
+                发布媒体链接地址
+            </td>
+        </tr>
+        <tr id="tr_QRcode">
+            <td class="tl">
+                <span class="f_hid">*</span>二维码
+            </td>
+            <td>
+                <input name="category[erweima]" type="text" value="" id="erweima" size="60" />
+                <span onclick="Dthumb(1,100,100, Dd('erweima').value, 0, 'erweima');" class="jt">[上传]</span>&nbsp;&nbsp;<span
+                    onclick="if(Dd('erweima').value){Dd('showerweima').src=Dd('erweima').value;}"
+                    class="jt">[预览]</span>&nbsp;&nbsp;<span onclick="Dd('erweima').value='';Dd('showerweima').src='http://img.10brandchina.com/skin/default/image/nopic150.gif';"
+                        class="jt">[删除]</span><br />
+                <a href="http://www.10brandchina.com/" target="_blank">
+                    <img src="" style="margin: 2px;" width="100" height="100" id="showerweima" /></a>
+            </td>
+        </tr>
+        <tr>
+            <td class="tl">
+                <span class="f_red">*</span> 自动评论语
+            </td>
+            <td>
+                <textarea name="category[content]" id="content" style="width: 500px; height: 500px;
+                    overflow: visible;"></textarea>
+                <img src="../images/help.png" width="11" height="11" title="一行一个，点回车换行" alt="tips"
+                    class="c_p" onclick="Dconfirm(this.title, '', 450);" /><br />
+                <span id="dcontent" class="f_red"></span>
+            </td>
+        </tr>
+    </table>
+    <div class="sbt">
+        <input type="button" onclick='SaveCategory()' name="submit" value="确 定" class="btn" />&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="reset" name="reset" value="重 置" class="btn" /></div>
+    </form>
+    <script type="text/javascript">
+        function ckDir() {
+            if (Dd('catdir').value == '') {
+                Dtip('请填写分类目录');
+                Dd('catdir').focus();
+                return false;
+            }
+            var url = '?file=category&action=ckdir&mid=13&catdir=' + Dd('catdir').value;
+            Diframe(url, 0, 0, 1);
+        }
+        function check() {
+            if (Dd('catname').value == '') {
+                Dmsg('请填写分类名称', 'catname');
+                return false;
+            }
+            if (Dd('catdir').value == '') {
+                Dmsg('请填写分类目录', 'catdir');
+                return false;
+            }
+            return true;
+        }
+    </script>
+    <script type="text/javascript">        Menuon(1);</script>
+</body>
+</html>

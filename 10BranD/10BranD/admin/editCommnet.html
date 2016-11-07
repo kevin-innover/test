@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<title>管理中心 - 品牌排行网</title>
+<meta name="robots" content="noindex,nofollow"/>
+<meta http-equiv="x-ua-compatible" content="IE=8"/>
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
+<link rel="bookmark" type="image/x-icon" href="favicon.ico"/>
+<script type="text/javascript">window.onerror= function(){return true;}</script><link rel="stylesheet" href="admin/image/style.css" type="text/css"/>
+<script type="text/javascript" src="http://img.10brandchina.com/file/script/public.js"></script>
+<script type="text/javascript" src="http://img.10brandchina.com/file/script/jquery.js"></script>
+<script type="text/javascript" src="http://img.10brandchina.com/file/script/admin.js"></script>
+</head>
+<body>
+<div id="msgbox" onmouseover="closemsg();" style="display:none;"></div>
+<div class="menu" onselectstart="return false" id="bc_menu">
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td valign="bottom">
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td width="10">&nbsp;</td>
+<td id="Tab0" class="tab"><a href="?moduleid=3&file=comment" >评论列表</a></td><td class="tab_nav">&nbsp;</td><td id="Tab1" class="tab"><a href="?moduleid=3&file=comment&action=check" >评论审核</a></td><td class="tab_nav">&nbsp;</td><td id="Tab2" class="tab"><a href="?moduleid=3&file=comment&action=ban" >评论禁止</a></td><td class="tab_nav">&nbsp;</td><td id="Tab3" class="tab"><a href="?moduleid=3&file=setting#comment" >模块设置</a></td><td class="tab_nav">&nbsp;</td></tr>
+</table>
+</td>
+<td width="110"><div><img src="admin/image/spacer.gif" width="40" height="24" title="刷新" onclick="window.location.reload();" style="cursor:pointer;" alt=""/><img src="admin/image/spacer.gif" width="20" height="24" title="后退" onclick="history.back(-1);" style="cursor:pointer;" alt=""/><img src="admin/image/spacer.gif" width="20" height="24" title="前进" onclick="history.go(1);" style="cursor:pointer;" alt=""/><img src="admin/image/spacer.gif" width="20" height="24" title="帮助" onclick="Go('http://www.destoon.com/client.php?action=help&product=b2b&mfa=extend-comment-edit');" style="cursor:help;" alt=""/></div></td>
+</tr>
+</table>
+</div><form method="post" action="?" id="dform">
+<input type="hidden" name="moduleid" value="3"/>
+<input type="hidden" name="file" value="comment"/>
+<input type="hidden" name="action" value="edit"/>
+<input type="hidden" name="itemid" value="16428352"/>
+<input type="hidden" name="forward" value="http://www.10brandchina.com/shangadmin.php?moduleid=3&file=comment"/>
+<div class="tt">修改评论 </div>
+<table cellpadding="2" cellspacing="1" class="tb">
+<tr>
+<td class="tl"><span class="f_hid">*</span> 评论人</td>
+<td><a href="javascript:_user('');" class="t">Guest</a> <input type="checkbox" name="post[hidden]" value="1" checked/> 匿名评论</td>
+</tr>
+<tr>
+<td class="tl"><span class="f_hid">*</span> 添加时间</td>
+<td><input type="text" name="post[addtime]" value="2016-09-23 16:24:16" size="30" /></td>
+</tr>
+<tr>
+<td class="tl"><span class="f_hid">*</span> IP</td>
+<td>60.10.218.64 - 河北廊坊 </td>
+</tr>
+<tr>
+<td class="tl"><span class="f_hid">*</span> 评论原文</td>
+<td><a href="http://www.10brandchina.com/extend/redirect.php?mid=13&itemid=27642" target="_blank" class="t">好思家</a></td>
+</tr>
+<tr>
+<td class="tl"><span class="f_red">*</span> 引用内容</td>
+<td><textarea name="post[quotation]" id="quotation"  rows="8" cols="70"></textarea><br/>请不要修改代码结构，仅可修改文字内容</td>
+</tr>
+
+<tr>
+<td class="tl"><span class="f_red">*</span> 评论内容</td>
+<td>
+<input type="radio" name="post[star]" value="3" id="star_3" checked/><label for="star_3"> 好评 <img src="http://www.10brandchina.com/file/image/star3.gif" width="36" height="12" alt="" align="absmiddle"/></label>
+<input type="radio" name="post[star]" value="2" id="star_2"/><label for="star_2"> 中评 <img src="http://www.10brandchina.com/file/image/star2.gif" width="36" height="12" alt="" align="absmiddle"/></label>
+<input type="radio" name="post[star]" value="1" id="star_1"/><label for="star_1"> 差评 <img src="http://www.10brandchina.com/file/image/star1.gif" width="36" height="12" alt="" align="absmiddle"/></label>
+<br/>
+<textarea name="post[content]" id="content"  rows="8" cols="70">好思家中国人自己的品牌</textarea></td>
+</tr>
+
+<tr>
+<td class="tl"><span class="f_hid">*</span> 回复评论</td>
+<td>
+<textarea name="post[reply]" id="reply" rows="8" cols="70"></textarea>
+</td>
+</tr>
+
+<tr>
+<td class="tl"><span class="f_hid">*</span> 评论状态</td>
+<td>
+<input type="radio" name="post[status]" value="3" checked/> 通过
+<input type="radio" name="post[status]" value="2" /> 待审
+</td>
+</tr>
+</table>
+<div class="sbt"><input type="submit" name="submit" value=" 确 定 " class="btn"/>&nbsp;&nbsp;&nbsp;&nbsp;<input type="reset" name="reset" value=" 重 置 " class="btn"/></div>
+</form>
+<script type="text/javascript">Menuon(0);</script>
+</body>
+</html>
