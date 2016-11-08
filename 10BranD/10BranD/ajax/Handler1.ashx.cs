@@ -661,9 +661,16 @@ namespace BranD10.Ajax
                 brand.AutoFrequency1 = 0;
                 brand.AutoFrequency2 = 1;
                 brand.CreatorUserID = Int32.Parse(context.Session[CommonMethod.S_UserID].ToString());
-                if ((context.Session[CommonMethod.S_User] as Users).IsCompany )
+                
+                var user=(context.Session[CommonMethod.S_User] as Users);
+                if (user.IsCompany)
                 {
                     brand.Status = (int)BrandStatusEnum.WaitAudit;
+                    brand.MemberID = user.Id;
+                }
+                else
+                {
+                    brand.CreatorUserID = user.Id;
                 }
                 var r = DB.Context.Insert<Brand>(brand);
 
