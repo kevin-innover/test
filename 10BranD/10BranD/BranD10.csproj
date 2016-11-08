@@ -74,7 +74,6 @@
     <Content Include="Account\ChangePasswordSuccess.aspx" />
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\Register.aspx" />
-    <Content Include="ajax\WebForm1.aspx" />
     <Content Include="js\fckeditor\FCKeditor.html" />
     <Content Include="images\add.png" />
     <Content Include="images\banner.png" />
@@ -139,10 +138,6 @@
     <Content Include="js\member.js" />
     <Content Include="js\entity.js" />
     <Content Include="js\brandlist_m.js" />
-    <Content Include="js\副本 brand.js" />
-    <Content Include="js\副本 jquery-1.12.4.js" />
-    <Content Include="js\副本 jquery-3.1.min.js" />
-    <Content Include="js\副本 users.js" />
     <Content Include="member\brandList_m.aspx" />
     <Content Include="member\editBrand_m.html" />
     <Content Include="member\files\14-06-50-21-38756.png" />
@@ -177,9 +172,6 @@
     <Content Include="member\files\btn_record.gif" />
     <Content Include="member\files\btn_style.gif" />
     <Content Include="member\files\btn_trade.gif" />
-    <Content Include="member\files\category.js" />
-    <Content Include="member\files\common.js" />
-    <Content Include="member\files\config.js" />
     <Content Include="member\files\customer_service_icon.png" />
     <Content Include="member\files\edit.png" />
     <Content Include="member\files\ico_credit.gif" />
@@ -188,14 +180,11 @@
     <Content Include="member\files\ico_sms.gif" />
     <Content Include="member\files\ico_trade.gif" />
     <Content Include="member\files\index.css" />
-    <Content Include="member\files\jquery.js" />
     <Content Include="member\files\KF_Btm.png" />
     <Content Include="member\files\KF_Head1.png" />
     <Content Include="member\files\KF_Time.png" />
-    <Content Include="member\files\lang.js" />
     <Content Include="member\files\logo.png" />
     <Content Include="member\files\main.css" />
-    <Content Include="member\files\member.js" />
     <Content Include="member\files\new.png" />
     <Content Include="member\files\setting.gif" />
     <Content Include="member\files\style.css" />
@@ -223,8 +212,6 @@
     <Content Include="admin\VoteAudit.aspx" />
     <Content Include="admin\FreeIndustry.aspx" />
     <Content Include="member\skin\style.css" />
-    <Content Include="member\副本 editbrand1.html" />
-    <Content Include="member\副本 index.html" />
     <Content Include="skin\style.css" />
     <Content Include="topMenus\brand.aspx" />
     <Content Include="start.html" />
@@ -235,7 +222,6 @@
     <Content Include="js\jquery.qrcode.min.js" />
     <Content Include="js\json2.js" />
     <Content Include="js\prompt\changelog.txt" />
-    <Content Include="js\prompt\demo - 副本.html" />
     <Content Include="js\prompt\demo.html" />
     <Content Include="js\prompt\iframe.html" />
     <Content Include="js\prompt\readme.txt" />
@@ -314,7 +300,6 @@
     <Content Include="js\prompt\ymPrompt.js" />
     <Content Include="js\prompt\ymPrompt_Ex.js" />
     <Content Include="js\prompt\ymPrompt_source.js" />
-    <Content Include="js\prompt\新建文本文档.txt" />
     <Content Include="js\uploadify\default.css" />
     <Content Include="js\uploadify\jquery-1.7.2.min.js" />
     <Content Include="js\uploadify\jquery.uploadify.min.js" />
@@ -401,13 +386,6 @@
     </Compile>
     <Compile Include="ajax\Handler1.ashx.cs">
       <DependentUpon>Handler1.ashx</DependentUpon>
-    </Compile>
-    <Compile Include="ajax\WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ajax\WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
     <Compile Include="common\BrowserInfo.cs" />
     <Compile Include="common\Common.cs" />

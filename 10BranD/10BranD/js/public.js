@@ -12,7 +12,6 @@ var IndustryCtrlID = '#bigIndustry'
 var CategoryCtrlID = '#subIndustry'
 var autoLoadCategory = true
 
-var action = ''
 
 userCtrlID = "#userctrl";
 function jsonDateFormat(jsonDate, longDate)
@@ -63,7 +62,7 @@ function GetRequest()
     }
     var page = location.href.replace(location.search, '')
     strs = page.split("/");
-    page = strs[strs.length - 1].replace('.html', '')
+    page = strs[strs.length - 1].replace('.html', '').replace('.aspx', '')
     theRequest['page'] = page
 
     return theRequest;
@@ -148,6 +147,7 @@ function fillSubIndustry(data)
         $(categoryCtrlID).append("<option value=" + v + " >" + n + "</option>");
     });
     $(categoryCtrlID).val(categoryID);
+    $(categoryCtrlID).show()
 }
 
 function LoadAllUserNames(value)

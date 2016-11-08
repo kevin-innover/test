@@ -26,7 +26,7 @@
         <table cellpadding="0" cellspacing="0">
             <tr>
                 <td class="tab" id="add">
-                    <a href="editBrand_m.html?action=add"  ><span>添加品牌</span></a>
+                    <a href="editBrand_m.html?action=add"><span>添加品牌</span></a>
                 </td>
                 <td class="tab_nav">
                     &nbsp;
@@ -76,32 +76,16 @@
                 &nbsp;</span></a></div>
     </div>
     <div class="tt">
-        <form action="http://www.10brandchina.com/member/my.php">
+        <form action="?        ">
         <input type="hidden" name="mid" value="13">
         <input type="hidden" name="status" value="3">
-        &nbsp;<input name="catid" id="Hidden1" type="hidden" value="0"><span id="load_category_1"><select
-            onchange="load_category(this.value, 1,0);"><option value="0">不限分类</option>
-            <option value="39421">家居建材/装饰五金</option>
-            <option value="39424">家电/厨卫</option>
-            <option value="39425">能源/化工/农用产品</option>
-            <option value="39426">床具/服装</option>
-            <option value="39427">保健/医疗器械/药品</option>
-            <option value="39428">交通/运输</option>
-            <option value="39429">网络/游戏/软件</option>
-            <option value="39431">现代服务业</option>
-            <option value="39432">食品/饮品/酒类</option>
-            <option value="39434">日用百货</option>
-            <option value="39683">乐器/娱乐</option>
-            <option value="39692">美发用品</option>
-            <option value="39698">户外</option>
-            <option value="39748">机电仪器仪表</option>
-            <option value="39870">电子制造</option>
-            <option value="39951">园林艺术</option>
+         <select
+            id="bigIndustry" onchange="load_category(this.value, 1,0);"><option value="0">选择大类</option>
         </select>
-        </span>
-        <script type="text/javascript">            var category_moduleid = new Array; category_moduleid[1] = "13"; var category_title = new Array; category_title[1] = '不限分类'; var category_extend = new Array; category_extend[1] = ''; var category_catid = new Array; category_catid[1] = '0'; var category_deep = new Array; category_deep[1] = '0';</script>
-        <script type="text/javascript" src="./files/category.js"></script>
-        &nbsp;
+           <select id="subIndustry" name="catid"   style="height: 80px; width: 160px;display: none;" >
+                                        <option value="0">选择小类</option>
+                                    </select>
+        
         <input type="text" size="50" name="kw" value="" title="关键词">&nbsp;
         <input type="submit" value=" 搜 索 " class="btn">
         <input type="button" value=" 重 置 " class="btn" onclick="Go(&#39;my.php?mid=13&amp;status=3&#39;);">
@@ -112,7 +96,6 @@
             <a href="javascript:void(0);" onclick="picClose();">
                 <img src="./files/toupxts.png"></a>
         </div>
-       
         </form>
     </div>
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" ShowHeaderWhenEmpty="True"
@@ -140,7 +123,7 @@
             <asp:BoundField HeaderText="投票趋势 X" DataField="" />
             <asp:TemplateField HeaderText="操  作">
                 <ItemTemplate>
-                    <a href='editBrand_m.html?action=edit&brandID=<%#Eval("Id") %>' onclick="return checkStatus()">
+                    <a name="editUrl" href='editBrand_m.html?action=edit&brandID=<%#Eval("Id") %>' onclick="return checkStatus()">
                         <img src="../images/edit.png" width="16" height="16" title="编辑" alt="" /></a>
                 </ItemTemplate>
             </asp:TemplateField>

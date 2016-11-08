@@ -75,6 +75,8 @@ namespace BranD10.Pages
             //var brands = DB.Context.From<Model.Brand>().Where(p => p.MemberID == memberID && p.Status == (int)status);
             
             var brands = DB.Context.From<Model.Brand>().Where(p => p.Status == (int)status);
+            
+           
 
             var entityCount = brands.Count();
             var pageCount = (entityCount + pageSize - 1) / pageSize;
@@ -103,7 +105,10 @@ namespace BranD10.Pages
                 case 2: allBrands = allBrands.OrderByDescending(p => p.TotalTickets).ToList(); break;
                 default: break;
             }
-
+            if (status == BrandStatusEnum.Reject)
+            {
+                allBrands.ForEach(p=>p.Name=p.Name+" 未通过原因："+p.RejectReason);
+            }
             this.GridView1.DataSource = allBrands;
 
             this.GridView1.DataBind();

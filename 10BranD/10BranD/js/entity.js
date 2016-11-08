@@ -1,5 +1,5 @@
 ﻿autoLoadCategory = false
-action
+var action
 var ID
 $(
  function ()
@@ -11,7 +11,7 @@ $(
 
          var page = Request['page']
          action = Request['action']
-         
+
          ID = Request['ID']
 
          switch (page)
@@ -75,10 +75,17 @@ $(
                  }
                  break;
              case 'brandList_m':
-
+                  
                  if (action == 'pass')
                  {
                      brandID = 91
+                      
+                     $("a[name=editUrl]").each(function ()
+                     {
+                    
+                         $(this).prop("href", "javascript:void()")
+                     }
+                     )
                      loadBrand_m(brandID)
                  }
                  else
