@@ -18,22 +18,20 @@ namespace BranD10.Pages
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            var a = DB.Context.From<Model.Users>(" Id=2");
-
             //if (Session["UserName"] == null)
             //{
             //    Response.Redirect("Default.aspx");
             //}
             if (!IsPostBack)
             {
-               
+
             }
             else
             {
 
             }
-         //   Request.Url
-           // Request.Url.OriginalString ,
+            //   Request.Url
+            // Request.Url.OriginalString ,
             action = Request["action"];
 
             if (Request["psize"] != null)
@@ -46,13 +44,13 @@ namespace BranD10.Pages
                 pageIndex = int.Parse(Request["pageIndex"]);
             }
 
-          
+
             if (Request["order"] != null)
             {
                 orderBy = int.Parse(Request["order"]);
             }
 
-  if (Request["industryID"] != null)
+            if (Request["industryID"] != null)
             {
                 industryID = int.Parse(Request["industryID"]);
             }
@@ -72,19 +70,17 @@ namespace BranD10.Pages
                 case "reject": status = BrandStatusEnum.Reject; break;
                 default: break;
             }
+            //?? 根据userID进行查询
+            //var memberID = int.Parse(Session[CommonMethod.S_UserID].ToString());
+            //var brands = DB.Context.From<Model.Brand>().Where(p => p.MemberID == memberID && p.Status == (int)status);
             
             var brands = DB.Context.From<Model.Brand>().Where(p => p.Status == (int)status);
 
-          
-
-           // brands = DB.Context.From<Model.Brand>().Where(p => p.IndustryID == (int));
-
-
-           var entityCount = brands.Count();
-           var pageCount = (entityCount + pageSize-1) / pageSize;
+            var entityCount = brands.Count();
+            var pageCount = (entityCount + pageSize - 1) / pageSize;
 
             var pageFormate = "共 {0} 条 <a  href='?pageIndex=1{1}' >首页</a> <a href='?pageIndex={2}{1}'>上一页</a> <a href='?pageIndex={3}{1}'>下一页</a>  <a href='?pageIndex={4}{1}'>尾页</a> 当前第  {5} 页/共 {6} 页";
-            var addFormate =  "&order={0}&action={1}{2}";
+            var addFormate = "&order={0}&action={1}{2}";
             if (industryID > -1)
             {
                 addFormate = string.Format(addFormate, orderBy, action, "&industryID=" + industryID);
@@ -120,7 +116,7 @@ namespace BranD10.Pages
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            
+
         }
 
 

@@ -8,12 +8,11 @@
     <script src="../js/jquery.js">    </script>
     <script type="text/javascript" src="../js/public.js">    </script>
     <script type="text/javascript" src="../js/entity.js">    </script>
+    <script type="text/javascript" src="../js/brandlist_m.js">    </script>
     <script type="text/javascript" src="../js/prompt/ymPrompt.js">    </script>
     <link rel="stylesheet" id='skin' type="text/css" href="../js/prompt/skin/qq/ymPrompt.css" />
     <script type="text/javascript">
 
-        
- 
     </script>
 </head>
 <body>
@@ -27,43 +26,43 @@
         <table cellpadding="0" cellspacing="0">
             <tr>
                 <td class="tab" id="add">
-                    <a href="?13&action=add" target><span>添加品牌</span></a>
+                    <a href="editBrand_m.html?action=add"  ><span>添加品牌</span></a>
                 </td>
                 <td class="tab_nav">
                     &nbsp;
                 </td>
                 <td class="tab" id="s3">
-                    <a href="my.php?mid=13"><span>已发布<span class="px10">(28244)</span></span></a>
+                    <a href="?action=pass"><span>已发布<span class="px10">(28244)</span></span></a>
                 </td>
                 <td class="tab_nav">
                     &nbsp;
                 </td>
                 <td class="tab" id="s2">
-                    <a href="my.php?mid=13&status=2"><span>审核中<span class="px10">(806)</span></span></a>
+                    <a href="?action=check"><span>审核中<span class="px10">(806)</span></span></a>
                 </td>
                 <td class="tab_nav">
                     &nbsp;
                 </td>
                 <td class="tab" id="s5">
-                    <a href="my.php?mid=13&status=5"><span>待支付<span class="px10">(0)</span></span></a>
+                    <a href="my.php?mid=13&status=5"><span>待支付X<span class="px10">(0)</span></span></a>
                 </td>
                 <td class="tab_nav">
                     &nbsp;
                 </td>
                 <td class="tab" id="s1">
-                    <a href="my.php?mid=13&status=1"><span>未通过<span class="px10">(4)</span></span></a>
+                    <a href="?action=reject"><span>未通过<span class="px10">(4)</span></span></a>
                 </td>
                 <td class="tab_nav">
                     &nbsp;
                 </td>
                 <td class="tab" id="s4">
-                    <a href="my.php?mid=13&status=4"><span>已过期<span class="px10">(0)</span></span></a>
+                    <a href="my.php?mid=13&status=4"><span>已过期X<span class="px10">(0)</span></span></a>
                 </td>
                 <td class="tab_nav">
                     &nbsp;
                 </td>
                 <td class="tab" id="s7">
-                    <a href="my.php?mid=13&status=7"><span>申请退款</span></a>
+                    <a href="my.php?mid=13&status=7"><span>申请退款X</span></a>
                 </td>
             </tr>
         </table>
@@ -113,18 +112,7 @@
             <a href="javascript:void(0);" onclick="picClose();">
                 <img src="./files/toupxts.png"></a>
         </div>
-        <script>
-            function picBig()
-            {
-                var v = document.getElementById('divCenter');
-                v.style.display = "block";
-            }
-            function picClose()
-            {
-                var v = document.getElementById('divCenter');
-                v.style.display = "none";
-            }
-        </script>
+       
         </form>
     </div>
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" ShowHeaderWhenEmpty="True"
@@ -152,7 +140,7 @@
             <asp:BoundField HeaderText="投票趋势 X" DataField="" />
             <asp:TemplateField HeaderText="操  作">
                 <ItemTemplate>
-                    <a href='editBrand_m.html?action=edit&brandID=<%#Eval("Id") %>'>
+                    <a href='editBrand_m.html?action=edit&brandID=<%#Eval("Id") %>' onclick="return checkStatus()">
                         <img src="../images/edit.png" width="16" height="16" title="编辑" alt="" /></a>
                 </ItemTemplate>
             </asp:TemplateField>
