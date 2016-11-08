@@ -12,6 +12,7 @@ var IndustryCtrlID = '#bigIndustry'
 var CategoryCtrlID = '#subIndustry'
 var autoLoadCategory = true
 
+var action = ''
 
 userCtrlID = "#userctrl";
 function jsonDateFormat(jsonDate, longDate)
@@ -1009,3 +1010,5 @@ L['sync_qq'] = '同步到腾讯微博';
 L['sync_qzone'] = '同步到QQ空间';
 L['sync_login_sina'] = '您还没有登录新浪微博或者登录已经失效，是否现在登录?';
 L['sync_login_qq'] = '您还没有QQ登录或者QQ登录已经失效，是否现在登录?';
+L['tip'] = '友情提示';
+L['change_brand'] = '已经审核的信息，请联系管理员修改！';

@@ -1,4 +1,5 @@
 ﻿autoLoadCategory = false
+action
 var ID
 $(
  function ()
@@ -9,7 +10,8 @@ $(
          Request = GetRequest();
 
          var page = Request['page']
-         var action = Request['action']
+         action = Request['action']
+         
          ID = Request['ID']
 
          switch (page)
@@ -62,6 +64,19 @@ $(
              case 'editBrand_m':
 
                  if (action == 'edit')
+                 {
+                     brandID = 91
+                     loadBrand_m(brandID)
+                 }
+                 else
+                 {
+                     brandID = 0;
+                     loadIndustry()
+                 }
+                 break;
+             case 'brandList_m':
+
+                 if (action == 'pass')
                  {
                      brandID = 91
                      loadBrand_m(brandID)
