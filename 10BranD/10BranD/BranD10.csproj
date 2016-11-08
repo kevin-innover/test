@@ -138,6 +138,7 @@
     <Content Include="js\admin.js" />
     <Content Include="js\member.js" />
     <Content Include="js\entity.js" />
+    <Content Include="js\brandlist_m.js" />
     <Content Include="js\副本 brand.js" />
     <Content Include="js\副本 jquery-1.12.4.js" />
     <Content Include="js\副本 jquery-3.1.min.js" />
@@ -503,6 +504,7 @@
     </Compile>
     <Compile Include="member\brandList_m.aspx.cs">
       <DependentUpon>brandList_m.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="member\brandList_m.aspx.designer.cs">
       <DependentUpon>brandList_m.aspx</DependentUpon>
