@@ -327,6 +327,10 @@ function handler(tp)
     ymPrompt.close();
 }
 
+function _alert(msg) {
+    ymPrompt.alert(msg);
+}
+
 function msg(data)
 {
     if (data['result'])
@@ -347,9 +351,9 @@ function error(XMLHttpRequest, textStatus, errorThrown)
 }
 
 function searchCategory()
-{ 
+{
     Dh('catesch');
-   
+
     if (event.keyCode == 13 || event.keyCode == 32 || event.keyCode == 8 || event.keyCode == 49 || event.keyCode == 50 || event.keyCode == 51 || event.keyCode == 52 || event.keyCode == 53)
     {
         var name = document.getElementById("category").value;
@@ -1003,6 +1007,7 @@ L['iso_tips_video'] = '暂不支持此视频，请在电脑上观看';
 L['max_mode'] = '最多可选{V0}种经营模式';
 L['max_cate'] = '最多可添加{V0}个分类';
 L['choose_category'] = '请选择分类';
+L['choose_industry'] = '请选择分类';
 L['category_chosen'] = '已添加过此分类';
 /*weibo.js*/
 L['sync_sina'] = '同步到新浪微博';

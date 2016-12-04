@@ -15,6 +15,9 @@ namespace BranD10.Pages
         private int pageIndex = 1;
         private int industryID = -1;
         private int orderBy = 0;
+        private int catid;
+        private string keyWord;
+        private bool isSearch;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -34,6 +37,10 @@ namespace BranD10.Pages
             // Request.Url.OriginalString ,
             action = Request["action"];
 
+            if (action != "reject")
+            {
+                this.GridView1.Columns[4].Visible = false ;  //把第一列隐藏
+            }
             if (Request["psize"] != null)
             {
                 pageSize = int.Parse(Request["psize"]);
@@ -44,15 +51,30 @@ namespace BranD10.Pages
                 pageIndex = int.Parse(Request["pageIndex"]);
             }
 
-
             if (Request["order"] != null)
             {
                 orderBy = int.Parse(Request["order"]);
             }
 
-            if (Request["industryID"] != null)
+            if (Request["s"] != null)
+            {
+                isSearch = true;
+            }
+            if (isSearch)
+            {
+
+            }
+            if (Request.Form["IndustryID"] != null)
             {
                 industryID = int.Parse(Request["industryID"]);
+            }
+            if (Request.Form["catid"] != null)
+            {
+                catid = int.Parse(Request.Form["catid"]);
+            }
+            if (Request.Form["kw"] != null)
+            {
+                keyWord = Request.Form["kw"];
             }
             BindData();
         }
@@ -73,29 +95,34 @@ namespace BranD10.Pages
             //?? 根据userID进行查询
             //var memberID = int.Parse(Session[CommonMethod.S_UserID].ToString());
             //var brands = DB.Context.From<Model.Brand>().Where(p => p.MemberID == memberID && p.Status == (int)status);
-            
+
             var brands = DB.Context.From<Model.Brand>().Where(p => p.Status == (int)status);
-            
-           
 
             var entityCount = brands.Count();
             var pageCount = (entityCount + pageSize - 1) / pageSize;
 
             var pageFormate = "共 {0} 条 <a  href='?pageIndex=1{1}' >首页</a> <a href='?pageIndex={2}{1}'>上一页</a> <a href='?pageIndex={3}{1}'>下一页</a>  <a href='?pageIndex={4}{1}'>尾页</a> 当前第  {5} 页/共 {6} 页";
-            var addFormate = "&order={0}&action={1}{2}";
+
             if (industryID > -1)
             {
-                addFormate = string.Format(addFormate, orderBy, action, "&industryID=" + industryID);
-
-                brands = brands.Where(p => p.IndustryID == industryID);
-                Label_page1.Text = string.Format(pageFormate, entityCount, addFormate, pageIndex - 1, pageIndex + 1, pageCount, pageIndex, pageCount);
+                brands = brands.Where(p => p.ParentIndustryID == industryID);
             }
-            else
+
+            if (catid > 0)
             {
-                addFormate = string.Format(addFormate, orderBy, action, "");
-
-                Label_page1.Text = string.Format(pageFormate, entityCount, addFormate, pageIndex - 1, pageIndex + 1, pageCount, pageIndex, pageCount);
+                brands = brands.Where(p => p.IndustryID == catid);
             }
+
+            if (!string.IsNullOrEmpty(keyWord))
+            {
+                brands = brands.Where(p => p.Name.Contains(keyWord));
+            }
+
+            var addFormate = "&order={0}&action={1}&industryID={2}&catid={3}&kw={4}";
+            addFormate = string.Format(addFormate, orderBy, action, industryID, catid, keyWord);
+
+            Label_page1.Text = string.Format(pageFormate, entityCount, addFormate, pageIndex - 1, pageIndex + 1, pageCount, pageIndex, pageCount);
+
             List<Brand> allBrands = brands.Page(pageSize, pageIndex).ToList();
 
             switch (orderBy)
@@ -105,17 +132,16 @@ namespace BranD10.Pages
                 case 2: allBrands = allBrands.OrderByDescending(p => p.TotalTickets).ToList(); break;
                 default: break;
             }
-            if (status == BrandStatusEnum.Reject)
-            {
-                allBrands.ForEach(p=>p.Name=p.Name+" 未通过原因："+p.RejectReason);
-            }
+            //if (status == BrandStatusEnum.Reject)
+            //{
+            //    allBrands.ForEach(p => p.Name = p.Name + " 未通过原因：" + p.RejectReason);
+            //}
             this.GridView1.DataSource = allBrands;
 
             this.GridView1.DataBind();
 
 
             HiddenField_CurrentPage.Value = pageIndex.ToString();
-
         }
 
 
