@@ -1,6 +1,5 @@
 ﻿autoLoadCategory = false
-var action
-var ID
+
 $(
  function ()
  {
@@ -10,9 +9,9 @@ $(
          Request = GetRequest();
 
          var page = Request['page']
-         action = Request['action']
+         var action = Request['action']
 
-         ID = Request['ID']
+         var ID = Request['ID']
 
          switch (page)
          {
@@ -65,34 +64,60 @@ $(
 
                  if (action == 'edit')
                  {
-                     brandID = 91
+                     status = Request['status']
+                     if (status=="1") {
+                         $("#s2").attr('class', "tab_on")
+                     }
+                     else (status == "2")
+                     {
+                         $("#s1").attr('class', "tab_on")
+                     }
+                     brandID = Request['brandID']
+
                      loadBrand_m(brandID)
                  }
                  else
                  {
+                     $("#add").attr('class', "tab_on")
                      brandID = 0;
                      loadIndustry()
                  }
                  break;
              case 'brandList_m':
-                  
+                 loadParameters()
                  if (action == 'pass')
                  {
-                     brandID = 91
-                      
+                     $("#s3").attr('class', "tab_on")
+
                      $("a[name=editUrl]").each(function ()
                      {
-                    
                          $(this).prop("href", "javascript:void()")
                      }
                      )
-                     loadBrand_m(brandID)
+                     // brandID = 91
+                     // loadBrand_m(brandID)
                  }
-                 else
+                 else if (action == 'check')
                  {
-                     brandID = 0;
-                     loadIndustry()
+                     $("#s2").attr('class', "tab_on")
+                     // brandID = 0;
                  }
+                 else if (action == 'reject')
+                 {
+                     $("#s1").attr('class', "tab_on")
+
+                     brandID = 0;
+                     //  loadIndustry()
+                 }
+                 if (industryID > 0)
+                 {
+                     $("#subIndustry").show()
+                 } else
+                 {
+                     $("#subIndustry").hide()
+                 }
+
+                 loadIndustry()
                  break;
              case 'editIndustry':
 
@@ -126,6 +151,17 @@ $(
      }
 
  })
+function loadParameters()
+{
+    var value = $("#HiddenField_Paras").val();
+    if (value)
+    {
+        var paras = convertStrToArr(value);
+        industryID = paras["pid"];
+        categoryID = paras["cid"];
+        $("input[name='kw']").val(paras["kv"]);
+    }
+}
 
 function SaveFrequency(Fid, v, brandid)
 {
@@ -147,7 +183,7 @@ function SaveFrequency(Fid, v, brandid)
             alert(XMLHttpRequest.readyState);
             alert(textStatus);
         },
-        complete: function (XMLHttpRequest, textStatus)
+        complete: function (xmlHttpRequest, textStatus)
         {
             //  alert(textStatus);
             //  this; // 调用本次AJAX请求时传递的options参数    
@@ -487,14 +523,13 @@ function fillBrandTable(data)
         }
     });
 
-
 }
 
 function SaveBrand()
 {
     if (!checkBrand())
     {
-        alert("false")
+       // _alert("false")
         return;
     }
     $.ajax({

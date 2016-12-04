@@ -1,96 +1,92 @@
-ï»¿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="brandList_m.aspx.cs" Inherits="BranD10.Pages.brandList_m" %>
+<%@ Page Language="C#" EnableEventValidation="true"  AutoEventWireup="true" CodeBehind="brandList_m.aspx.cs" Inherits="BranD10.Pages.brandList_m" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <meta http-equiv="Content-Type" content="text/html;charset=gb2312" />
+
     <link rel="stylesheet" href="skin/style.css" type="text/css" />
-    <script src="../js/jquery.js">    </script>
+    <script type="text/javascript" src="../js/jquery.js">    </script>
     <script type="text/javascript" src="../js/public.js">    </script>
     <script type="text/javascript" src="../js/entity.js">    </script>
     <script type="text/javascript" src="../js/brandlist_m.js">    </script>
     <script type="text/javascript" src="../js/prompt/ymPrompt.js">    </script>
     <link rel="stylesheet" id='skin' type="text/css" href="../js/prompt/skin/qq/ymPrompt.css" />
     <script type="text/javascript">
-        function checkKW() {
+        function checkkw()
+        {
             return true;
-            //æš‚æ—¶ä¸æ£€æŸ¥
+            //ÔÝÊ±²»¼ì²é
             //if (!$("#bigIndustry").val()) {
-                
+
             //}
         }
     </script>
 </head>
 <body>
-    <form action="?">
-        <input name="catid" id="catid_1" type="hidden" value="0" />
-        <input type="hidden" name="moduleid" value="13" />
-        <input type="hidden" name="action" value="" />
-    </form>
     <form id="form1" runat="server">
         <div class="menu">
             <table cellpadding="0" cellspacing="0">
                 <tr>
                     <td class="tab" id="add">
-                        <a href="editBrand_m.html?action=add"><span>æ·»åŠ å“ç‰Œ</span></a>
+                        <a href="editBrand_m.html?action=add"><span>Ìí¼ÓÆ·ÅÆ</span></a>
                     </td>
                     <td class="tab_nav">&nbsp;
                     </td>
                     <td class="tab" id="s3">
-                        <a href="?action=pass"><span>å·²å‘å¸ƒ<span class="px10">(28244)</span></span></a>
+                        <a href="?action=pass"><span>ÒÑ·¢²¼<span class="px10">(28244)</span></span></a>
                     </td>
                     <td class="tab_nav">&nbsp;
                     </td>
-                    <td class="tab" id="s2">
-                        <a href="?action=check"><span>å®¡æ ¸ä¸­<span class="px10">(806)</span></span></a>
+                    <td class="tab" id="s2" >
+                        <a href="?action=check"><span>ÉóºËÖÐ<span class="px10">(806)</span></span></a>
                     </td>
                     <td class="tab_nav">&nbsp;
                     </td>
-                    <td class="tab" id="s5">
-                        <a href="my.php?mid=13&status=5"><span>å¾…æ”¯ä»˜X<span class="px10">(0)</span></span></a>
+                    <td class="tab" id="s5" style="display:none">
+                        <a href="my.php?mid=13&status=5"><span>´ýÖ§¸¶X<span class="px10">(0)</span></span></a>
                     </td>
                     <td class="tab_nav">&nbsp;
                     </td>
                     <td class="tab" id="s1">
-                        <a href="?action=reject"><span>æœªé€šè¿‡<span class="px10">(4)</span></span></a>
+                        <a href="?action=reject"><span>Î´Í¨¹ý<span class="px10">(4)</span></span></a>
                     </td>
                     <td class="tab_nav">&nbsp;
                     </td>
-                    <td class="tab" id="s4">
-                        <a href="my.php?mid=13&status=4"><span>å·²è¿‡æœŸX<span class="px10">(0)</span></span></a>
+                    <td class="tab" id="s4" style="display:none">
+                        <a href="my.php?mid=13&status=4"><span>ÒÑ¹ýÆÚX<span class="px10">(0)</span></span></a>
                     </td>
                     <td class="tab_nav">&nbsp;
                     </td>
-                    <td class="tab" id="s7">
-                        <a href="my.php?mid=13&status=7"><span>ç”³è¯·é€€æ¬¾X</span></a>
+                    <td class="tab" id="s7" style="display:none">
+                        <a href="my.php?mid=13&status=7"><span>ÉêÇëÍË¿îX</span></a>
                     </td>
                 </tr>
             </table>
         </div>
         <div class="warn" class="f_red" style="line-height: 25px; width: auto;">
-            <span class="f_b">å…³äºŽæ¶æ„è½¯ä»¶åˆ·ç¥¨çš„æƒ…å†µè¯´æ˜Žï¼š</span>ä¸ºæœç»æ­¤ç±»ä¸æ­£å½“è¡Œä¸ºï¼Œå“ç‰ŒæŽ’è¡Œç½‘å°† <span class="f_red"><b>ä¸¥æŸ¥è½¯ä»¶åˆ·ç¥¨è¡Œä¸º</b></span>ï¼Œå¹¶å¯¹è´­ä¹°æˆ–åˆ©ç”¨è½¯ä»¶åˆ·ç¥¨ä¼ä¸š<span
-                class="f_red"><b>äºˆä»¥å‡ç¥¨å¤„ç½šï¼Œæƒ…èŠ‚ä¸¥é‡è€…å°†å–æ¶ˆè¯„é€‰èµ„æ ¼</b></span>ã€‚å“ç‰ŒæŽ’è¡Œç½‘ä¸ä¼šä»¥æ¶¨ç¥¨ï¼ŒåŒ…åæ¬¡ï¼Œåˆ·ç¥¨ç­‰è¿è§„æ‰‹æ®µ è·Ÿä¼ä¸šè”ç³»ï¼Œä¹Ÿè¯·ä¼ä¸šä¸»å¯¹æ¶æ„åˆ·ç¥¨äººå‘˜åšåˆ°<span
-                    class="f_red"><b>ä¸å¬ï¼ä¸ä¿¡ï¼ä¸æ±‡æ¬¾ï¼</b></span>é¿å…é€ æˆä¸å¿…è¦çš„æŸå¤±ï¼Œä¿æŒä¸€ä¸ª<span class="f_red"><b>å…¬å¹³ï¼Œå…¬æ­£</b></span>çš„æŠ•ç¥¨çŽ¯å¢ƒã€‚
+            <span class="f_b">¹ØÓÚ¶ñÒâÈí¼þË¢Æ±µÄÇé¿öËµÃ÷£º</span>Îª¶Å¾ø´ËÀà²»Õýµ±ÐÐÎª£¬Æ·ÅÆÅÅÐÐÍø½« <span class="f_red"><b>ÑÏ²éÈí¼þË¢Æ±ÐÐÎª</b></span>£¬²¢¶Ô¹ºÂò»òÀûÓÃÈí¼þË¢Æ±ÆóÒµ<span
+                class="f_red"><b>ÓèÒÔ¼õÆ±´¦·££¬Çé½ÚÑÏÖØÕß½«È¡ÏûÆÀÑ¡×Ê¸ñ</b></span>¡£Æ·ÅÆÅÅÐÐÍø²»»áÒÔÕÇÆ±£¬°üÃû´Î£¬Ë¢Æ±µÈÎ¥¹æÊÖ¶Î ¸úÆóÒµÁªÏµ£¬Ò²ÇëÆóÒµÖ÷¶Ô¶ñÒâË¢Æ±ÈËÔ±×öµ½<span
+                    class="f_red"><b>²»Ìý£¡²»ÐÅ£¡²»»ã¿î£¡</b></span>±ÜÃâÔì³É²»±ØÒªµÄËðÊ§£¬±£³ÖÒ»¸ö<span class="f_red"><b>¹«Æ½£¬¹«Õý</b></span>µÄÍ¶Æ±»·¾³¡£
         <div style="text-align: right">
-            â€”â€”â€”â€”å“ç‰ŒæŽ’è¡Œç½‘ www.10brandchina.com &nbsp; &nbsp;<a href="/guestbook/"><span class="f_blue">æˆ‘è¦ä¸¾æŠ¥
+            ¡ª¡ª¡ª¡ªÆ·ÅÆÅÅÐÐÍø www.10brandchina.com &nbsp; &nbsp;<a href="/guestbook/"><span class="f_blue">ÎÒÒª¾Ù±¨
                 &nbsp;</span></a>
-            </div>
         </div>
-        <div class="tt">
-            <form action="?s=0" onsubmit="return checkKW()">
-                <input type="hidden" name="mid" value="13">
-                <input type="hidden" name="status" value="3">
+        </div>
+        <div class="tt">  
+            <form action="?" onsubmit="return checkkw()">
                 <select
-                    id="bigIndustry" name="IndustryID" onchange="load_category(this.value, 1,0);">
-                    <option value="0">é€‰æ‹©å¤§ç±»</option>
+                    id="bigIndustry" name="IndustryID" onchange="loadcategory(this.value);">
+                    <option value="0">Ñ¡ÔñÐÐÒµ</option>
                 </select>
-                <select id="subIndustry" name="catid" style="height: 80px; width: 160px; display: none;">
-                    <option value="0">é€‰æ‹©å°ç±»</option>
+                <select id="subIndustry" name="catid"  >
+                    <option value="0">Ñ¡Ôñ·ÖÀà</option>
                 </select>
 
-                <input type="text" size="50" name="kw" value="" title="å…³é”®è¯">&nbsp;
-        <input type="submit" value=" æœ ç´¢ " class="btn">
-                <input type="button" value=" é‡ ç½® " class="btn" onclick="Go('?');">
+                <input type="text" size="50" name="kw" value="" title="¹Ø¼ü´Ê">&nbsp;
+        <input type="submit" value=" ËÑ Ë÷ " class="btn">
+                <input type="button" value=" ÖØ ÖÃ " class="btn" onclick="Go();">
                 <a name="fff" href="javascript:void(0);" onclick="picBig();">
                     <img src="./files/toupxtsicon.png" height="35" width="50"></a>
                 <div id="divCenter" align="center" style="position: absolute; z-index: 9; display: none; background-color: #eee; width: 430px; height: 740px; left: 70%; top: 10%; border: 0px solid #222;">
@@ -114,26 +110,27 @@
                     <ItemStyle HorizontalAlign="Center" />
                 </asp:TemplateField>
                 <asp:HyperLinkField DataNavigateUrlFields="Id" DataNavigateUrlFormatString="../vote/showIndustry.aspx?ID={0}"
-                    DataTextField="IndustryName" HeaderText="åˆ† ç±»" />
-                <asp:ImageField DataImageUrlField="LogoPath" ControlStyle-Width="80" HeaderText="å›¾ç‰‡">
+                    DataTextField="IndustryName" HeaderText="·Ö Àà" />
+                <asp:ImageField DataImageUrlField="LogoPath" ControlStyle-Width="80" HeaderText="Í¼Æ¬">
                 </asp:ImageField>
                 <asp:HyperLinkField DataNavigateUrlFields="Id" DataNavigateUrlFormatString="showbrand.aspx?brandID={0}"
-                    DataTextField="Name" HeaderText="æ ‡  é¢˜" />
-                <asp:BoundField DataField="RejectReason" HeaderText="æœªé€šè¿‡åŽŸå› " />
-                <asp:BoundField DataField="updateTime" HeaderText="æ›´æ–°æ—¶é—´" />
-                <asp:BoundField HeaderText="æŠ•ç¥¨æ•°" DataField="TotalTickets" />
-                <asp:BoundField HeaderText="æŠ•ç¥¨è¶‹åŠ¿ X" DataField="" />
-                <asp:TemplateField HeaderText="æ“  ä½œ">
+                    DataTextField="Name" HeaderText="±ê  Ìâ" />
+                <asp:BoundField DataField="RejectReason" HeaderText="Î´Í¨¹ýÔ­Òò" />
+                <asp:BoundField DataField="updateTime" HeaderText="¸üÐÂÊ±¼ä" />
+                <asp:BoundField HeaderText="Í¶Æ±Êý" DataField="TotalTickets" />
+                <asp:BoundField HeaderText="Í¶Æ±Ç÷ÊÆ X" DataField="" />
+                <asp:TemplateField HeaderText="²Ù  ×÷">
                     <ItemTemplate>
-                        <a name="editUrl" href='editBrand_m.html?action=edit&brandID=<%#Eval("Id") %>' onclick="return checkStatus()">
-                            <img src="../images/edit.png" width="16" height="16" title="ç¼–è¾‘" alt="" /></a>
+                        <a name="editUrl" href='editBrand_m.html?action=edit&brandID=<%#Eval("Id") %>&status=<%#Eval("Status") %>' onclick="return checkStatus()">
+                            <img src="../images/edit.png" width="16" height="16" title="±à¼­" alt="" /></a>
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>
         </asp:GridView>
         <asp:Label ID="Label_page1" runat="server" Text="Label"></asp:Label>
         <asp:HiddenField ID="HiddenField_CurrentPage" runat="server" Value="-1" />
-        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="åˆ·æ–°æ•°æ®" />
+         <asp:HiddenField ID="HiddenField_Paras" runat="server" value=""/>
+        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Ë¢ÐÂÊý¾Ý" />
     </form>
 </body>
 </html>

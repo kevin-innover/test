@@ -27,7 +27,6 @@ function jsonDateFormat(jsonDate, longDate)
         var date = date.getFullYear() + "-" + month + "-" + day
         if (longDate)
         {
-
             date = date + +" " + hours + ":" + minutes + ":" + seconds;
         }
 
@@ -95,7 +94,7 @@ function fillIndustry(data)
 {
 
     $(IndustryCtrlID).empty();
-    $(IndustryCtrlID).append("<option value=0 >选择分类</option>");
+    $(IndustryCtrlID).append("<option value=0 >选择行业</option>");
 
     $(data).each(function ()
     {
@@ -327,7 +326,8 @@ function handler(tp)
     ymPrompt.close();
 }
 
-function _alert(msg) {
+function _alert(msg)
+{
     ymPrompt.alert(msg);
 }
 
@@ -403,7 +403,28 @@ function selectCate(v1, v2)
     $("#bigIndustry").val(v1)
     loadcategory(v1);
 }
+function selectCate(v1, v2)
+{
+    categoryID = v2;
+    $("#bigIndustry").val(v1)
+    loadcategory(v1);
+}
 
+function convertStrToArr(str)
+{
+    var arr = str.split(',')
+    var newArr = new Object()
+    var i=0
+    $.each( arr,function(i) {
+
+        var kv = arr[i].split('=');
+        newArr[kv[0]] = kv[1]
+    })
+    return newArr;
+}
+
+
+//--old
 
 var DTPath = "http://www.10brandchina.com/"; var SKPath = "http://img.10brandchina.com/skin/default/"; var MEPath = "http://www.10brandchina.com/member/"; var EXPath = "http://www.10brandchina.com/extend/"; var CKDomain = ".10brandchina.com"; var CKPath = "/"; var CKPrex = "cqv_";
 
@@ -761,7 +782,15 @@ function Dmsg(str, i, s, t)
 }
 function Inner(i, s) { try { Dd(i).innerHTML = s; } catch (e) { } }
 function InnerTBD(i, s) { try { Dd(i).innerHTML = s; } catch (e) { Dd(i).parentNode.outerHTML = Dd(i).parentNode.outerHTML.replace(Dd(i).innerHTML, s); } }
-function Go(u) { window.location = u; }
+function Go(u)
+{
+    if (u) {
+        window.location = window.location  + u;
+    } else {
+        window.location = window.location;
+    }
+    //alert(window.location)
+}
 function confirmURI(m, f) { if (confirm(m)) Go(f); }
 function showmsg(m, t)
 {

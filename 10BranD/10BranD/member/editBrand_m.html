@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html;charset=gb2312" />
     <title>品牌管理_商务中心_品牌排行网</title>
     <meta name="robots" content="nofollow" />
     <meta http-equiv="x-ua-compatible" content="IE=7" />
@@ -12,7 +12,7 @@
     <script type="text/javascript" src="../js/public.js">    </script>
     <script type="text/javascript" src="../js/entity.js">    </script>
     <script type="text/javascript" src="../js/prompt/ymPrompt.js">    </script>
-    <link rel="stylesheet" id='skin' type="text/css" href="../js/prompt/skin/qq/ymPrompt.css" />
+    <link rel="stylesheet" id="skin" type="text/css" href="../js/prompt/skin/qq/ymPrompt.css" />
     <script type="text/javascript">        window.onerror = function () { return true; }</script>
 </head>
 <body>
@@ -120,7 +120,7 @@
                         <table cellpadding="0" cellspacing="0">
             <tr>
                 <td class="tab" id="add"> 
-                    <a href="?" ><span>添加品牌</span></a>
+                    <a href="?" ><span id="addSpan">添加品牌</span></a>
                 </td>
                 <td class="tab_nav">
                     &nbsp;
@@ -137,7 +137,7 @@
                 <td class="tab_nav">
                     &nbsp;
                 </td>
-                <td class="tab" id="s5">
+                <td class="tab" id="s5" style="display:none">
                     <a href="my.php?mid=13&status=5"><span>待支付X<span class="px10">(0)</span></span></a>
                 </td>
                 <td class="tab_nav">
@@ -149,13 +149,13 @@
                 <td class="tab_nav">
                     &nbsp;
                 </td>
-                <td class="tab" id="s4">
+                <td class="tab" id="s4" style="display:none">
                     <a href="my.php?mid=13&status=4"><span>已过期X<span class="px10">(0)</span></span></a>
                 </td>
                 <td class="tab_nav">
                     &nbsp;
                 </td>
-                <td class="tab" id="s7">
+                <td class="tab" id="s7" style="display:none">
                     <a href="my.php?mid=13&status=7"><span>申请退款X</span></a>
                 </td>
             </tr>

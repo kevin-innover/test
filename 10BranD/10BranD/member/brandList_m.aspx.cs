@@ -26,56 +26,55 @@ namespace BranD10.Pages
             //    Response.Redirect("Default.aspx");
             //}
             if (!IsPostBack)
-            {
-
-            }
+            { }
             else
             {
 
             }
-            //   Request.Url
-            // Request.Url.OriginalString ,
             action = Request["action"];
 
-            if (action != "reject")
-            {
-                this.GridView1.Columns[4].Visible = false ;  //把第一列隐藏
-            }
-            if (Request["psize"] != null)
-            {
-                pageSize = int.Parse(Request["psize"]);
-            }
+                if (action != "reject")
+                {
+                    this.GridView1.Columns[4].Visible = false;  //把第一列隐藏
+                }
+                if (Request["psize"] != null)
+                {
+                    pageSize = int.Parse(Request["psize"]);
+                }
 
-            if (Request["pageIndex"] != null)
-            {
-                pageIndex = int.Parse(Request["pageIndex"]);
-            }
+                if (Request["pageIndex"] != null)
+                {
+                    pageIndex = int.Parse(Request["pageIndex"]);
+                }
 
-            if (Request["order"] != null)
-            {
-                orderBy = int.Parse(Request["order"]);
-            }
+                if (Request["order"] != null)
+                {
+                    orderBy = int.Parse(Request["order"]);
+                }
 
-            if (Request["s"] != null)
-            {
-                isSearch = true;
-            }
-            if (isSearch)
-            {
+                if (Request["s"] != null)
+                {
+                    isSearch = true;
+                }
+                if (isSearch)
+                {
 
-            }
-            if (Request.Form["IndustryID"] != null)
-            {
-                industryID = int.Parse(Request["industryID"]);
-            }
-            if (Request.Form["catid"] != null)
-            {
-                catid = int.Parse(Request.Form["catid"]);
-            }
-            if (Request.Form["kw"] != null)
-            {
-                keyWord = Request.Form["kw"];
-            }
+                }
+                if (Request.Form["IndustryID"] != null)
+                {
+                    industryID = int.Parse(Request["industryID"]);
+                }
+                if (Request.Form["catid"] != null)
+                {
+                    catid = int.Parse(Request.Form["catid"]);
+                }
+                if (Request.Form["kw"] != null)
+                {
+                    keyWord = Request.Form["kw"];
+
+                }
+                HiddenField_Paras.Value = string.Format("pid={0},cid={1},kv={2}", industryID, catid, keyWord);
+           
             BindData();
         }
 
@@ -96,7 +95,7 @@ namespace BranD10.Pages
             //var memberID = int.Parse(Session[CommonMethod.S_UserID].ToString());
             //var brands = DB.Context.From<Model.Brand>().Where(p => p.MemberID == memberID && p.Status == (int)status);
 
-            var brands = DB.Context.From<Model.Brand>().Where(p => p.Status == (int)status);
+            var brands = DB.Context.From<Model.Brand>().Where(p => p.Status == (int)status).ToEnumerable();
 
             var entityCount = brands.Count();
             var pageCount = (entityCount + pageSize - 1) / pageSize;
@@ -123,20 +122,22 @@ namespace BranD10.Pages
 
             Label_page1.Text = string.Format(pageFormate, entityCount, addFormate, pageIndex - 1, pageIndex + 1, pageCount, pageIndex, pageCount);
 
-            List<Brand> allBrands = brands.Page(pageSize, pageIndex).ToList();
+            brands = brands.Skip((pageIndex - 1) * pageSize).Take(pageSize);
 
             switch (orderBy)
             {
                 //更新时间降序
-                case 1: allBrands = allBrands.OrderByDescending(p => p.UpdateTime).ToList(); break;
-                case 2: allBrands = allBrands.OrderByDescending(p => p.TotalTickets).ToList(); break;
+                case 1:
+                    brands = brands.OrderByDescending(p => p.UpdateTime); break;
+                case 2:
+                    brands = brands.OrderByDescending(p => p.TotalTickets); break;
                 default: break;
             }
             //if (status == BrandStatusEnum.Reject)
             //{
             //    allBrands.ForEach(p => p.Name = p.Name + " 未通过原因：" + p.RejectReason);
             //}
-            this.GridView1.DataSource = allBrands;
+            this.GridView1.DataSource = brands;
 
             this.GridView1.DataBind();
 

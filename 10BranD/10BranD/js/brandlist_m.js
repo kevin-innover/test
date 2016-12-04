@@ -14,9 +14,9 @@ function checkStatus()
 {
     if (action == 'pass')
     {
-        ymPrompt.alert(L['change_brand'], null, null, L['tip'], handler)
+        ymPrompt.alert(L['change_brand'], null, null, L['tip'], handler);
         return false;
     }
-    alert(2)
+    alert(2);
     return true;
 }

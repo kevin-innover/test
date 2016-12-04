@@ -10,13 +10,6 @@
     <script type="text/javascript" src="../js/entity.js">    </script>
     <script type="text/javascript" src="../js/prompt/ymPrompt.js">    </script>
     <link rel="stylesheet" id='skin' type="text/css" href="../js/prompt/skin/qq/ymPrompt.css" /> 
-    
-   
-    <script  type="text/javascript">
-
-        
- 
-    </script>
 </head>
 <body>
     <div class="menu" onselectstart="return false" id="bc_menu">
