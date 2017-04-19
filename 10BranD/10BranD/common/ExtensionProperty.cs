@@ -229,26 +229,47 @@ namespace Model
         {
             get
             {
-                if (AdminUserID == null || AdminUserID == 0)
+                if (Admin != null)
                 {
-                    return "暂无";
-                }
-
-                var u = DB.Context.From<Model.Users>().Where(p => p.Id == AdminUserID && p.IsDelete == false).First();
-                if (u != null)
-                {
-                    return u.Name;
+                    return Admin.Name;
                 }
                 return "暂无";
-
             }
         }
-        public Industry _Industry
+        public string AuditTel
+        {
+            get
+            {
+                if (Admin != null)
+                {
+                    return Admin.AuditTel;
+                }
+                return "暂无";
+            }
+        }
+        public string AuditQQ
+        {
+            get
+            {
+                if (Admin != null)
+                {
+                    return Admin.QQ;
+                }
+                return "暂无";
+            }
+        }
+        public Users Admin
+        {
+            get
+            {
+                return DB.Context.From<Model.Users>().Where(p => p.Id == AdminUserID && p.IsDelete == false).First();
+            }
+        }
+        private Industry _Industry
         {
             get
             {
                 return DB.Context.From<Model.Industry>().Where(p => p.Id == IndustryID).First();
-
             }
         }
         public string IndustryName
@@ -263,6 +284,13 @@ namespace Model
             get
             {
                 return _Industry == null ? 0 : _Industry.ParentID;
+            }
+        }
+        public string  ParentIndustryName
+        {
+            get
+            {
+                return _Industry == null ? "" : _Industry.ParentName;
             }
         }
         public Company Company

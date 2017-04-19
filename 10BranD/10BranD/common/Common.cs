@@ -18,6 +18,7 @@ namespace BranD10
         
         #endregion
 
+        
         public static string TempFileFolder = "../upload/Temp";
         public static string UploadFolder = "../upload";
         public static string DefaultImage = "../upload";
@@ -57,6 +58,10 @@ namespace BranD10
                 return Domain + @"/vote/entry.html?id=";
             }
         }
+
+        public static string ServerPath { get; set; }
+
+
         public static List<String> GetSelectedIDs(GridView gridview)
         {
             List<string> ids = new List<string>();

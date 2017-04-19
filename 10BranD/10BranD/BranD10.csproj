@@ -80,6 +80,33 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="images\10brandchina.png" />
+    <Content Include="images\23.gif" />
+    <Content Include="images\arrow_top.png" />
+    <Content Include="images\customer_service_icon.png" />
+    <Content Include="images\hand.gif" />
+    <Content Include="images\hot.gif" />
+    <Content Include="images\kefu.png" />
+    <Content Include="images\KF_Time.png" />
+    <Content Include="images\logo.png" />
+    <Content Include="images\new.gif" />
+    <Content Include="images\pic.gif" />
+    <Content Include="images\shop_i2.gif" />
+    <Content Include="images\shous_img_span.gif" />
+    <Content Include="images\star1.gif" />
+    <Content Include="images\star2.gif" />
+    <Content Include="images\star3.gif" />
+    <Content Include="images\start_vote.png" />
+    <Content Include="images\toupiao_img11.jpg" />
+    <Content Include="images\tpcon_ico3.gif" />
+    <Content Include="images\tpcon_ico4.gif" />
+    <Content Include="images\vote_cat_end.png" />
+    <Content Include="images\vote_cat_more.png" />
+    <Content Include="images\vote_cat_server.png" />
+    <Content Include="images\voting_trends_rise_icon.png" />
+    <Content Include="images\zhix.png" />
+    <Content Include="js\catTip.js" />
+    <Content Include="js\brand.js" />
     <Content Include="js\fckeditor\FCKeditor.html" />
     <Content Include="images\add.png" />
     <Content Include="images\banner.png" />
@@ -136,6 +163,7 @@
     <Content Include="js\fckeditor\fckeditor_m.js" />
     <Content Include="js\fckeditor\fckeditor.js" />
     <Content Include="js\guest.js" />
+    <Content Include="js\JavaScript.js" />
     <Content Include="js\jquery-ui.min.css" />
     <Content Include="js\jquery-ui.min.js" />
     <Content Include="js\jquery.js" />
@@ -144,6 +172,7 @@
     <Content Include="js\member.js" />
     <Content Include="js\entity.js" />
     <Content Include="js\brandlist_m.js" />
+    <Content Include="js\share.js" />
     <Content Include="member\brandList_m.aspx" />
     <Content Include="member\editBrand_m.html" />
     <Content Include="member\files\14-06-50-21-38756.png" />
@@ -236,7 +265,17 @@
     <Content Include="member\skin\t2.gif" />
     <Content Include="member\skin\th.gif" />
     <Content Include="member\skin\warn.gif" />
+    <Content Include="skin\brandstyle.css" />
+    <Content Include="skin\comment.css" />
+    <Content Include="skin\select_share.css" />
+    <Content Include="skin\share_popup.css" />
+    <Content Include="skin\share_style0_16.css" />
+    <Content Include="skin\slide_share.css" />
     <Content Include="skin\style.css" />
+    <Content Include="skin\toupiaohy.min.css" />
+    <Content Include="skin\voting.css" />
+    <Content Include="template\brand - Copy.html" />
+    <Content Include="template\brand.html" />
     <Content Include="topMenus\brand.aspx" />
     <Content Include="start.html" />
     <Content Include="admin\rankPublish.html" />
@@ -387,6 +426,7 @@
     <Compile Include="common\Common.cs" />
     <Compile Include="common\ExtensionMethods.cs" />
     <Compile Include="common\ExtensionProperty.cs" />
+    <Compile Include="common\HTMLGenerator.cs" />
     <Compile Include="common\QRcodecs.cs" />
     <Compile Include="common\WebServer.cs" />
     <Compile Include="common\TicketManager.cs" />
@@ -558,7 +598,9 @@
     <Folder Include="App_Data\" />
     <Folder Include="BLL\" />
     <Folder Include="brand\" />
+    <Folder Include="comment\" />
     <Folder Include="front\" />
+    <Folder Include="NewFolder1\" />
     <Folder Include="upload\" />
     <Folder Include="vote\" />
   </ItemGroup>

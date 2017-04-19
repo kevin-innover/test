@@ -27,7 +27,7 @@ namespace BranD10.Ajax
             };
             return response;
         }
-
+        
         public void ProcessRequest(HttpContext context)
         {
             // context.Response.ContentType = "text/plain";

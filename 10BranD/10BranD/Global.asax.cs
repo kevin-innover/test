@@ -12,13 +12,14 @@ namespace BranD10
 
         void Application_Start(object sender, EventArgs e)
         {
+            CommonMethod.ServerPath = Server.MapPath("/");
             // 在应用程序启动时运行的代码
             //BranD10.QRcodecs.CreateCode_Choose("老婆我爱你！", "d:\\test.png");
             //var sss =  BranD10.QRcodecs.CodeDecoder("d:\\test.png");
 
-        //  var ss=  ((IndustryStatusEnum)2).ToString();
+            //  var ss=  ((IndustryStatusEnum)2).ToString();
 
-          WebServer.Start();
+            WebServer.Start();
         }
 
         void Application_End(object sender, EventArgs e)

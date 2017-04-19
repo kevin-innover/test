@@ -322,7 +322,6 @@ function handler(tp)
     {
         $(imgCtl).val(newImg)
     }
-
     ymPrompt.close();
 }
 
