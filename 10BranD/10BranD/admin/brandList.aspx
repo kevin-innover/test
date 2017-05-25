@@ -401,10 +401,10 @@
             </asp:TemplateField>
             <asp:TemplateField HeaderText="总票/真实投票/IP/刷票">
                 <ItemTemplate>
-                    <asp:Label ID="Label1" runat="server" Text='<%# bind("TotalTickets") %>'></asp:Label>&nbsp/
-                    <asp:Label ID="Label2" runat="server" Text='<%# bind("RealTicket") %>'></asp:Label>&nbsp/
+                    <asp:Label ID="Label1" runat="server" Text='<%# Bind("TotalTickets") %>'></asp:Label>&nbsp/
+                    <asp:Label ID="Label2" runat="server" Text='<%# Bind("RealTicket") %>'></asp:Label>&nbsp/
                      <a href='../vote/showTickets.aspx?ID=<%#Eval("Id")%>'></a>&nbsp/
-                    <asp:Label ID="Label4" runat="server" Text='<%# bind("AutoTicket") %>'></asp:Label>
+                    <asp:Label ID="Label4" runat="server" Text='<%# Bind("AutoTicket") %>'></asp:Label>
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField HeaderText="操  作">

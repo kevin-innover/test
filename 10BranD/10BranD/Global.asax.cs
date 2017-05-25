@@ -39,7 +39,7 @@ namespace BranD10
         {
             Session[CommonMethod.S_UserID] = 1;
             Session[CommonMethod.S_UserName] = "username";
-            Session[CommonMethod.S_User] = DB.Context.From<Model.Brand>().Where(p => p.Id == 3).First();
+           // Session[CommonMethod.S_User] = DB.Context.From<Model.Brand>().Where(p => p.Id == 3).First();
             
             // 在新会话启动时运行的代码
 

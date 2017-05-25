@@ -136,6 +136,11 @@ namespace BranD10.Pages
 
             }
 
+            else if (table == "contract" && id > 0)
+            {
+                r = BranD10.DB.Context.Update<Model.Contract>(new Dos.ORM.Field(field), localPath, "id=" + id);
+            }
+
             bool show = false;
 
             if (id > 0)

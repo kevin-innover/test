@@ -52,6 +52,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Plugin\Dos.ORM.MySql.dll</HintPath>
     </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=514791f4e173c2a1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>BLL\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="MySql.Data">
       <HintPath>Plugin\MySql.Data.dll</HintPath>
@@ -80,6 +84,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="BLL\log4net.dll" />
     <Content Include="images\10brandchina.png" />
     <Content Include="images\23.gif" />
     <Content Include="images\arrow_top.png" />
@@ -424,19 +429,21 @@
     </Compile>
     <Compile Include="common\BrowserInfo.cs" />
     <Compile Include="common\Common.cs" />
+    <Compile Include="common\log.cs" />
     <Compile Include="common\ExtensionMethods.cs" />
     <Compile Include="common\ExtensionProperty.cs" />
     <Compile Include="common\HTMLGenerator.cs" />
     <Compile Include="common\QRcodecs.cs" />
     <Compile Include="common\WebServer.cs" />
     <Compile Include="common\TicketManager.cs" />
+    <Compile Include="common\EmueType.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="common\EmueType.cs" />
     <Compile Include="entity\brand.cs" />
     <Compile Include="entity\brandranking.cs" />
     <Compile Include="entity\comment.cs" />
@@ -522,6 +529,11 @@
     <Compile Include="member\brandList_m.aspx.designer.cs">
       <DependentUpon>brandList_m.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="topMenus\brand.aspx.cs">
       <DependentUpon>brand.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -596,7 +608,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="BLL\" />
     <Folder Include="brand\" />
     <Folder Include="comment\" />
     <Folder Include="front\" />
@@ -617,9 +628,16 @@
     <Content Include="ajax\FileHandler.ashx" />
     <None Include="images\Thumbs.db" />
     <Content Include="admin\CommentList.aspx" />
+    <Content Include="Log4Net.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="member\files\pa" />
     <None Include="member\files\pa%281%29" />
     <None Include="member\files\show.php" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -632,18 +650,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
-          <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>39449</DevelopmentServerPort>
-          <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost/BranD10</IISUrl>
-          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
-          <IISAppRootUrl>http://192.168.0.25:8081/</IISAppRootUrl>
-          <NTLMAuthentication>False</NTLMAuthentication>
-          <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
-          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+          <SaveServerSettingsInUserFile>True</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
     </VisualStudio>

@@ -4,6 +4,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+     <link rel="stylesheet" href="../skin/style.css" type="text/css" />
+     <script src="../js/jquery.js">    </script>
+    <script type="text/javascript" src="../js/public.js">    </script>
+    <script type="text/javascript" src="../js/entity.js">    </script>
+    <script type="text/javascript" src="../js/prompt/ymPrompt.js">    </script>
+    <link rel="stylesheet" id='skin' type="text/css" href="../js/prompt/skin/qq/ymPrompt.css" /> 
 </head>
 <body>
     <div id="msgbox" onmouseover="closemsg();" style="display: none;">
@@ -18,15 +24,9 @@
                                 &nbsp;
                             </td>
                             <td id="Tab0" class="tab">
-                                <a href="editContract?action=add">添加合同</a>
+                                <a href="editContract.html?action=add">添加合同</a>
                             </td>
-                            <td class="tab_nav">
-                                &nbsp;
-                            </td>
-                            
-                            <td class="tab_nav">
-                                &nbsp;
-                            </td>
+                           
                         </tr>
                     </table>
                 </td>
@@ -82,47 +82,8 @@
     </table>
     <div class="tt">
         合同列表</div>
-    <th>
-        ID
-    </th>
-    <th>
-        行业
-    </th>
-    <th>
-        品牌名
-    </th>
-    <th>
-        品牌LOGO
-    </th>
-    <th>
-        公司名
-    </th>
-    <th>
-        发票截图
-    </th>
-    <th>
-        合同截图
-    </th>
-    <th>
-        添加时间
-    </th>
-    <th>
-        收费时间
-    </th>
-    <th>
-        收费金额
-    </th>
-    <th>
-        发票
-    </th>
-    <th>
-        行业专员
-    </th>
-    <th>
-        操作
-    </th>
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" ShowHeaderWhenEmpty="True"
-        CssClass="tb" DataKeyNames="Id">
+        CssClass="tb" DataKeyNames="Id" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
         <Columns>
             <asp:TemplateField>
                 <HeaderTemplate>

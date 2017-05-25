@@ -9,12 +9,11 @@ using Dos.ORM;
 using BranD10;
 namespace BranD10
 {
-    public class DB { public static readonly DbSession Context = new DbSession("DosConn");}
     public partial class _Default : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //for (int i = 0; i < 10; i++)
+            Log.logger.Warn("warn");
             //{
             //    Ticketcache t = new Ticketcache();
             //    t.Id = i;

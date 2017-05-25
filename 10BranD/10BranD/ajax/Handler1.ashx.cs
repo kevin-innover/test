@@ -10,8 +10,10 @@ using System.IO;
 using System.Drawing;
 using System.Threading;
 
-namespace BranD10.Ajax
+namespace BranD10
 {
+    public class DB { public static readonly DbSession Context = new DbSession("DosConn"); }
+
     /// <summary>
     /// Handler1 的摘要说明
     /// </summary>
@@ -27,9 +29,9 @@ namespace BranD10.Ajax
             };
             return response;
         }
-        
+
         public void ProcessRequest(HttpContext context)
-        {
+        { 
             // context.Response.ContentType = "text/plain";
             var type = context.Request.QueryString["type"];
             int id = 0;
@@ -40,12 +42,22 @@ namespace BranD10.Ajax
             try
             {
                 #region
+                //todo 在某些条件下的查询需要 warn
+
+                if (context.Session != null)
+                {
+                    var parameters = type.Contains("Save")? context.Request.Form[0] : "";
+                   
+                    Log.logger.Info(string.Format("{0} called method {1}, id={2}, parameters= {3} ", context.Session[CommonMethod.S_UserName].ToString(), type,id,parameters));
+
+                }
+
 
                 if (type == "LoadBrand")
                 {
                     result = LoadBrand(context, id);
                 }
-                
+
                 else if (type == "SaveTicket")
                 {//post new data
                     result = SaveTicket(context, id);
@@ -173,7 +185,7 @@ namespace BranD10.Ajax
             if (type.StartsWith("Save") || type.StartsWith("Check"))
             {
                 var json = serializer.Serialize(getResult(result, error));
-                context.Response.Write(json);
+                writeResponse(context, json);
             }
         }
 
@@ -181,21 +193,21 @@ namespace BranD10.Ajax
         {
             var name = context.Request.QueryString["name"];
             var objs = DB.Context.From<Model.Industry>().Where(p => p.ParentID > 0 && p.Name.Contains(name)).ToList();
-            var html="";
-            if (objs.Count>0)
+            var html = "";
+            if (objs.Count > 0)
             {
-                  html+=@"<span>";
-               html+=@"<input type=""button"" value=""关闭"" onclick=""Dh('catesch');""/></br>";
-               html+=@"<span style=""font-weight:bold;"">为您找到以下相关分类，请选择:</span></br>";
-          foreach (var cate in objs)
-	{
-              var status=((IndustryStatusEnum)cate.Status).ToString();
-              html += string.Format(@"<input type=""radio"" name=""post_fields[captcha]"" value=""0"" id=""captcha_0"" onclick=""selectCate({3},{4})""/>{0}》{1}【{2}】<br/>", cate.ParentName, cate.Name, status, cate.ParentID, cate.Id);
-	}
- html+=@"</span>";
+                html += @"<span>";
+                html += @"<input type=""button"" value=""关闭"" onclick=""Dh('catesch');""/></br>";
+                html += @"<span style=""font-weight:bold;"">为您找到以下相关分类，请选择:</span></br>";
+                foreach (var cate in objs)
+                {
+                    var status = ((IndustryStatusEnum)cate.Status).ToString();
+                    html += string.Format(@"<input type=""radio"" name=""post_fields[captcha]"" value=""0"" id=""captcha_0"" onclick=""selectCate({3},{4})""/>{0}》{1}【{2}】<br/>", cate.ParentName, cate.Name, status, cate.ParentID, cate.Id);
+                }
+                html += @"</span>";
             }
 
-            context.Response.Write(html);
+            writeResponse(context, html);
             return true;
         }
 
@@ -217,8 +229,8 @@ namespace BranD10.Ajax
                     break;
                 case "brand":
                     var cateID = context.Request.QueryString["cateID"];
-                    
-                    c = DB.Context.From<Model.Brand>().Where(p => p.IndustryID==int.Parse(cateID) && p.Name == v).Count();
+
+                    c = DB.Context.From<Model.Brand>().Where(p => p.IndustryID == int.Parse(cateID) && p.Name == v).Count();
                     if (c > 0)
                     {
                         error = "此品牌名称已经存在，请联系管理员！";
@@ -337,7 +349,7 @@ namespace BranD10.Ajax
             var objs = DB.Context.From<Model.Brand>().Where(p => p.IndustryID == id).ToList();
 
             var json = serializer.Serialize(objs);
-            context.Response.Write(json);
+            writeResponse(context, json);
             return true;
         }
 
@@ -372,7 +384,7 @@ namespace BranD10.Ajax
             var objs = DB.Context.From<Model.Contract>().Where(p => p.Id == id).First();
 
             var json = serializer.Serialize(objs);
-            context.Response.Write(json);
+            writeResponse(context, json);
             return true;
         }
 
@@ -381,7 +393,7 @@ namespace BranD10.Ajax
             var objs = DB.Context.From<Model.Message>().Where(p => p.Id == id).First();
 
             var json = serializer.Serialize(objs);
-            context.Response.Write(json);
+            writeResponse(context, json);
             return true;
         }
         private bool SaveMessage(HttpContext context, int id)
@@ -440,7 +452,7 @@ namespace BranD10.Ajax
             var objs = DB.Context.From<Model.Users>().Where(p => p.Id == id && p.IsCompany == true).First();
 
             var json = serializer.Serialize(objs);
-            context.Response.Write(json);
+            writeResponse(context, json);
             return true;
         }
 
@@ -486,7 +498,7 @@ namespace BranD10.Ajax
             var brands = DB.Context.From<Model.Brand>().Where(p => p.Status == (int)status).ToList();
 
             var json = serializer.Serialize(brands);
-            context.Response.Write(json);
+            writeResponse(context, json);
             return true;
         }
 
@@ -497,7 +509,7 @@ namespace BranD10.Ajax
             var objs = DB.Context.From<Model.Brandranking>().Where(p => p.Year == year && p.IndustryID == industryID).ToList();
 
             var json = serializer.Serialize(objs);
-            context.Response.Write(json);
+            writeResponse(context, json);
             return true;
         }
 
@@ -506,7 +518,7 @@ namespace BranD10.Ajax
             var objs = DB.Context.From<Model.Brandranking>().Where(p => p.Id == id).First();
 
             var json = serializer.Serialize(objs);
-            context.Response.Write(json);
+            writeResponse(context, json);
             return true;
         }
         private bool SaveRank(HttpContext context, int id)
@@ -534,7 +546,7 @@ namespace BranD10.Ajax
             var objs = DB.Context.From<Model.Users>().Select(new Field("Id"), new Field("CName")).ToList();
 
             var json = serializer.Serialize(objs);
-            context.Response.Write(json);
+            writeResponse(context, json);
             return true;
         }
         private bool LoadUser(HttpContext context, int id)
@@ -542,7 +554,7 @@ namespace BranD10.Ajax
             var objs = DB.Context.From<Model.Users>().Where(p => p.Id == id && p.IsCompany == false).First();
 
             var json = serializer.Serialize(objs);
-            context.Response.Write(json);
+            writeResponse(context, json);
             return true;
         }
         private bool SaveCategory(HttpContext context, int id)
@@ -614,7 +626,7 @@ namespace BranD10.Ajax
             if (category != null)
             {
                 var json = serializer.Serialize(category);
-                context.Response.Write(json);
+                writeResponse(context, json);
                 return true;
             }
             else
@@ -661,8 +673,8 @@ namespace BranD10.Ajax
                 brand.AutoFrequency1 = 0;
                 brand.AutoFrequency2 = 1;
                 brand.CreatorUserID = Int32.Parse(context.Session[CommonMethod.S_UserID].ToString());
-                
-                var user=(context.Session[CommonMethod.S_User] as Users);
+
+                var user = (context.Session[CommonMethod.S_User] as Users);
                 if (user.IsCompany)
                 {
                     brand.Status = (int)BrandStatusEnum.WaitAudit;
@@ -720,7 +732,7 @@ namespace BranD10.Ajax
             var IndustryList = DB.Context.From<Model.Industry>().Where(p => p.ParentID == 0).Select(new Field("Id"), new Field("Name")).ToList();
 
             var json = serializer.Serialize(IndustryList);
-            context.Response.Write(json);
+            writeResponse(context, json);
             return true;
 
         }
@@ -730,7 +742,7 @@ namespace BranD10.Ajax
             var IndustryList = DB.Context.From<Model.Industry>().Where(p => p.ParentID == parentID).Select(new Field("Id"), new Field("Name")).ToList();
 
             var json = serializer.Serialize(IndustryList);
-            context.Response.Write(json);
+            writeResponse(context, json);
             return true;
 
         }
@@ -740,7 +752,7 @@ namespace BranD10.Ajax
             var brand = DB.Context.From<Model.Brand>().Where(p => p.Id == id).First();
 
             var json = serializer.Serialize(brand);
-            context.Response.Write(json);
+            writeResponse(context, json);
             return true;
 
         }
@@ -815,6 +827,14 @@ namespace BranD10.Ajax
                 return false;
             }
         }
+
+        #region private method
+        private void writeResponse(HttpContext context, string json)
+        {
+            context.Response.Write(json);
+            Log.logger.Info(json);
+        }
+        #endregion
 
     }
 }

@@ -7,6 +7,9 @@ var brandID = 0;
 var companyID = 0
 var userID = 0
 var rankID = 0
+var contactID = 0
+
+
 
 var IndustryCtrlID = '#bigIndustry'
 var CategoryCtrlID = '#subIndustry'
@@ -184,6 +187,7 @@ function fillUsers(data)
 
         $(userCtrlID).append("<option value=" + v + " >" + n + "</option>");
     });
+    
     $(userCtrlID).val(userID)
 }
 function loadAllBrandNames(value)
@@ -259,8 +263,7 @@ function fillBrandNames(data)
     BrandCompanyNames = []
     BrandLogoPaths = []
     $(data).each(function ()
-    {
-        0
+    {        
         BrandNames.push($(this)[0]["Name"]);
         BrandIDs.push($(this)[0]["Id"]);
         BrandCompanyNames.push($(this)[0]["CompanyName"]);
@@ -268,8 +271,8 @@ function fillBrandNames(data)
 
     });
     $("#brandtitle").autocomplete({
-        source: BrandNames
-    });
+        source: BrandNames        
+    }); 
 }
 
 function checkBrandName(name)
@@ -277,14 +280,14 @@ function checkBrandName(name)
     var index = BrandNames.indexOf(name, 0)
     if (BrandNames.length && index > -1)
     {
-
         selectCompanyName = BrandCompanyNames[index]
         selectLogoPath = BrandLogoPaths[index]
         selectBrandID = BrandIDs[index]
         return true
-    }
+    }   
     return false
 }
+
 var imgCtl
 //cid 显示图片的控件 ,field 数据的字段名, t type 文件类型
 function uploadFile(cID, field, table, type)
@@ -299,6 +302,9 @@ function uploadFile(cID, field, table, type)
     else if (table == 'User')
     {
         id = userID
+    }
+    else if (table == 'contract') {
+        id = contactID
     }
     var page = String.format('../admin/uploadFile.aspx?ID={0}&field={1}&url={2}&table={3}&type={4}', id, field, url, table, type)
     var w = 300

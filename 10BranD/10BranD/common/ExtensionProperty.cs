@@ -522,6 +522,10 @@ namespace Model
         {
             get
             {
+                if (!AuditUserID.HasValue)
+                {
+                    return "";
+                }
                 return DB.Context.From<Model.Users>().Where(p => p.Id == AuditUserID).First().Name;
 
             }

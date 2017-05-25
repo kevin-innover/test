@@ -7,7 +7,7 @@
     <meta http-equiv="Content-Type" content="text/html;charset=gb2312" />
 
     <link rel="stylesheet" href="skin/style.css" type="text/css" />
-    <script type="text/javascript" src="../js/jquery.js">    </script>
+    <%--<script type="text/javascript" src="../js/jquery.js">    </script>--%>
     <script type="text/javascript" src="../js/public.js">    </script>
     <script type="text/javascript" src="../js/entity.js">    </script>
     <script type="text/javascript" src="../js/brandlist_m.js">    </script>

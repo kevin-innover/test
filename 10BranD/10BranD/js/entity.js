@@ -1,17 +1,18 @@
 ﻿autoLoadCategory = false
+var ID = 0  //通用ID,用于action参数传值
 
 $(
  function ()
  {
      try
      {
-         var Request = new Object();
+        var Request = new Object();
          Request = GetRequest();
 
          var page = Request['page']
          var action = Request['action']
 
-         var ID = Request['ID']
+         ID = Request['ID']
 
          switch (page)
          {
@@ -140,6 +141,7 @@ $(
                      var id = Request['ID']
                  }
                  break;
+
          }
      }
      catch (e)
@@ -698,7 +700,7 @@ function fillContractDetail(data)
     loadIndustry()
 
     loadAllBrandNames(categoryID)
-
+    
     LoadAllUserNames(data["UserID"])
 }
 
